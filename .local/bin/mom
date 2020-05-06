@@ -1,0 +1,31 @@
+#! /bin/sh
+# Creates a groff/mom document with generic metadata, opens it with neovim (or vim as a fallback)
+
+if [ -z ""$1"" ]; then
+	echo "Please provide a name for your file"
+elif [ -e "$1" ]; then
+	echo "This filename is already taken, please provide a different name"
+else
+	touch "$1" && \
+		echo "\# metadata" >> "$1" && \
+		echo '.AUTHOR "David JULIEN"' >> "$1" && \
+		echo '.TITLE' >> "$1" && \
+		echo '\# template' >> "$1" && \
+		echo '.PRINTSTYLE TYPESET' >> "$1" && \
+		echo '.QUOTE_STYLE QUAD' >> "$1" && \
+		echo '.SMARTQUOTES FR' >> "$1" && \
+		echo '.ATTRIBUTE_STRING "par"' >> "$1" && \
+		echo '.LINEBREAK_CHAR ""' >> "$1" && \
+		echo '\# cover' >> "$1" && \
+		echo '.COVER AUTHOR TITLE BLANKPAGE' >> "$1" && \
+		echo '.DOCHEADER OFF' >> "$1" && \
+		echo '\#' >> "$1" && \
+		echo '.START' >> "$1" && \
+
+		# checks if neovim is intalled
+		if type "nvim" &> /dev/null; then
+			nvim "$1"
+		else
+			vim "$1"
+		fi
+fi

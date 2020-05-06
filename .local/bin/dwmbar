@@ -1,0 +1,84 @@
+#!/bin/sh
+
+# This script sets the statusbar with the xsetroot command at the end. Have it
+# started by ~/.xinitrc or ~/.xprofile.
+
+# Adapted form the work of Luke Smith (lukesmith.xyz)
+
+# Handle SIGTRAP signals sent by refbar to update the status bar immediately.
+trap 'update' 5
+
+# Set the deliminter character.
+delim="|"
+
+status() { \
+
+	# Gets the volume of ALSA's master volume output.
+
+	volume="$(pamixer --get-volume)"
+	muted="$(pamixer --get-mute)"
+
+	if [ "$muted" = "true" ]; then
+		echo " muted"
+	else
+		echo " 墳 $volume%"
+	fi
+
+	echo "$delim"
+
+	# Wifi quality percentage and  icon if ethernet is connected.
+	grep "^\s*w" /proc/net/wireless | awk '{ print "索", int($3 * 100 / 70) "%" }'
+	eth="$(cat /sys/class/net/enp0s25/operstate)"
+	if [ "up" = "$eth" ]; then
+		echo "/ "
+	fi
+
+	echo "$delim"
+
+	# Will show all batteries with approximate icon for remaining power.
+	# Or show that the computer is plugged to a power source
+	# In any case, show the remaining battery percentage
+
+	AC_ON="$(cat /sys/class/power_supply/AC/online)"
+	for x in /sys/class/power_supply/BAT?/capacity;
+	do
+	if [ "$AC_ON" = 0 ]; then
+		case "$(cat "$x")" in
+			10[0-9]|101)	echo "" ;;
+			100|9[0-9])	echo " $(cat "$x")%" ;;
+			8[0-9]|7[0-9])	echo " $(cat "$x")%" ;;
+			6[0-9]|5[0-9])	echo " $(cat "$x")%" ;;
+			4[0-9]|3[0-9])	echo " $(cat "$x")%" ;;
+			*)		echo " $(cat "$x")%" ;;
+		esac
+	else
+		echo " $(cat "$x")%"
+	fi
+	done && echo "$delim"
+
+	# Date and time.
+
+	date '+%b. %d - %I:%M%p'
+	}
+
+update() { \
+	# So all that big status function was just a command that quicking gets
+	# what we want to be the statusbar. This xsetroot command is what sets
+	# it. Note that the tr command replaces newlines with spaces. This is
+	# to prevent some weird issues that cause significant slowing of
+	# everything in dwm. Note entirely sure of the cause, but again, the tr
+	# command easily avoids it.
+	xsetroot -name "$(status | tr '\n' ' ')" &
+    wait
+	}
+
+
+while :; do
+    update
+	# Sleep for a minute after changing the status bar before updating it
+	# again. We run sleep in the background and use wait until it finishes,
+    # because traps can interrupt wait immediately, but they can't do that
+    # with sleep.
+	sleep 60 &
+    wait
+done

@@ -1,0 +1,112 @@
+#! /bin/sh
+
+# Create an entry in $HOME/documents/bibliographies/selected_bibliography.bib
+# Interactive script, dialog via dmenu
+
+parse(){
+	if [ "$1" = "@" ]; then
+		cat "$file" | grep "$1" | awk -F '{' '{print $2} ' | tr ',' '\n' | sort -r | sed '/^[[:space:]]*$/d'
+	elif [ "$1" = "keywords" ]; then
+		cat "$file" | grep "$1" | awk -F '"' '{print $2} ' | tr ' ' '\n' | sed 's/,//g' | sort -u | sed '/^[[:space:]]*$/d'
+	else
+		cat "$file" | grep "$1" | sed "s/,$//g" | awk -F '"' '{print $2} ' | sort | uniq
+
+	fi
+}
+
+input() {
+	if [ "$1" = "reference" ]; then
+		refinput | dmenu -i -p 'reference?' -l 10
+	elif [ "$1" = "doctype" ]; then
+		printf "$doctypes" | sed "s| |\n|g" | dmenu -i -p 'doctype?'
+	elif [ "$1" = "author" ]; then
+		parse "author" | dmenu -i -p 'author name? (surname, first name)' -l 10
+	elif [ "$1" = "keywords" ]; then
+		parse "keywords" | dmenu -i -p "keywords? {$keywords}" -l 10
+	else
+		parse "$1" | dmenu -i -p "$1?" -l 10
+	fi
+}
+
+refinput(){
+	echo "ref$(cat "$file" | grep '@' | wc -l | awk '{printf $1}')" && parse "@"
+}
+
+doctypes="article book online techreport"
+base="$(basename "$(find $HOME/documents/bibliographies/ -type f -not -path '*/\.*' | dmenu -l 20 -p "[bibinput] which bibliography?")")" # the -not -path allows find to ignore hidden files
+
+[ -z "$base" ] && exit 1
+
+file="$HOME/documents/bibliographies/"$base
+
+refs="$(cat "$file" | grep "@" | sed "s/,$//g" | awk -F '{' '{print $2}' | tr '\n' ' ')"
+
+# if the file does not exist, creates it
+if [ ! -e "$file" ]; then
+	mkfile="$(printf "No\\nYes" | dmenu -i -p "$file does not exist. Create it?")"
+	[ "$mkfile" = "Yes" ] && (touch "$file")
+fi
+
+doctype="$(input "doctype")"
+[ -z "$doctype" ] && exit 1
+reference="$(input "reference")"
+[ -z "$reference" ] && exit 1
+while [ "${refs#*"$reference"}" != "$refs" ]; do
+	reference="$(refinput | dmenu -i -p 'ref already exist, please provide another' -l 10)"
+	[ -z "$refname" ] && exit 1
+done
+author="$(input "author")"
+[ -z "$author" ] && exit 1
+title="$(input "title")"
+[ -z "$title" ] && exit 1
+year="$(input "year")"
+[ -z "$year" ] && exit 1
+if [ "article" == "$doctype" ]; then
+	journal="$(input "journal")"
+	[ -z "$journal" ] && exit 1
+	volume="$(input "volume")"
+fi
+if [ "$doctype" = "book" ]; then
+	publisher="$(input "publisher")"
+	[ -z "$publisher" ] && exit 1
+fi
+if [ "$doctype" = "online" ]; then
+	url="{URL}"
+fi
+if [ "$doctype" = "techreport" ]; then
+	institution="$(input "institution")"
+	[ -z "$institution" ] && exit 1
+fi
+keyword="$(input "keywords")"
+keywords=$keyword
+if [ -z "$keyword" ]; then
+	keyword_test="no"
+else
+	keyword_test="$(printf "yes\nno" |dmenu -p "another keyword?")"
+	keyword_test=${keyword_test:-no}
+fi
+while [ "$keyword_test" = "yes" ]; do
+	keyword="$(input "keywords")"
+	if [ -z "$keyword" ];then
+		keyword_test="no"
+	elif [ "${keywords#*"$keyword"}" != "$keywords" ]; then
+		keyword_test="$(printf "yes\nno" |dmenu -p "keyword already given. another keyword?")"
+		keyword_test=${keyword_test:-no}
+	else
+		keywords="$keywords, $keyword"
+		keyword_test="$(printf "yes\nno" |dmenu -p "another keyword?")"
+		keyword_test=${keyword_test:-no}
+	fi
+done
+
+echo "@$doctype{"$reference"," >> "$file"
+echo -e "\tauthor = \"$author\"," >> "$file"
+echo -e "\ttitle = \"$title\"," >> "$file"
+echo -e "\tyear = \"$year\"," >> "$file"
+[ -n "$journal" ] && echo -e "\tjournal = \"$journal\"," >> "$file"
+[ -n "$volume" ] && echo -e "\tvolume = \"$volume\"," >> "$file"
+[ -n "$publisher" ] && echo -e "\tpublisher = \"$publisher\"," >> "$file"
+[ -n "$url" ] && echo -e "\turl = \"$url\"," >> "$file"
+[ -n "$institution" ] && echo -e "\tinstitution = \"$institution\"," >> "$file"
+echo -e "\tkeywords = \"$keywords\"" >> "$file"
+echo "}" >> "$file"

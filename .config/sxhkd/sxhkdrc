@@ -1,0 +1,46 @@
+# Swy7ch' sxhkd bindings binding
+
+# System stuff
+
+{F1, F2, F3}
+		pamixer {--toggle-mute, --decrease 5, --increase 5}; refbar; audio_notify
+
+{F5, F6}
+		sbacklight {dec,inc}
+
+super + u
+		dmenumount
+
+super + shift + u
+		dmenuumount
+
+super + shift + s
+		dmenuprompt "shutdown?" "shutdown -h now"
+
+super + shift + r
+		dmenuprompt "reboot?" "reboot"
+
+super + shift + d
+		displayselect
+
+super + shift + space
+		kbacklight
+
+super + shift + o
+		dmenuopen
+
+# Others
+super + Return
+		$TERMINAL
+
+super + d
+		dmenu_run -p "run:"
+
+super + shift + {w,z}
+		$BROWSER
+
+super + shift + p
+		$BROWSER --incognito
+
+super + shift + b
+		script="$(printf "bibinput\nbibshow" | dmenu -i -p "which script?")" && $script

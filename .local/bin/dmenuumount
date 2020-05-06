@@ -1,0 +1,28 @@
+#!/bin/sh
+
+# A dmenu prompt to unmount drives.
+# Provides you with mounted partitions, select one to unmount.
+# Drives mounted at /, /boot and /home will not be options to unmount.
+
+# Adapted from the work of Luke Smith (lukesmith.xyz)
+
+unmountusb() {
+	chosen=$(echo "$usbdrives" | dmenu -i -p "Unmount which drive?" | awk '{print $1}')
+if [ -z "$chosen" ]; then
+	exit
+else
+	if sudo -A umount "$chosen" ; then
+		notify-send "禍 USB unmounting" "$chosen unmounted."
+	else
+		notify-send -u "critical" -t 3000 "禍 USB ERROR" "Unmounting failed."
+	fi
+fi
+}
+
+usbdrives=$(lsblk -nrpo "name,type,size,mountpoint" | awk '$2=="part"&&$4!~/\/boot|\/home$|SWAP/&&length($4)>1{printf "%s (%s)\n",$4,$3}')
+
+if [ -z "$usbdrives" ]; then
+	notify-send -u "critical" -t 3000 "禍 USB ERROR" "No drive to unmount."
+else
+	unmountusb
+fi

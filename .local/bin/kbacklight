@@ -1,0 +1,20 @@
+#!/bin/sh
+
+## Control keyboard brightness
+	## level goes up at each call
+	## goes back to 0 after meeting maximum brightness
+
+## You need `upower` package to make it work
+
+max=$(cat /sys/class/leds/tpacpi::kbd_backlight/max_brightness)
+current=$(cat /sys/class/leds/tpacpi::kbd_backlight/brightness)
+new=$(expr $current + 1)
+
+setKeyboardLight () {
+    dbus-send --system --type=method_call  --dest="org.freedesktop.UPower" "/org/freedesktop/UPower/KbdBacklight" "org.freedesktop.UPower.KbdBacklight.SetBrightness" int32:$1
+}
+
+[ $new -gt $max ] && new=0
+
+setKeyboardLight $new
+

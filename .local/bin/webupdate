@@ -1,0 +1,5 @@
+#! /bin/sh
+
+# Little script to update my website
+
+rsync -avrP --rsh='ssh' $HOME/public_html swytch@davidjulien.xyz:~/ && notify-send 'davidjulien.xyz' 'website updated'

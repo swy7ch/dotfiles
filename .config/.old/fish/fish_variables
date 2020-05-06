@@ -1,0 +1,50 @@
+# This file contains fish universal variable definitions.
+# VERSION: 3.0
+SETUVAR --export LESS_TERMCAP_md:\x1b\x5b01\x3b36m
+SETUVAR --export LESS_TERMCAP_me:\x1b\x5b0m
+SETUVAR --export LESS_TERMCAP_se:\x1b\x5b0m
+SETUVAR --export LESS_TERMCAP_so:\x1b\x5b01\x3b44\x3b33em
+SETUVAR --export LESS_TERMCAP_ue:\x1b\x5b0m
+SETUVAR --export LESS_TERMCAP_us:\x1b\x5b01\x3b32m
+SETUVAR __fish_init_2_39_8:\x1d
+SETUVAR __fish_init_2_3_0:\x1d
+SETUVAR __fish_init_3_x:\x1d
+SETUVAR _fish_abbr_backup:sudo\x20/usr/local/bin/snapbackup\x2esh
+SETUVAR _fish_abbr_gu:git\x20fetch\x20upstream\x20\x26\x26\x20git\x20merge\x20upstream/master
+SETUVAR _fish_abbr_hs:htop\x20\x2du\x20swytch
+SETUVAR _fish_abbr_nf:neofetch
+SETUVAR _fish_abbr_pc:sudo\x20pacman\x20\x2dRsn\x20\x28pacman\x20\x2dQdtq\x29
+SETUVAR _fish_abbr_pd:expac\x20\x2d\x2dtimefmt\x3d\x27\x25Y\x2d\x25m\x2d\x25d\x20\x25T\x27\x20\x27\x25l\x5ct\x25n\x27\x20\x7c\x20sort\x20\x7c\x20tail\x20\x2dn\x2020
+SETUVAR _fish_abbr_rbup:sudo\x20rsync\x20\x2daAXv\x20\x2d\x2dexclude\x3d\x7b\x22/dev/\x2a\x22\x2c\x22/proc/\x2a\x22\x2c\x22/sys/\x2a\x22\x2c\x22/tmp/\x2a\x22\x2c\x22/run/\x2a\x22\x2c\x22/mnt/\x2a\x22\x2c\x22/media/\x2a\x22\x2c\x22/lost\x2bfound\x22\x2c\x22home\x22\x7d\x20/\x20/mnt/backup/root/
+SETUVAR _fish_abbr_sdn:shutdown\x20now
+SETUVAR _fish_abbr_um:unimatrix\x20\x2da\x20\x2df\x20\x2dc\x3dcyan\x20\x2ds\x3d95
+SETUVAR _fish_abbr_untar:tar\x20zxvf
+SETUVAR _fish_abbr_yayu:yay\x20\x2dSyu
+SETUVAR fish_color_autosuggestion:969896
+SETUVAR fish_color_cancel:normal
+SETUVAR fish_color_command:afd75f
+SETUVAR fish_color_comment:f0c674
+SETUVAR fish_color_cwd:008000
+SETUVAR fish_color_cwd_root:800000
+SETUVAR fish_color_end:b294bb
+SETUVAR fish_color_error:cc6666
+SETUVAR fish_color_escape:00a6b2
+SETUVAR fish_color_history_current:normal
+SETUVAR fish_color_host:normal
+SETUVAR fish_color_match:normal
+SETUVAR fish_color_normal:normal
+SETUVAR fish_color_operator:00a6b2
+SETUVAR fish_color_param:f0c674
+SETUVAR fish_color_quote:b294bb
+SETUVAR fish_color_redirection:8abeb7
+SETUVAR fish_color_search_match:ffff00
+SETUVAR fish_color_selection:c0c0c0
+SETUVAR fish_color_status:red
+SETUVAR fish_color_user:00ff00
+SETUVAR fish_color_valid_path:normal
+SETUVAR fish_greeting:\x1d
+SETUVAR fish_key_bindings:fish_default_key_bindings
+SETUVAR fish_pager_color_completion:normal
+SETUVAR fish_pager_color_description:B3A06D\x1eyellow
+SETUVAR fish_pager_color_prefix:white\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
+SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan

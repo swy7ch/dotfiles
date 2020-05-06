@@ -1,0 +1,22 @@
+#! /bin/sh
+# Is called when changing sound level
+# Sends a notification with the current sound level
+
+level=$(pamixer --get-volume)
+muted=$(pamixer --get-mute)
+
+if [ "$muted" = "true" ]; then
+	dunstify -r 100002 "Sound muted" "$level%"
+else
+	case "$level" in
+		[0-9]) criticity="low" ;;
+		1[0-9]|2[0-9]) criticity="low" ;;
+		3[0-9]|4[0-9]) criticity="low" ;;
+		5[0-9]|6[0-9]) criticity="normal" ;;
+		7[0-9]) criticity="normal" ;;
+		8[0-9]|9[0-9]) criticity="critical" ;;
+		10[0-9]) criticity="critical" ;;
+	esac
+
+	dunstify -r 100002 -u "$criticity" "Current pamixer value :" "$level%"
+fi

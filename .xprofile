@@ -1,0 +1,23 @@
+#! /bin/sh
+
+# This file is sourced when launching a DM from startx/xinit
+
+# session launch
+source $HOME/.profile
+
+xss-lock -- i3lock -n -u -i $XDG_CONFIG_HOME/wall.png &
+redshift &
+pamixer --set-volume 30 &
+sbacklight set 3 &
+xinput set-prop 'Synaptics TM3072-003' 'libinput Tapping Enabled' 1 &
+xinput set-prop 'Synaptics TM3072-003' 'libinput Natural Scrolling Enabled' 1 &
+xinput set-prop 'Synaptics TM3072-003' 'libinput Accel Speed' 0.4 &
+dunst &
+bat_notify &
+AC_notify &
+setbg &
+dwmbar &
+
+setxkbmap 'fr(oss)'
+xmodmap $HOME/.xmodmap
+sxhkd &

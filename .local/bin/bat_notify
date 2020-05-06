@@ -1,0 +1,28 @@
+#! /bin/sh
+# Checks the battery, sends a notification depending on the level
+
+notify() { \
+	for x in /sys/class/power_supply/BAT?/capacity;
+	do
+	case "$(cat "$x")" in
+		1[0-9])	notify-send -u "normal" "Battery is running low ($(cat "$x")%)" "Please plug your computer to a power source" ;;
+		[0-9])	notify-send -u "critical" "Battery is dangerously low ($(cat "$x")%)" "Please plug your computer to a power source - <b>NOW!</b>" ;;
+	esac
+	done
+	}
+
+update() { \
+	# We want the notification to be sent every 2 mins
+	# But only if the computer is unplugged
+	if [ "$(cat /sys/class/power_supply/AC/online)" = 0 ]; then
+		notify && refbar
+	fi
+	wait
+	}
+
+while :; do
+	update
+	# Sleep for two minutes before sending another notification
+	sleep 120 &
+	wait
+done

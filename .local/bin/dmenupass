@@ -1,0 +1,10 @@
+#!/bin/sh
+
+# This script is the SUDO_ASKPASS variable, meaning that it will be used as a
+# password prompt if needed.
+
+col_yellow="#ffeca3"
+col_black="#1d2021"
+col_orange="#f7a583"
+
+dmenu -sb $col_orange -sf $col_black -nf "#000000" -nb "#000000" -p "$1" <&-

@@ -1,0 +1,8 @@
+#! /bin/sh
+
+#refresh dwmbar by killing the "sleep" command in the dwmbar process
+
+# Adapted form the work of Luke Smith (lukesmith.xyz)
+
+# Send SIGTRAP signal to dwmbar script, which will handle it with a trap.
+pkill -SIGTRAP dwmbar

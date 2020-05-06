@@ -1,0 +1,159 @@
+#! /bin/sh
+# This script has three goals:
+# 	1. cloning personnal git repos
+# 	2. building tools (suckless' utilities)
+# 	3. enabling systemctl services
+
+#Lists of apps sorted by type and criticity
+base_list="dash xorg-server xorg-xinit xorg-xinput xsetroot sxhkd i3lock xss-lock zsh neovim gtk2 brave"
+utilities_list="xf86-video-intel pulseaudio pulseaudio-alsa pamixer xprop zsh-syntax-highlighting zsh-history-substring-search dunst dunstify libnotify sxiv xwallpaper redshift htop ffmpeg imagemagick upower pacman-contrib"
+fonts_list="fira adobe-source-han-sans-jp-fonts adobe-source-han-sans-cn"
+media_list="mpv zathura"
+other_list="transmission-gtk texlive-core texlive-bin texlive-latexetra"
+
+git_list="st dwm dmenu"
+
+build_list="st dwm dmenu"
+
+services_list="netctl-auto@wlp4s0 systemd-timescyncd"
+
+
+git_clone() {
+	git clone https://gitlab.com/swy7ch/$1 ~/suckless/$1
+	echo "$1 downloaded!"
+	cd ~/$1
+	git remote set-url origin git@gitlab.com:swy7ch/$1
+	if [ "dotfiles" != $1 ]
+		git remote add upstream git://git.suckless.org/$1
+		echo "$1 setup complete!"
+	fi
+	cd
+}
+
+build() {
+	cd ~/$1
+	sudo make clean install
+	echo "$1 compilation complete!"
+}
+
+install() {
+	read -p "Installing $APP? (y/N)" validation
+	if [ $validation = "y" ]; then
+		yay -S $APP
+	else
+		echo "Skipping $APP"
+	fi
+}
+
+enable_systemctl() {
+	sudo systemctl enable $1.service
+}
+
+##################################################
+############# Let's get things done ##############
+##################################################
+
+
+
+echo "Configuring Arch..."
+
+# Retrieving yay
+# We need git
+
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
+
+echo "YAY is here !"
+
+cd ~
+
+echo "Let's get the other apps"
+
+# Installing apps
+
+echo "Installing base"
+
+for app in $base_list; do
+	install $app
+done
+
+echo "Done."
+
+echo "Installing utilitaries"
+
+for app in $utilities_list; do
+	install $app
+done
+
+echo "Done."
+
+echo "Installing fonts"
+
+for app in $fonts_list; do
+	install $app
+done
+
+echo "Done."
+
+echo "Installing media apps"
+
+for app in $media_list; do
+	install $app
+done
+
+echo "Done."
+
+echo "Installing other apps"
+
+for app in $other_list; do
+	install $app
+done
+
+echo "Done."
+
+echo "Installing vim-plug"
+
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+echo "Done."
+
+echo "Installation complete !"
+
+# Symlinking the necessary stuff
+
+echo "Downloading personnal git repos..."
+
+for repo in $git_list; do
+	git_clone $repo
+done
+
+echo "Done."
+
+echo "Compiling tools..."
+
+for tool in $build_list; do
+	build $tool
+done
+
+echo "Done."
+
+echo ""
+echo "!!! Don't forget to link an SSH key to your account !!!"
+echo "!!!   As of now, you can't pull nor push anything   !!!"
+echo ""
+
+echo "Enabling systemctl services"
+
+for service in $services_list; do
+	enable_systemctl $service
+done
+
+echo "Done."
+
+echo ""
+echo "##################################################"
+echo ""
+
+echo "Configuration complete !"

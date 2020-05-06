@@ -1,0 +1,72 @@
+#! /bin/sh
+# Detect if the directory is a c/c++ project
+# Create a makefile with existing c/c++ files in directory
+# 	Rules are basic (i.e. module.o : module.c)
+# 	variables are generic
+# Exit by opening makefile with neovim
+
+headers_list="$(ls | grep '.h$')"
+sources_list="$(ls | grep '.cp*$')"
+modules_list="$(echo "$sources_list" | sed 's/\.cp*//g' | tr '\n' ' ')"
+targets_list="$(echo "$sources_list" | sed 's/\.cp*/\.o/g' | tr '\n' ' ')"
+bool=false
+comp=gcc
+
+get_compiler(){
+	for source_ in "$sources_list"; do
+		case "$source_" in
+			*.cpp) comp="g++" && return;;
+			*.c) ;;
+		esac
+	done
+}
+
+is_c_project(){
+	if [ -n "$sources_list" ]; then
+		bool=true
+	fi
+}
+
+make_rule(){
+	if [ "$comp" = "gcc" ]; then
+		echo "$1.o : $1.c" >> makefile
+		echo -e "\t\$(CC) -c $1.c \$(FLAGS)" >> makefile
+	else
+		echo "$1.o : $1.cpp" >> makefile
+		echo -e "\t\$(CC) -c $1.cpp \$(FLAGS)" >> makefile
+	fi
+	echo "" >> makefile
+}
+
+is_c_project
+
+if [ "$bool" = false ]; then
+	echo "No C/C++ project in directory. Exiting..."
+	exit 1
+fi
+
+get_compiler
+
+touch makefile
+
+echo "BIN = main" > makefile
+echo "TARGETS = $targets_list" >> makefile
+echo "" >> makefile
+echo "CC = $comp" >> makefile
+echo "FLAGS = -Wall -g" >> makefile
+echo "" >> makefile
+echo "all : \$(BIN)" >> makefile
+echo "" >> makefile
+echo "\$(BIN) : \$(TARGETS)" >> makefile
+echo -e "\t\$(CC) \$(TARGETS) -o \$(BIN) \$(FLAGS)" >> makefile
+echo "" >> makefile
+
+for module in $modules_list; do
+	make_rule "$module"
+done
+
+echo "clean :" >> makefile
+echo -e "\trm \$(BIN) *.o vgcore.*" >> makefile
+
+sed -i 's/\s$//' makefile
+nvim makefile

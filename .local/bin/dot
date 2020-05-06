@@ -1,0 +1,45 @@
+#!/bin/bash
+
+## Wrapper for my dotfiles
+
+git="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
+cmd="$git status" ## by default, give the status
+
+[ "$1" = "-g" ] && shift && cmd="$git $@" ## make the wrapper transparent
+
+[ "$1" = "-l" ] && shift && cmd="$git log"
+[ "$1" = "-c" ] && shift && cmd="$git commit $@"
+[ "$1" = "-cas" ] && shift && cmd="$git commit -S --amend $1"
+[ "$1" = "-ch" ] && shift && cmd="$git checkout $1"
+[ "$1" = "-mv" ] && shift && cmd="$git mv $@"
+[ "$1" = "-ps" ] && shift && cmd="$git push $@"
+[ "$1" = "-pl" ] && shift && cmd="$git pull"
+[ "$1" = "-a" ] && shift && cmd="$git add $@"
+[ "$1" = "-rm" ] && shift && cmd="$git rm --cached $@"
+[ "$1" = "-rb" ] && shift && cmd="$git rebase -i $1"
+[ "$1" = "-rs" ] && shift && cmd="$git reset --soft $1"
+[ "$1" = "-d" ] && shift && cmd="$git diff $@"
+if [ "$1" = "-m" ] ; then
+	shift
+	[ "$1" = "" ] && echo "Please provide a branche to merge from" && exit 1
+	if [ "$1" != "-a" ] ; then
+		shift
+		cmd=""
+		while [ "$1" != "" ] ; do
+			cmd="$cmd $git checkout $1 && $git merge dev"
+			shift
+		done
+		cmd="$cmd && $git checkout dev"
+	else
+		branches="$(echo "$($git branch)" | sed -e 's/\*/ /;t')"
+		cmd=""
+		for arg in $branches ; do
+			if [ "$arg" != "dev" ] ; then
+				$git checkout $arg && $git merge dev
+			fi
+		done
+		cmd="$git checkout dev"
+	fi
+fi
+
+$cmd

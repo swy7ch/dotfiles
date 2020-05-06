@@ -1,0 +1,11 @@
+#! /bin/sh
+# Is called when changing backlight value
+# Sens a notification with the current xbaclight value
+
+current=$(cat /sys/class/backlight/intel_backlight/brightness)
+max=$(cat /sys/class/backlight/intel_backlight/max_brightness)
+step=$(expr $max / 20)
+
+level=$(expr $(expr $current / $step) \* 5)
+
+dunstify -r 100001 -u "low" "Current xBacklight value :" "$level%"

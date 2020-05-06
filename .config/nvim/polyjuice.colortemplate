@@ -1,0 +1,141 @@
+# vim: ft=colortemplate fdm=marker cc=22,42,60 et ts=2 sw=2
+
+# Information {{{
+Full name:   Polyjuice
+Short name:  polyjuice
+Author:      David JULIEN <swy7ch@protonmail.com>
+Maintainer:  David JULIEN <swy7ch@protonmail.com>
+Website:     https://github.com/vim/vim/blob/master/src/syntax.c
+Description: A simple yet customizable pastel colorscheme
+# }}}
+
+# Color palette {{{
+# Color name                GUI                  Base256    Base16
+Color: black                #1d2021                0        Black
+Color: darkred              #b73935              160        DarkRed
+Color: darkgreen            #5a8471                2        DarkGreen
+Color: orange               #f7a583              216        LightRed
+Color: darkblue             #458588               24        DarkBlue
+Color: darkmagenta          #b16286              138        DarkMagenta
+Color: darkcyan             #7cafa3               30        DarkCyan
+Color: darkgrey             #a89984              239        DarkGrey
+Color: grey                 #7c6f64              243        Grey
+Color: red                  #ea6962              203        Red
+Color: green                #89b594               71        Green
+Color: yellow               #ffeca3              230        White
+Color: blue                 #7daea3               24        DarkCyan
+Color: magenta              #d3869b              181        Magenta
+Color: cyan                 #ace5d7               81        LightBlue
+Color: white                #ebdbb2              229        LightYellow
+# }}}
+
+# Terminal colors {{{
+# Vim by default does not define g:terminal_ansi_colors
+Term Colors: black darkred darkgreen orange darkblue darkmagenta darkcyan darkgrey
+Term Colors: grey red green yellow blue magenta cyan white
+# }}}
+
+# Common linked groups {{{
+EndOfBuffer       -> NonText
+QuickFixLine      -> Search
+Boolean           -> Constant
+Character         -> Constant
+Conditional       -> Statement
+Define            -> PreProc
+Debug             -> Special
+Delimiter         -> Special
+Exception         -> Statement
+Float             -> Number
+Function          -> Identifier
+Include           -> PreProc
+Keyword           -> Statement
+Label             -> Statement
+Macro             -> PreProc
+Number            -> Constant
+Operator          -> Statement
+PreCondit         -> PreProc
+Repeat            -> Statement
+SpecialChar       -> Special
+SpecialComment    -> Special
+StorageClass      -> Type
+String            -> Constant
+Structure         -> Type
+Tag               -> Special
+Typedef           -> Type
+# }}}
+
+Background: dark
+
+# Default highlight groups for dark variant {{{
+
+# NOTE: Vim's default does not define Normal
+
+Variant: gui 256 8
+
+# Group              Foreground          Background        Attributes
+Normal               white               none
+Terminal             white               black
+Pmenu                white               black
+PmenuSel             black               green        bold
+SpellBad             red                 none              underline
+SpellCap             blue                none
+SpellLocal           cyan           none
+SpellRare            orange              none
+StatusLineTerm       black               green        bold
+StatusLineNC         black               green
+TabLine              white               darkgrey          underline
+Todo                 black               orange            bold
+ColorColumn          none                darkred
+Conceal              grey           darkgrey
+# NOTE: Vim's default does not define Cursor/lCursor in the terminal
+Cursor               black               white
+CursorLine           none                darkgrey
+CursorColumn         none                darkgrey
+CursorLineNr         orange              none              g=bold
+DiffAdd              none                darkgreen
+DiffChange           none                orange
+DiffDelete           none                darkred           g=bold
+DiffText             none                red               bold
+Directory            magenta             none
+ErrorMsg             yellow              darkred           bold
+FoldColumn           orange              darkgrey
+Folded               orange              darkgrey
+IncSearch            none                none              reverse
+LineNr               darkgrey                none
+MatchParen           none                none              reverse
+ModeMsg              none                none              bold
+MoreMsg              green          none              g=bold
+NonText              blue                none              g=bold
+PmenuSbar            none                grey
+PmenuThumb           none                white
+Question             green          none              g=bold
+Search               black               orange
+SignColumn           none                none
+SpecialKey           cyan           none
+StatusLine           white               darkgrey
+StatusLineNC         white               black             reverse
+TabLineFill          none                none
+TabLineSel           none                none              bold
+Title                orange              none              g=bold
+VertSplit            white               darkgrey
+Visual               yellow              darkmagenta
+VisualNOS            none                none              underline,bold
+WarningMsg           red                 none
+WildMenu             black               green        bold
+# Other conventional group names (see `:help group-name`)
+Comment              grey                none
+Constant             magenta             none
+Error                white               red               bold
+Identifier           blue                none              bold
+Ignore               black               none
+PreProc              green          none
+Special              orange              none
+Statement            orange              none              g=bold
+Type                 yellow              none              g=bold
+Underlined           darkblue            none              underline
+# See `:help lCursor`
+lCursor           -> Cursor
+# See `:help window-toolbar`
+ToolbarLine          none                grey
+ToolbarButton        black               grey         bold
+# }}}
