@@ -3,7 +3,7 @@
 # Fuzzy-find a file and open it with appropriate application
 
 filetypes=".pdf .png .jpg .txt .mom .tex .mkv" # could be augmented
-filetype=\\$(printf "$filetypes" | sed "s| |\n|g" | dmenu -i -p "type of the file?")
+filetype=$(printf "$filetypes" | sed "s| |\n|g" | dmenu -i -p "type of the file?")
 
 if [ -z "$filetype" ]; then
 	exit 0
@@ -17,7 +17,7 @@ fi
 
 case "$filetype" in
 	*.pdf) zathura "$file" ;;
-	*.png|.jpg) feh "$file" ;;
+	*.png|.jpg) sxiv "$file" ;;
 	*.txt|*.mom|*.tex) "$TERMINAL" -e nvim "$file" ;;
 	*.mkv) mpv "$file";;
 esac
