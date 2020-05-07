@@ -18,8 +18,8 @@ Color: orange               #f7a583              216        LightRed
 Color: darkblue             #458588               24        DarkBlue
 Color: darkmagenta          #b16286              138        DarkMagenta
 Color: darkcyan             #7cafa3               30        DarkCyan
-Color: grey             #a89984              239        DarkGrey
-Color: darkgrey                 #7c6f64              243        Grey
+Color: grey                 #a89984              239        DarkGrey
+Color: darkgrey             #7c6f64              243        Grey
 Color: red                  #ea6962              203        Red
 Color: green                #89b594               71        Green
 Color: yellow               #ffeca3              230        White
@@ -77,30 +77,26 @@ Variant: gui 256 8
 # Group              Foreground          Background        Attributes
 Normal               white               none
 Terminal             white               black
+Cursor               black               white
+CursorLine           none                darkgrey
+CursorColumn         none                darkgrey
+CursorLineNr         orange              none              g=bold
 Pmenu                white               black
 PmenuSel             black               green             bold
 SpellBad             red                 none              underline
 SpellCap             blue                none
 SpellLocal           cyan                none
 SpellRare            orange              none
-StatusLineTerm       black               green             bold
-StatusLineNC         black               green
 TabLine              white               darkgrey          underline
 Todo                 black               orange            bold
 ColorColumn          none                darkred
 Conceal              grey                darkgrey
 # NOTE: Vim's default does not define Cursor/lCursor in the terminal
-Cursor               black               white
-CursorLine           none                darkgrey
-CursorColumn         none                darkgrey
-CursorLineNr         orange              none              g=bold
 DiffAdd              black               darkgreen
 DiffChange           black               orange
 DiffDelete           black               darkred           g=bold
 DiffText             black               red               bold
 Directory            magenta             none
-File                 magenta             black
-FileType             darkcyan            black
 ErrorMsg             yellow              darkred           bold
 FoldColumn           orange              darkblue
 Folded               orange              darkblue
@@ -116,10 +112,6 @@ Question             green               none              g=bold
 Search               black               orange
 SignColumn           none                none
 SpecialKey           cyan                none
-Mode                 black               green             bold
-Column               darkcyan            black
-StatusLine           white               darkgrey
-StatusLineNC         white               black             reverse
 TabLineFill          none                none
 TabLineSel           none                none              bold
 Title                orange              none              g=bold
