@@ -23,23 +23,19 @@ if [ "$1" = "-m" ] ; then
 	shift
 	[ "$1" = "" ] && echo "Please provide a branche to merge from" && exit 1
 	if [ "$1" != "-a" ] ; then
-		shift
-		cmd=""
 		while [ "$1" != "" ] ; do
-			cmd="$cmd $git checkout $1 && $git merge dev"
+			$git checkout $1 && $git merge dev
 			shift
 		done
-		cmd="$cmd && $git checkout dev"
 	else
 		branches="$(echo "$($git branch)" | sed -e 's/\*/ /;t')"
-		cmd=""
 		for arg in $branches ; do
 			if [ "$arg" != "dev" ] ; then
 				$git checkout $arg && $git merge dev
 			fi
 		done
-		cmd="$git checkout dev"
 	fi
+	cmd="$git checkout dev"
 fi
 
 $cmd
