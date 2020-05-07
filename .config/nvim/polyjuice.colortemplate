@@ -99,11 +99,13 @@ DiffChange           black               orange
 DiffDelete           black               darkred           g=bold
 DiffText             black               red               bold
 Directory            magenta             none
+File                 magenta             black
+FileType             darkcyan            black
 ErrorMsg             yellow              darkred           bold
 FoldColumn           orange              darkblue
 Folded               orange              darkblue
 IncSearch            none                none              reverse
-LineNr               darkgrey                none
+LineNr               darkgrey            none
 MatchParen           none                none              reverse
 ModeMsg              none                none              bold
 MoreMsg              green               none              g=bold
@@ -114,6 +116,8 @@ Question             green               none              g=bold
 Search               black               orange
 SignColumn           none                none
 SpecialKey           cyan                none
+Mode                 black               green             bold
+Column               darkcyan            black
 StatusLine           white               darkgrey
 StatusLineNC         white               black             reverse
 TabLineFill          none                none
@@ -141,3 +145,18 @@ lCursor           -> Cursor
 ToolbarLine          none                grey
 ToolbarButton        black               grey              bold
 # }}}
+
+# Statusline
+StatusLine           none                none
+StatusLineTerm       black               green             bold
+StatusLineNC         darkgrey            black
+Buffer               green               black
+NormalMode           black               green             bold
+VisualMode           black               magenta           bold
+InsertMode           black               cyan              bold
+ReplaceMode          black               red               bold
+CommandMode          white               black             bold
+File                 magenta             black
+FileType             darkcyan            black
+Percent              darkgrey            none
+Column               darkcyan            black

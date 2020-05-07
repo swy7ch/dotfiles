@@ -15,9 +15,6 @@ call plug#begin('$HOME/.config/nvim/plugged')
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 
-" Custom status bar
-Plug 'itchyny/lightline.vim'
-
 " Language highlighting packages
 Plug 'sheerun/vim-polyglot'
 
@@ -38,37 +35,6 @@ call plug#end()
 " :PlugUpdate		- updates plugins
 " :PlugUpgrade		- upgrades vim-plug
 " :PlugClean		- confirms removal of unused plugins; append `!` to auto-approve removal
-
-" Lightline already shows the mode -> get rid of vim's default
-set noshowmode
-
-" Lightline customization
-
-let g:lightline = {
-			\ 'colorscheme': 'Tomorrow_Night_Eighties',
-			\ 'active' : {
-				\ 'left': [ [ 'mode', 'paste' ],
-				\ 			[ 'gitbranch' ],
-				\ 			[ 'filename', 'modified' ] ],
-				\ 'right': [ [ 'readonly' ],
-				\ 			[ 'column'],
-				\ 			[ 'filetype' ] ],
-			\ },
-			\ 'subseparator': { 'left': '-'},
-			\ 'component_function': {
-				\ 'gitbranch': 'fugitive#head',
-    			\ 'modified': 'LightlineModified',
-    			\ 'filetype': 'LightlineFiletype'
-				\ }
-			\ }
-
-function! LightlineModified()
-  return &modifiable && &modified ? '[MO]' : ''
-endfunction
-
-function! LightlineFiletype()
-  return winwidth(0) > 70 ? (&filetype !=# '' ? &filetype : 'no ft') : ''
-endfunction
 
 " Indent Guides
 let g:indent_guides_enable_on_vim_startup=1
@@ -137,6 +103,20 @@ set termguicolors
 " Colorscheme
 colorscheme polyjuice
 
+" Statusline
+set noshowmode
+source $XDG_CONFIG_HOME/nvim/statusline.vim
+
+augroup statusline
+    autocmd!
+	autocmd VimEnter *
+				\ call UpdateInactiveWindows()
+    autocmd VimEnter,WinEnter,BufWinEnter *
+				\ call RefreshStatusLine('active')
+	autocmd WinLeave *
+				\ call RefreshStatusLine('inactive')
+augroup END
+
 "" Text, tab and indent
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " Do not use spaces instead of tabs
@@ -197,10 +177,6 @@ noremap <leader>m :w! \| !mommerge<CR>
 noremap <leader>pi :PlugInstall<CR>
 noremap <leader>pc :PlugClean<CR>
 noremap <leader>pu :PlugUpdate \| PlugUpgrade<CR>
-
-" Fugitive
-noremap <leader>gd :Gdiffsplit<CR>
-noremap <leader>gb :Gblame<CR>
 
 " Colorize
 noremap <leader>cc :ColorizerToggle<CR>
