@@ -110,11 +110,11 @@ source $XDG_CONFIG_HOME/nvim/statusline.vim
 augroup statusline
     autocmd!
 	autocmd VimEnter *
-				\ call UpdateInactiveWindows()
+		\ call UpdateInactiveWindows()
     autocmd VimEnter,WinEnter,BufWinEnter *
-				\ call RefreshStatusLine('active')
+		\ call RefreshStatusLine('active')
 	autocmd WinLeave *
-				\ call RefreshStatusLine('inactive')
+		\ call RefreshStatusLine('inactive')
 augroup END
 
 "" Text, tab and indent

@@ -13,7 +13,7 @@ function! CurrentMode()
 	return g:currentmode[mode()]
 endfunction
 
-functio! ModeColor()
+function! ModeColor()
 
 	let g:modecolor={
 		   \ 'n'  : '%#NormalMode#',
@@ -29,6 +29,17 @@ functio! ModeColor()
 	return g:modecolor[mode()]
 endfunction
 
+function! FileName()
+	let g:name=' '
+	if winwidth(0)>70
+		let g:name.='%F'
+	else
+		let g:name.='%t'
+	endif
+
+	return g:name
+endfunction
+
 function! StatusLine()
 
 	let l:statusline=''
@@ -39,41 +50,41 @@ function! StatusLine()
 
 	" Show current mode
 	let l:statusline.=ModeColor()
-	let l:statusline.=CurrentMode()
+	let l:statusline.=CurrentMode().'%*'
 
 	" File path, absolute or relative to ~/
 	let l:statusline.='%#File#'
-	let l:statusline.=' %F'
+	let l:statusline.=FileName()
 
-    let l:statusline .= "%{&readonly?'!':''}"
-    let l:statusline .= "%{&modified?'*':''}"
+	let l:statusline .= "%{&readonly?' [RO]':''}"
+	let l:statusline .= "%{&modified?' [MO]':''}"
 
 	" Truncate line here
 	let l:statusline.='%<'
 
 	" Separation point between left and right aligned items.
-	let l:statusline.='%='
+	let l:statusline.='%=%* '
 
 	let l:statusline.='%#SpellLocal#'
-	let l:statusline.="%{&spell?'[SPELL]\ ':'\ '}"
+	let l:statusline.="%{&spell?'[SPELL] ':''}%*"
 
 	" Filetype
 	let l:statusline.='%#FileType#'
-	let l:statusline.="%{&filetype!=#''?&filetype.' ':'none '}"
+	let l:statusline.="%{&filetype!=#''?&filetype.' ':'none '}%*"
 
 	" Encoding & Fileformat
 	let l:statusline.='%#WarningMsg#'
-	let l:statusline.="%{&fileencoding!='utf-8'?'['.&fileencoding.'] ':''}"
+	let l:statusline.="%{&fileencoding!='utf-8'?'['.&fileencoding.'] ':' '}%*"
 
 
 	"setlocal statusline.=%#FileFormat#
 	"setlocal statusline.=\ %-7([%{&fileformat}]%)
 
 	let l:statusline.='%#Percent#'
-	let l:statusline.='%03.p%%'
+	let l:statusline.='%03.p%%%* '
 
 	" Location of cursor in line
-	let l:statusline.=' %#Column#'
+	let l:statusline.='%#Column#'
 	let l:statusline.='-%c-'
 
 	return l:statusline
@@ -89,8 +100,8 @@ function! StatusLineNC()
 	" File name
 	let l:statusline.=' %t'
 
-    let l:statusline .= "%{&readonly?'!':''}"
-    let l:statusline .= "%{&modified?'*':''}"
+	let l:statusline .= "%{&readonly?' [MO]':''}"
+	let l:statusline .= "%{&modified?' [RO]':''}"
 
 	" Truncate line here
 	let l:statusline.='%<'
@@ -106,17 +117,17 @@ function! StatusLineNC()
 endfunction
 
 function! UpdateInactiveWindows()
-    for winnum in range(1, winnr('$'))
-        if winnum != winnr()
-            call setwinvar(winnum, '&statusline', '%!StatusLineNC()')
-        endif
-    endfor
+	for winnum in range(1, winnr('$'))
+		if winnum != winnr()
+			call setwinvar(winnum, '&statusline', '%!StatusLineNC()')
+		endif
+	endfor
 endfunction
 
 function! RefreshStatusLine(mode)
-    if a:mode == "active"
-        setlocal statusline=%!StatusLine()
-    else
-        setlocal statusline=%!StatusLineNC()
-    endif
+	if a:mode == "active"
+		setlocal statusline=%!StatusLine()
+	else
+		setlocal statusline=%!StatusLineNC()
+	endif
 endfunction

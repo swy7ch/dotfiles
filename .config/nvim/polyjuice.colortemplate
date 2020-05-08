@@ -18,8 +18,8 @@ Color: orange               #f7a583              216        LightRed
 Color: darkblue             #458588               24        DarkBlue
 Color: darkmagenta          #b16286              138        DarkMagenta
 Color: darkcyan             #7cafa3               30        DarkCyan
-Color: grey                 #a89984              239        DarkGrey
-Color: darkgrey             #7c6f64              243        Grey
+Color: grey                 #7c6f64              243        Grey
+Color: darkgrey             #373737              243        Grey
 Color: red                  #ea6962              203        Red
 Color: green                #89b594               71        Green
 Color: yellow               #ffeca3              230        White
@@ -70,11 +70,11 @@ Background: dark
 
 # Default highlight groups for dark variant {{{
 
-# NOTE: Vim's default does not define Normal
 
 Variant: gui 256 8
 
 # Group              Foreground          Background        Attributes
+# NOTE: Vim's default does not define Normal
 Normal               white               none
 Terminal             white               black
 Cursor               black               white
@@ -87,11 +87,10 @@ SpellBad             red                 none              underline
 SpellCap             blue                none
 SpellLocal           cyan                none
 SpellRare            orange              none
-TabLine              white               darkgrey          underline
+TabLine              white               grey              underline
 Todo                 black               orange            bold
 ColorColumn          none                darkred
-Conceal              grey                darkgrey
-# NOTE: Vim's default does not define Cursor/lCursor in the terminal
+Conceal              grey                grey
 DiffAdd              black               darkgreen
 DiffChange           black               orange
 DiffDelete           black               darkred           g=bold
@@ -101,7 +100,7 @@ ErrorMsg             yellow              darkred           bold
 FoldColumn           orange              darkblue
 Folded               orange              darkblue
 IncSearch            none                none              reverse
-LineNr               darkgrey            none
+LineNr               grey                none
 MatchParen           none                none              reverse
 ModeMsg              none                none              bold
 MoreMsg              green               none              g=bold
@@ -115,13 +114,13 @@ SpecialKey           cyan                none
 TabLineFill          none                none
 TabLineSel           none                none              bold
 Title                orange              none              g=bold
-VertSplit            white               darkgrey
+VertSplit            grey                black
 Visual               yellow              darkmagenta
 VisualNOS            none                none              underline,bold
 WarningMsg           red                 none
 WildMenu             black               green             bold
 # Other conventional group names (see `:help group-name`)
-Comment              darkgrey            none
+Comment              grey                none
 Constant             magenta             none
 Error                white               red               bold
 Identifier           blue                none              bold
@@ -141,14 +140,14 @@ ToolbarButton        black               grey              bold
 # Statusline
 StatusLine           none                none
 StatusLineTerm       black               green             bold
-StatusLineNC         darkgrey            black
+StatusLineNC         grey                black
 Buffer               green               black
 NormalMode           black               green             bold
 VisualMode           black               magenta           bold
 InsertMode           black               cyan              bold
 ReplaceMode          black               red               bold
 CommandMode          white               black             bold
-File                 magenta             black
+File                 white               darkgrey
 FileType             darkcyan            black
-Percent              darkgrey            none
+Percent              grey                none
 Column               darkcyan            black
