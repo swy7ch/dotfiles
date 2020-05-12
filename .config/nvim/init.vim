@@ -27,6 +27,9 @@ Plug 'lifepillar/vim-colortemplate'
 " Neovim colorizer
 Plug 'norcalli/nvim-colorizer.lua'
 
+" Templates
+Plug 'aperezdc/vim-template'
+
 " All Plugins must be added before the following line
 call plug#end()
 
@@ -180,3 +183,6 @@ noremap <leader>pu :PlugUpdate \| PlugUpgrade<CR>
 
 " Colorize
 noremap <leader>cc :ColorizerToggle<CR>
+
+" Template
+noremap <leader>t :Template<CR>
