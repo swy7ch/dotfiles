@@ -74,7 +74,7 @@ function! StatusLine()
 
 	" Encoding & Fileformat
 	let l:statusline.='%#WarningMsg#'
-	let l:statusline.="%{&fileencoding!='utf-8'?'['.&fileencoding.'] ':' '}%*"
+	let l:statusline.="%{&fileencoding!='utf-8'?'['.&fileencoding.'] ':''}%*"
 
 
 	"setlocal statusline.=%#FileFormat#
