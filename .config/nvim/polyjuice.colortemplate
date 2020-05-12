@@ -110,7 +110,7 @@ PmenuThumb           white               black
 Question             green               none              g=bold
 Search               black               orange
 SignColumn           none                none
-SpecialKey           cyan                none
+SpecialKey           green               none
 TabLineFill          none                none
 TabLineSel           none                none              bold
 Title                orange              none              g=bold
