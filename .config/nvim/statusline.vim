@@ -1,14 +1,14 @@
 function! CurrentMode()
 	let g:currentmode={
-		   \ 'n'  : '[ NORMAL ]',
-		   \ 'v'  : '[ VISUAL ]',
-		   \ 'V'  : '[ V·LINE ]',
-		   \ '' : '[ V·BLOCK ]',
-		   \ 'i'  : '[ INSERT ]',
-		   \ 'R'  : '[ REPLACE ]',
-		   \ 'Rv' : '[ V·REPLACE ]',
-		   \ 'c'  : '[ COMMAND ]',
-		   \}
+		\ 'n'	: '[ NORMAL ]',
+		\ 'v'	: '[ VISUAL ]',
+		\ 'V'	: '[ V·LINE ]',
+		\ ''	: '[ V·BLOCK ]',
+		\ 'i'	: '[ INSERT ]',
+		\ 'R'	: '[ REPLACE ]',
+		\ 'Rv'	: '[ V·REPLACE ]',
+		\ 'c'	: '[ COMMAND ]',
+		\}
 
 	return g:currentmode[mode()]
 endfunction
@@ -16,15 +16,15 @@ endfunction
 function! ModeColor()
 
 	let g:modecolor={
-		   \ 'n'  : '%#NormalMode#',
-		   \ 'v'  : '%#VisualMode#',
-		   \ 'V'  : '%#VisualMode#',
-		   \ '' : '%#VisualMode#',
-		   \ 'i'  : '%#InsertMode#',
-		   \ 'R'  : '%#ReplaceMode#',
-		   \ 'Rv' : '%#ReplaceMode#',
-		   \ 'c'  : '%#CommandMode#',
-		   \}
+		\ 'n'	: '%#NormalMode#',
+		\ 'v'	: '%#VisualMode#',
+		\ 'V'	: '%#VisualMode#',
+		\ ''	: '%#VisualMode#',
+		\ 'i'	: '%#InsertMode#',
+		\ 'R'	: '%#ReplaceMode#',
+		\ 'Rv'	: '%#ReplaceMode#',
+		\ 'c'	: '%#CommandMode#',
+		\}
 
 	return g:modecolor[mode()]
 endfunction

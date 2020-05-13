@@ -106,20 +106,6 @@ set termguicolors
 " Colorscheme
 colorscheme polyjuice
 
-" Statusline
-set noshowmode
-source $XDG_CONFIG_HOME/nvim/statusline.vim
-
-augroup statusline
-    autocmd!
-	autocmd VimEnter *
-		\ call UpdateInactiveWindows()
-    autocmd VimEnter,WinEnter,BufWinEnter *
-		\ call RefreshStatusLine('active')
-	autocmd WinLeave *
-		\ call RefreshStatusLine('inactive')
-augroup END
-
 "" Text, tab and indent
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " Do not use spaces instead of tabs
@@ -153,6 +139,19 @@ autocmd BufWritePre * %s/\s\+$//e
 """""""""""""""""""""""""""""""""""""""""""""""""""
 "Always show the status line
 set laststatus=2
+set noshowmode
+
+source $XDG_CONFIG_HOME/nvim/statusline.vim
+
+augroup statusline
+	autocmd!
+	autocmd VimEnter *
+		\ call UpdateInactiveWindows()
+	autocmd VimEnter,WinEnter,BufWinEnter *
+		\ call RefreshStatusLine('active')
+	autocmd WinLeave *
+		\ call RefreshStatusLine('inactive')
+augroup END
 
 "" Macros
 """"""""""""""""""""""""""""""""""""""""""""""""""
@@ -160,8 +159,8 @@ set laststatus=2
 noremap <leader>s :source ~/.config/nvim/init.vim <CR>
 
 " Circle through buffers
-noremap <leader>n :bn
-noremap <leader>p :bp
+noremap <leader>n :bn<CR>
+noremap <leader>p :bp<CR>
 
 " Clear the search highlight
 noremap <leader>q :nohl<CR>
