@@ -25,6 +25,7 @@
 - dmenuopen : fuzzy-find a file and open it with appropriate application
 - dot : git wrapper to manage dotfiles
 - dwmbar : set the statusbar and updates every minute
+- fetch : display basic system infos
 - maker : create a basic makefile for **C/C++** project
 - mom : create a `groff/mom` file with generic metadata
 - mommerge : merge all **.mom** files of a directory and compiles it
