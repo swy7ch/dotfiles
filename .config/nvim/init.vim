@@ -56,6 +56,9 @@ filetype plugin indent on
 " To recognize groff filetype
 au BufNewFile,BufRead *.mom set filetype=groff
 
+" Always use LaTeX flavor
+au BufNewFile,BufRead *.tex set filetype=tex
+
 " Defining the <leader>
 let mapleader = " "
 
