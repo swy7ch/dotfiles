@@ -32,7 +32,7 @@ shebangtest()
 }
 
 texcompile() { \
-	bibliography="$(cat "$file" | grep '\bibliography')"
+	bibliography="$(grep '\bibliography' "$file")"
 	if [ -n "$bibliography" ]; then
 		pdflatex --output-directory="$dir" "$base" &&
 		bibtex "$base" &&

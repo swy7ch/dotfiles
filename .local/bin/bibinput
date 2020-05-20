@@ -12,11 +12,11 @@
 
 parse(){
 	if [ "$1" = "@" ]; then
-		cat "$file" | grep "$1" | awk -F '{' '{print $2} ' | tr ',' '\n' | sort -r | sed '/^[[:space:]]*$/d'
+		grep "$1" "$file" | awk -F '{' '{print $2} ' | tr ',' '\n' | sort -r | sed '/^[[:space:]]*$/d'
 	elif [ "$1" = "keywords" ]; then
-		cat "$file" | grep "$1" | awk -F '"' '{print $2} ' | tr ' ' '\n' | sed 's/,//g' | sort -u | sed '/^[[:space:]]*$/d'
+		grep "$1" "$file" | awk -F '"' '{print $2} ' | tr ' ' '\n' | sed 's/,//g' | sort -u | sed '/^[[:space:]]*$/d'
 	else
-		cat "$file" | grep "$1" | sed "s/,$//g" | awk -F '"' '{print $2} ' | sort | uniq
+		grep "$1" "$file" | sed "s/,$//g" | awk -F '"' '{print $2} ' | sort | uniq
 
 	fi
 }
@@ -25,7 +25,7 @@ input() {
 	if [ "$1" = "reference" ]; then
 		refinput | dmenu -i -p 'reference?' -l 10
 	elif [ "$1" = "doctype" ]; then
-		printf "$doctypes" | sed "s| |\n|g" | dmenu -i -p 'doctype?'
+		echo "$doctypes" | sed "s| |\n|g" | dmenu -i -p 'doctype?'
 	elif [ "$1" = "author" ]; then
 		parse "author" | dmenu -i -p 'author name? (surname, first name)' -l 10
 	elif [ "$1" = "keywords" ]; then
