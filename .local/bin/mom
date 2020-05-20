@@ -1,5 +1,15 @@
-#! /bin/sh
-# Creates a groff/mom document with generic metadata, opens it with neovim (or vim as a fallback)
+#!/bin/sh
+
+######################################################################
+# @author      : swytch
+# @file        : mom
+# @license     : GPLv3
+# @created     : Wednesday May 20, 2020 18:19:56 CEST
+#
+# @description : create a groff doc with genereic metadata
+#                open it with (neo)vim
+######################################################################
+
 
 if [ -z ""$1"" ]; then
 	echo "Please provide a name for your file"

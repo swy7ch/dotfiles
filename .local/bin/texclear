@@ -1,9 +1,14 @@
-#!/usr/bin/env sh
+#!/bin/sh
 
-# All credits to Luke Smith (lukesmith.xyz)
+######################################################################
+# @author      : swytch (adapted form Luke Smith - lukesmith.xyz)
+# @file        : texclear
+# @license     : GPLv3
+# @created     : Wednesday May 20, 2020 18:24:59 CEST
+#
+# @description : clear the build files of LaTeX build
+######################################################################
 
-# Clears the build files of a LaTeX/XeLaTeX build.
-# I have vim run this file whenever I exit a .tex file.
 
 case "$1" in
 	*.tex)

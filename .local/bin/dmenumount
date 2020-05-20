@@ -1,11 +1,14 @@
 #!/bin/sh
 
-# Gives a dmenu prompt to mount unmounted drives. If they're in /etc/fstab
-# they'll be mounted automatically. Otherwise, you'll be prompted to give
-# a mountpoint from already existsing directories. If you input a novel
-# directory, it will prompt you to create that directory.
+######################################################################
+# @author      : swytch (adapted from Luke Smith - lukesmith.xyz)
+# @file        : dmenumount
+# @license     : GPLv3
+# @created     : Wednesday May 20, 2020 18:05:31 CEST
+#
+# @description : dmenu prompt to mount unmounted drives
+######################################################################
 
-# Adapted form the work of Luke Smith (lukesmith.xyz)
 
 getmount() { \
 	[ -z "$chosen" ] && exit 1

@@ -1,9 +1,15 @@
-#! /bin/sh
-# Detect if the directory is a c/c++ project
-# Create a makefile with existing c/c++ files in directory
-# 	Rules are basic (i.e. module.o : module.c)
-# 	variables are generic
-# Exit by opening makefile with neovim
+#!/bin/sh
+
+######################################################################
+# @author      : swytch
+# @file        : maker
+# @license     : GPLv3
+# @created     : Wednesday May 20, 2020 18:18:53 CEST
+#
+# @description : create a makefile for current project (if c/c++)
+#                open it with (neo)vim
+######################################################################
+
 
 headers_list="$(ls | grep '.h$')"
 sources_list="$(ls | grep '.cp*$')"

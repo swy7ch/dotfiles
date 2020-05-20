@@ -1,6 +1,14 @@
-#!/bin/bash
+#!/bin/sh
 
-## Wrapper for my dotfiles
+######################################################################
+# @author      : swytch
+# @file        : dot
+# @license     : GPLv3
+# @created     : Wednesday May 20, 2020 18:13:05 CEST
+#
+# @description : git wrapper for dotfiles management
+######################################################################
+
 
 git="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
 cmd="$git status" # by default, give the status

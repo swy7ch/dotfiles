@@ -1,6 +1,15 @@
-#! /bin/sh
+#!/bin/sh
 
-# Create a LaTeX document with genereic metadata, then open it with neovim (or vim as a fallback)
+######################################################################
+# @author      : swytch
+# @file        : texer
+# @license     : GPLv3
+# @created     : Wednesday May 20, 2020 18:26:30 CEST
+#
+# @description : create a LaTeX doc with generic metadata
+#                open it with (neo)vim
+######################################################################
+
 
 if [ -z "$1" ]; then
 	echo "Please provide a name for your file"

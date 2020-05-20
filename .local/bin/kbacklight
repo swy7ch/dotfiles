@@ -1,10 +1,15 @@
 #!/bin/sh
 
-## Control keyboard brightness
-	## level goes up at each call
-	## goes back to 0 after reaching maximum brightness
+######################################################################
+# @author      : swytch
+# @file        : kbacklight
+# @license     : GPLv3
+# @created     : Wednesday May 20, 2020 18:17:03 CEST
+#
+# @description : control keyboard brightness
+# @dependencies: `upower`
+######################################################################
 
-## You need `upower` package to make it work
 
 max=$(cat /sys/class/leds/tpacpi::kbd_backlight/max_brightness)
 current=$(cat /sys/class/leds/tpacpi::kbd_backlight/brightness)

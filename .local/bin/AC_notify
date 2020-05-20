@@ -1,6 +1,15 @@
-#! /bin/sh
-# Sends a notification if AC is plugged in (or out)
-# Also refreshes statusbar
+#!/bin/sh
+
+######################################################################
+# @author      : swytch
+# @file        : AC_notify
+# @license     : GPLv3
+# @created     : Wednesday May 20, 2020 17:51:45 CEST
+#
+# @description : send a notification when AC status change
+#                refresh statusbar
+######################################################################
+
 
 new_state="$(cat /sys/class/power_supply/AC/online)"
 prev_state="$new_state"

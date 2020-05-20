@@ -1,6 +1,15 @@
 #!/bin/sh
 
-## Change the backlight value
+######################################################################
+# @author      : swytch
+# @file        : sbacklight
+# @license     : GPLv3
+# @created     : Wednesday May 20, 2020 18:22:36 CEST
+#
+# @description : control screen brightness
+######################################################################
+
+
 ## You need write privileges on /sys/.../brightness
 ## This can be achieved via a `udev` rule (see ~/.config/root)
 

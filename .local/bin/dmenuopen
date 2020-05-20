@@ -1,6 +1,14 @@
-#! /bin/sh
+#!/bin/sh
 
-# Fuzzy-find a file and open it with appropriate application
+######################################################################
+# @author      : swytch
+# @file        : dmenuopen
+# @license     : GPLv3
+# @created     : Wednesday May 20, 2020 18:08:05 CEST
+#
+# @description : find a file, open it with appropriate application
+######################################################################
+
 
 filetypes=".pdf .png .jpg .txt .mom .tex .mkv" # could be augmented
 filetype=$(printf "$filetypes" | sed "s| |\n|g" | dmenu -i -p "type of the file?")

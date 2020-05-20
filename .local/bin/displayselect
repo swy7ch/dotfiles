@@ -1,10 +1,14 @@
-#! /bin/sh
+#!/bin/sh
 
-# All credits to Luke Smith (lukesmith.xyz)
+######################################################################
+# @author      : swytch (adapted from Luke Smith - lukesmith.xyz)
+# @file        : displayselect
+# @license     : GPLv3
+# @created     : Wednesday May 20, 2020 18:04:01 CEST
+#
+# @description : detect displays and select an organisation
+######################################################################
 
-# A UI for detecting and selecting all displays. Probes xrandr for connected
-# displays and lets user select one to use. User may also select "manual
-# selection" which opens arandr.
 
 twoscreen() { # If multi-monitor is selected and there are two screens.
     mirror=$(printf "no\\nyes" | dmenu -i -p "Mirror displays?")

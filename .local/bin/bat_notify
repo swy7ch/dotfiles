@@ -1,5 +1,14 @@
-#! /bin/sh
-# Checks the battery, sends a notification depending on the level
+#!/bin/sh
+
+######################################################################
+# @author      : swytch
+# @file        : bat_notify
+# @license     : GPLv3
+# @created     : Wednesday May 20, 2020 17:54:08 CEST
+#
+# @description : send a notification with charge level
+######################################################################
+
 
 notify() { \
 	for x in /sys/class/power_supply/BAT?/capacity;

@@ -1,6 +1,14 @@
-#! /bin/sh
-# Is called when changing sound level
-# Sends a notification with the current sound level
+#!/bin/sh
+
+######################################################################
+# @author      : swytch
+# @file        : audio_notify
+# @license     : GPLv3
+# @created     : Wednesday May 20, 2020 17:52:58 CEST
+#
+# @description : send a notification with sound level
+######################################################################
+
 
 level=$(pamixer --get-volume)
 muted=$(pamixer --get-mute)

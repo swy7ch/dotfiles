@@ -1,6 +1,14 @@
-#! /bin/sh
-# Is called when changing backlight value
-# Sens a notification with the current xbaclight value
+#!/bin/sh
+
+######################################################################
+# @author      : swytch
+# @file        : backlight_notify
+# @license     : GPLv3
+# @created     : Wednesday May 20, 2020 17:53:36 CEST
+#
+# @description : send a notification with xbacklight value
+######################################################################
+
 
 current=$(cat /sys/class/backlight/intel_backlight/brightness)
 max=$(cat /sys/class/backlight/intel_backlight/max_brightness)

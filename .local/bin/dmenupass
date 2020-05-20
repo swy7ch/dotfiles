@@ -1,7 +1,14 @@
 #!/bin/sh
 
-# This script is the SUDO_ASKPASS variable, meaning that it will be used as a
-# password prompt if needed.
+######################################################################
+# @author      : swytch (adapted from Luke Smith - lukesmith.xyz)
+# @file        : dmenupass
+# @license     : GPLv3
+# @created     : Wednesday May 20, 2020 18:08:50 CEST
+#
+# @description : [sudo] prompt (SUDO_ASKPASS variable)
+######################################################################
+
 
 col_yellow="#ffeca3"
 col_black="#1d2021"

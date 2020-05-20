@@ -1,8 +1,14 @@
-#! /bin/sh
-# A dmenu binary prompt script.
-# Gives a dmenu prompt labeled with $1 to perform command $2.
-# For example:
-# `./prompt "Do you want to shutdown?" "shutdown -h now"`
+#!/bin/sh
+
+######################################################################
+# @author      : swytch (adapted from Luke Smith - lukesmith.xyz)
+# @file        : dmenuprompt
+# @license     : GPLv3
+# @created     : Wednesday May 20, 2020 18:10:13 CEST
+#
+# @description : dmenu prompt ($1) to perform a command ($2)
+######################################################################
+
 
 col_darkred="#9d0006"
 col_red="#cc241d"

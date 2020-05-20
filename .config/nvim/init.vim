@@ -28,7 +28,7 @@ Plug 'lifepillar/vim-colortemplate'
 Plug 'norcalli/nvim-colorizer.lua'
 
 " Templates
-Plug 'aperezdc/vim-template'
+Plug 'tibabit/vim-templates'
 
 " All Plugins must be added before the following line
 call plug#end()
@@ -156,6 +156,11 @@ augroup statusline
 		\ call RefreshStatusLine('inactive')
 augroup END
 
+"" Misc
+""""""""""""""""""""""""""""""""""""""""""""""""""
+" Templates location
+let g:tmpl_search_paths=['$XDG_CONFIG_HOME/nvim/templates']
+
 "" Macros
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " Source files
@@ -187,4 +192,5 @@ noremap <leader>pu :PlugUpdate \| PlugUpgrade<CR>
 noremap <leader>cc :ColorizerToggle<CR>
 
 " Template
-noremap <leader>t :Template<CR>
+noremap <leader>ti :TemplateInit<CR>
+noremap <leader>te :TemplateExpand<CR>

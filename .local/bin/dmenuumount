@@ -1,10 +1,14 @@
 #!/bin/sh
 
-# A dmenu prompt to unmount drives.
-# Provides you with mounted partitions, select one to unmount.
-# Drives mounted at /, /boot and /home will not be options to unmount.
+######################################################################
+# @author      : swytch (adapted form Luke Smith - lukesmith.xyz)
+# @file        : dmenuumount
+# @license     : GPLv3
+# @created     : Wednesday May 20, 2020 18:11:17 CEST
+#
+# @description : dmenu prompt to unmount drives
+######################################################################
 
-# Adapted from the work of Luke Smith (lukesmith.xyz)
 
 unmountusb() {
 	chosen=$(echo "$usbdrives" | dmenu -i -p "Unmount which drive?" | awk '{print $1}')

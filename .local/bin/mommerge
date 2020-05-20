@@ -1,3 +1,17 @@
+#!/bin/sh
+
+######################################################################
+# @author      : swytch
+# @file        : mommerge
+# @license     : GPLv3
+# @created     : Wednesday May 20, 2020 18:20:23 CEST
+#
+# @description : merge mom files from current dir
+#                compile it with `compiler` script
+# @dependencies: `compiler` script
+######################################################################
+
+
 #! /bin/sh
 # Gather the mom files from current dir and compile them into ONE pdf file, using my compiler script
 # /!\ files must be names 0_file0, 1_file1... in order to be processed correctly

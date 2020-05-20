@@ -1,7 +1,14 @@
-#! /bin/sh
+#!/bin/sh
 
-# Create an entry in $HOME/documents/bibliographies/selected_bibliography.bib
-# Interactive script, dialog via dmenu
+######################################################################
+# @author      : swytch
+# @file        : bibinput
+# @license     : GPLv3
+# @created     : Wednesday May 20, 2020 17:57:47 CEST
+#
+# @description : create a bibliography entry through dmenu
+######################################################################
+
 
 parse(){
 	if [ "$1" = "@" ]; then

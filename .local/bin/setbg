@@ -1,9 +1,18 @@
-#! /bin/sh
+#!/bin/sh
 
-# This script sets the wallpaper
+######################################################################
+# @author      : swytch
+# @file        : setbg
+# @license     : GPLv3
+# @created     : Wednesday May 20, 2020 18:23:50 CEST
+#
+# @description : set the wallpaper
+# @dependencies: `xwallpaper`
+######################################################################
+
+
 # If given an argument
 	# if $1 is a png file, set it as a wallpaper
-	# if $1 is a jpg/jpeg file, convert it to png and set it as a wallpaper
 	# if $1 is a directory, choose a randomized image in it, set it as wallpaper
 
 [ -f "$1" ] && cp $1 "$XDG_CONFIG_HOME/wall.png" && dunstify -u "low" "Wallpaper changed"

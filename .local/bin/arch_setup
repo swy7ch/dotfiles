@@ -1,8 +1,14 @@
-#! /bin/sh
-# This script has three goals:
-# 	1. cloning personnal git repos
-# 	2. building tools (suckless' utilities)
-# 	3. enabling systemctl services
+#!/bin/sh
+
+######################################################################
+# @author      : swytch
+# @file        : arch_setup
+# @license     : GPLv3
+# @created     : Wednesday May 20, 2020 17:49:05 CEST
+#
+# @description : automate the setup of my arch installation
+######################################################################
+
 
 #Lists of apps sorted by type and criticity
 base_list="dash xorg-server xorg-xinit xorg-xinput xsetroot sxhkd xss-lock zsh neovim gtk2 brave"
