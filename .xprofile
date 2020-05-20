@@ -5,7 +5,7 @@
 # session launch
 source $HOME/.profile
 
-xss-lock -- i3lock -n -u -i $XDG_CONFIG_HOME/wall.png &
+xss-lock -- slock &
 redshift &
 pamixer --set-volume 30 &
 sbacklight set 3 &

@@ -5,15 +5,15 @@
 # 	3. enabling systemctl services
 
 #Lists of apps sorted by type and criticity
-base_list="dash xorg-server xorg-xinit xorg-xinput xsetroot sxhkd i3lock xss-lock zsh neovim gtk2 brave"
+base_list="dash xorg-server xorg-xinit xorg-xinput xsetroot sxhkd xss-lock zsh neovim gtk2 brave"
 utilities_list="xf86-video-intel pulseaudio pulseaudio-alsa pamixer xprop zsh-syntax-highlighting zsh-history-substring-search dunst dunstify libnotify sxiv xwallpaper redshift htop ffmpeg imagemagick upower pacman-contrib"
 fonts_list="fira adobe-source-han-sans-jp-fonts adobe-source-han-sans-cn"
 media_list="mpv zathura"
 other_list="transmission-gtk texlive-core texlive-bin texlive-latexetra"
 
-git_list="st dwm dmenu"
+git_list="st dwm dmenu slock"
 
-build_list="st dwm dmenu"
+build_list="st dwm dmenu slock"
 
 services_list="netctl-auto@wlp4s0 systemd-timescyncd"
 
