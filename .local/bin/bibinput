@@ -33,15 +33,13 @@ refinput(){
 }
 
 doctypes="article book online techreport"
-base="$(basename "$(find $HOME/documents/bibliographies/ -type f -not -path '*/\.*' | dmenu -l 20 -p "[bibinput] which bibliography?")")" # the -not -path allows find to ignore hidden files
+file="$(find $HOME/documents/bibliographies/ -type f -not -path '*/\.*' | dmenu -l 20 -p "[bibinput] which bibliography?")" # the -not -path allows find to ignore hidden files
 
-[ -z "$base" ] && exit 1
-
-file="$HOME/documents/bibliographies/"$base
+[ -z "$file" ] && exit 1
 
 refs="$(cat "$file" | grep "@" | sed "s/,$//g" | awk -F '{' '{print $2}' | tr '\n' ' ')"
 
-# if the file does not exist, creates it
+# if the file does not exist, create it
 if [ ! -e "$file" ]; then
 	mkfile="$(printf "No\\nYes" | dmenu -i -p "$file does not exist. Create it?")"
 	[ "$mkfile" = "Yes" ] && (touch "$file")

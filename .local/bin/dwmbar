@@ -8,13 +8,10 @@
 # Handle SIGTRAP signals sent by refbar to update the status bar immediately.
 trap 'update' 5
 
-# Set the deliminter character.
-delim="|"
+delim="|" # Set the delimiter character.
 
 status() { \
-
-	# Gets the volume of ALSA's master volume output.
-
+	# Get the volume of ALSA's master volume output.
 	volume="$(pamixer --get-volume)"
 	muted="$(pamixer --get-mute)"
 
@@ -38,7 +35,6 @@ status() { \
 	# Will show all batteries with approximate icon for remaining power.
 	# Or show that the computer is plugged to a power source
 	# In any case, show the remaining battery percentage
-
 	AC_ON="$(cat /sys/class/power_supply/AC/online)"
 	for x in /sys/class/power_supply/BAT?/capacity;
 	do
@@ -57,7 +53,6 @@ status() { \
 	done && echo "$delim"
 
 	# Date and time.
-
 	date '+%b. %d - %I:%M%p'
 	}
 

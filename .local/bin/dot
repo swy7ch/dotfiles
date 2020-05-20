@@ -3,9 +3,9 @@
 ## Wrapper for my dotfiles
 
 git="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
-cmd="$git status" ## by default, give the status
+cmd="$git status" # by default, give the status
 
-[ "$1" = "-g" ] && shift && cmd="$git $@" ## make the wrapper transparent
+[ "$1" = "-g" ] && shift && cmd="$git $@" # make the wrapper transparent
 
 [ "$1" = "-l" ] && shift && cmd="$git log"
 [ "$1" = "-c" ] && shift && cmd="$git commit $@"

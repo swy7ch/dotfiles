@@ -39,9 +39,7 @@
 
 This is the shell script I run just after I installed Arch. It does few things:
 
-### What it does:
-
-* Install the apps I use
-* Download my personnal repos
-* Compile my WM (`dwm`), my binary launcher (`dmenu`) and my terminal emulator (`st`), which are part of the [suckless](https://suckless.org/) project.
+- Install the apps I use
+- Download my personnal repos
+- Compile my WM (`dwm`), my binary launcher (`dmenu`) and my terminal emulator (`st`), which are part of the [suckless](https://suckless.org/) project.
 

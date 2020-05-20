@@ -1,5 +1,5 @@
 " tex filetype config
-" Licence LGPL v3.0
+" Licence GPL3
 
 " spellcheck enabled
 setlocal spell spelllang=fr

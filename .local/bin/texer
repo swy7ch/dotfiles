@@ -1,6 +1,6 @@
 #! /bin/sh
 
-# Create a LaTeX document with genereic metadata, then opens it with neovim (or vim as a fallback)
+# Create a LaTeX document with genereic metadata, then open it with neovim (or vim as a fallback)
 
 if [ -z "$1" ]; then
 	echo "Please provide a name for your file"

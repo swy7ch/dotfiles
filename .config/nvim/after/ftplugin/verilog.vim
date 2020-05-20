@@ -1,4 +1,4 @@
 " verilog indent removal
-" Licence LGPL v3.0
+" Licence GPLv3
 
 noremap <leader><Enter> :w! \| :CoqRunToCursor<CR>

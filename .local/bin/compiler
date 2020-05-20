@@ -10,8 +10,11 @@
 
 file=$(readlink -f "$1")
 dir=$(dirname "$file")
+dirname=$(basename "$dir")
 base="$(echo "${file%.*}" | awk -F '/' '{printf $NF}')"
 shebang=$(sed -n 1p "$file")
+
+sucklesstools="$(ls $XDG_CONFIG_HOME/suckless)"
 
 cd "$dir" || exit
 
@@ -22,7 +25,7 @@ shebangtest()
 	esac
 }
 
-textype() { \
+texcompile() { \
 	bibliography="$(cat "$file" | grep '\bibliography')"
 	if [ -n "$bibliography" ]; then
 		pdflatex --output-directory="$dir" "$base" &&
@@ -33,16 +36,27 @@ textype() { \
 		pdflatex --output-directory="$dir" "$base" &&
 		pdflatex --output-directory="$dir" "$base"
 	fi
-	texclear "$file"
 }
 
+s_build(){
+	case "$file" in
+		*config.def.h) sudo make clean install && rm -f config.h ;;
+		*config.h) echo "" && echo "You should build from config.def.h !" ;;
+	esac
+
+	exit 0
+}
+
+for tool in $sucklesstools; do
+	if [ "$tool" = "$dirname" ]; then
+		s_build
+	fi
+done
+
 case "$file" in
-	*config.def.h) sudo make clean install && rm -f config.h ;;
-	*config.h) echo "" && echo "You should build from config.def.h !" ;;
-	*\.c*) make && ./main ;;
-	*\.h*) make && ./main ;;
-	*\.mom) refer -PS -e "$file" | pdfmom > "$base.pdf" ;;
-	*\.tex) textype "$base" ;;
-	*\.py) python "$file" ;;
+	*.c*|.h*) make && ./main ;;
+	*.mom) refer -PS -e "$file" | pdfmom > "$base.pdf" ;;
+	*.tex) texcompile "$base" ; texclear "$file" ;;
+	*.py) python "$file" ;;
 	*) shebangtest ;;
 esac

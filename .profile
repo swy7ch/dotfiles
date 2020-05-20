@@ -19,8 +19,7 @@ export SUDO_ASKPASS="$HOME/.local/bin/dmenupass"
 export EDITOR="nvim"
 export TERMINAL="st"
 export READER="zathura"
-export BROWSER="brave"
-export INCOGNITO="brave --incognito"
+export BROWSER="firefox"
 
 ## program settings
 export LESS_TERMCAP_md="$(printf '%b' '\e[01;32m')"

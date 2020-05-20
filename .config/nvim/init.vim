@@ -119,11 +119,11 @@ set smarttab
 
 " 1 tab = 4 spaces
 set tabstop=4
-set shiftwidth=4 "for indent operations
+set shiftwidth=4
 
 " Indent and wrap rules
 set autoindent
-set wrap "wrap lines
+set wrap
 
 " Stop auto-commenting new line
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
@@ -163,7 +163,7 @@ noremap <leader>s :source ~/.config/nvim/init.vim <CR>
 
 " Circle through buffers
 noremap <leader>n :bn<CR>
-noremap <leader>p :bp<CR>
+noremap <leader>b :bp<CR>
 
 " Clear the search highlight
 noremap <leader>q :nohl<CR>

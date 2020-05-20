@@ -9,43 +9,37 @@ headers_list="$(ls | grep '.h$')"
 sources_list="$(ls | grep '.cp*$')"
 modules_list="$(echo "$sources_list" | sed 's/\.cp*//g' | tr '\n' ' ')"
 targets_list="$(echo "$sources_list" | sed 's/\.cp*/\.o/g' | tr '\n' ' ')"
-bool=false
-comp=gcc
 
 get_compiler(){
 	for source_ in "$sources_list"; do
 		case "$source_" in
-			*.cpp) comp="g++" && return;;
-			*.c) ;;
+			*.cpp) echo "g++" && return;;
+			*.c) echo "gcc";;
 		esac
 	done
 }
 
 is_c_project(){
-	if [ -n "$sources_list" ]; then
-		bool=true
-	fi
+	[ -n "$sources_list" ]
 }
 
 make_rule(){
 	if [ "$comp" = "gcc" ]; then
-		echo "$1.o : $1.c" >> makefile
+		echo "$1.o : $1.c $1.h" >> makefile
 		echo -e "\t\$(CC) -c $1.c \$(FLAGS)" >> makefile
 	else
-		echo "$1.o : $1.cpp" >> makefile
+		echo "$1.o : $1.cpp $1.h" >> makefile
 		echo -e "\t\$(CC) -c $1.cpp \$(FLAGS)" >> makefile
 	fi
 	echo "" >> makefile
 }
 
-is_c_project
-
-if [ "$bool" = false ]; then
+if ! is_c_project; then
 	echo "No C/C++ project in directory. Exiting..."
 	exit 1
 fi
 
-get_compiler
+comp=get_compiler
 
 touch makefile
 
@@ -69,4 +63,9 @@ echo "clean :" >> makefile
 echo -e "\trm \$(BIN) *.o vgcore.*" >> makefile
 
 sed -i 's/\s$//' makefile
-nvim makefile
+
+if type "nvim" &> /dev/null; then
+	nvim makefile
+else
+	vim makefile
+fi

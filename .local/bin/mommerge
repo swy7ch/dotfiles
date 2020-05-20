@@ -3,15 +3,13 @@
 # /!\ files must be names 0_file0, 1_file1... in order to be processed correctly
 
 # if the file already exists, delete it
-if [ -e rendu.mom ]; then
-	rm rendu.mom
-fi
+[ -e rendu.mom ] && rm rendu.mom
 
-pdf_list=$(ls *.mom)
+list=$(ls *.mom)
 
 touch rendu.mom
 
-for doc in "$pdf_list"; do
+for doc in "$list"; do
 	cat "$doc" >> rendu.mom
 	echo ".COLLATE" >> rendu.mom
 done

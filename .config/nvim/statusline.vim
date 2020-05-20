@@ -14,7 +14,6 @@ function! CurrentMode()
 endfunction
 
 function! ModeColor()
-
 	let g:modecolor={
 		\ 'n'	: '%#NormalMode#',
 		\ 'v'	: '%#VisualMode#',
@@ -41,7 +40,6 @@ function! FileName()
 endfunction
 
 function! StatusLine()
-
 	let l:statusline=''
 
 	" Buffer number
@@ -56,6 +54,7 @@ function! StatusLine()
 	let l:statusline.='%#File#'
 	let l:statusline.=FileName()
 
+	" File status
 	let l:statusline .= "%{&readonly?' [RO]':''}"
 	let l:statusline .= "%{&modified?' [MO]':''}"
 
@@ -76,10 +75,7 @@ function! StatusLine()
 	let l:statusline.='%#WarningMsg#'
 	let l:statusline.="%{&fileencoding!='utf-8'?'['.&fileencoding.'] ':''}%*"
 
-
-	"setlocal statusline.=%#FileFormat#
-	"setlocal statusline.=\ %-7([%{&fileformat}]%)
-
+	" Depth
 	let l:statusline.='%#Percent#'
 	let l:statusline.='%03.p%%%* '
 
@@ -88,16 +84,15 @@ function! StatusLine()
 	let l:statusline.='-%c-'
 
 	return l:statusline
-
 endfunction
 
 function! StatusLineNC()
-
 	let l:statusline=''
+
 	" Buffer number
 	let l:statusline.='[%n]'
 
-	" File name
+	" File name and status
 	let l:statusline.=' %t'
 
 	let l:statusline .= "%{&readonly?' [MO]':''}"
@@ -109,11 +104,11 @@ function! StatusLineNC()
 	" Separation point between left and right aligned items.
 	let l:statusline.='%='
 
+	" Depth
 	let l:statusline.='%#Percent#'
 	let l:statusline.='%03.p%%'
 
 	return l:statusline
-
 endfunction
 
 function! UpdateInactiveWindows()

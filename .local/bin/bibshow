@@ -4,7 +4,6 @@
 
 # User inputs informations, this will show the content of an entry through dmenu
 
-
 file="$(find $HOME/documents/bibliographies/ -type f -not -path '*/\.*' | dmenu -l 20 -p "[bibshow] which bibliography?")" # the -not -path allows find to ignore hidden files
 
 refs_list="$(cat "$file" | sed 's/\t//g' | tr '\n' ' ' | sed 's/}\ /}\n/g')"
@@ -15,5 +14,5 @@ ref="$(echo "$refs_list" | dmenu -i -p 'infos?' -l 10)"
 
 output="$(echo "$ref" | sed 's/author/\n author/g' | sed 's/",/",\n/g')"
 
-echo "$output" | dmenu -i -p "infos" -l 20
+echo "$output" | dmenu -i -p "infos" -l 10
 echo "$ref" | awk -F '{' '{print $2}' | awk -F ',' '{print $1}' | xclip -selection clipboard

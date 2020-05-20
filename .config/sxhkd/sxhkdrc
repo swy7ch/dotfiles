@@ -40,7 +40,7 @@ super + shift + {w,z}
 		$BROWSER
 
 super + shift + p
-		$BROWSER --incognito
+		$BROWSER --private-window
 
 super + shift + b
 		script="$(printf "bibinput\nbibshow" | dmenu -i -p "which script?")" && $script

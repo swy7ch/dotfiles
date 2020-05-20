@@ -2,7 +2,7 @@
 
 ## Control keyboard brightness
 	## level goes up at each call
-	## goes back to 0 after meeting maximum brightness
+	## goes back to 0 after reaching maximum brightness
 
 ## You need `upower` package to make it work
 
