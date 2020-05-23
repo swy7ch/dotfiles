@@ -16,6 +16,7 @@ export LESSHISTFILE="-"
 
 ## default programs
 export SUDO_ASKPASS="$HOME/.local/bin/dmenupass"
+export SUDO_EDITOR="nvim"
 export EDITOR="nvim"
 export TERMINAL="st"
 export READER="zathura"
