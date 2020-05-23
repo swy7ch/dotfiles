@@ -83,41 +83,40 @@ CursorColumn         none                darkgrey
 CursorLineNr         orange              none              g=bold
 Pmenu                white               black
 PmenuSel             black               green             bold
+PmenuSbar            black               grey
+PmenuThumb           white               none
 SpellBad             red                 none              underline
 SpellCap             blue                none
 SpellLocal           cyan                none
 SpellRare            orange              none
-TabLine              white               grey              underline
-Todo                 black               orange            bold
-ColorColumn          none                darkred
 Conceal              grey                grey
 DiffAdd              black               darkgreen
 DiffChange           black               orange
 DiffDelete           black               darkred           g=bold
 DiffText             black               red               bold
 Directory            magenta             none
-ErrorMsg             yellow              darkred           bold
-FoldColumn           orange              darkblue
 Folded               orange              darkblue
 IncSearch            none                none              reverse
 LineNr               grey                none
 MatchParen           none                none              reverse
+ErrorMsg             yellow              darkred           bold
 ModeMsg              none                none              bold
 MoreMsg              green               none              g=bold
+WarningMsg           red                 none
 NonText              blue                none              g=bold
-PmenuSbar            black               grey
-PmenuThumb           white               black
 Question             green               none              g=bold
 Search               black               orange
+ColorColumn          none                darkred
+FoldColumn           orange              darkblue
 SignColumn           none                none
 SpecialKey           green               none
+TabLine              white               grey              underline
 TabLineFill          none                none
 TabLineSel           none                none              bold
 Title                orange              none              g=bold
-VertSplit            grey                black
+VertSplit            grey                none
 Visual               yellow              darkmagenta
 VisualNOS            none                none              underline,bold
-WarningMsg           red                 none
 WildMenu             black               green             bold
 # Other conventional group names (see `:help group-name`)
 Comment              grey                none
@@ -128,6 +127,7 @@ Ignore               black               none
 PreProc              green               none
 Special              orange              none
 Statement            orange              none              g=bold
+Todo                 black               orange            bold
 Type                 yellow              none              g=bold
 Underlined           darkblue            none              underline
 # See `:help lCursor`
@@ -140,14 +140,14 @@ ToolbarButton        black               grey              bold
 # Statusline
 StatusLine           none                none
 StatusLineTerm       black               green             bold
-StatusLineNC         grey                black
-Buffer               green               black
+StatusLineNC         grey                none
+Buffer               green               none
 NormalMode           black               green             bold
 VisualMode           black               magenta           bold
 InsertMode           black               cyan              bold
 ReplaceMode          black               red               bold
-CommandMode          white               black             bold
+CommandMode          white               none             bold
 File                 white               darkgrey
-FileType             darkcyan            black
+FileType             darkcyan            none
 Percent              grey                none
-Column               darkcyan            black
+Column               darkcyan            none
