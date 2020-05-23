@@ -3,21 +3,20 @@
 # This file is sourced when launching a DM from startx/xinit
 
 # session launch
-source $HOME/.profile
 
 xss-lock -- slock &
 redshift &
+dunst &
 pamixer --set-volume 30 &
 sbacklight set 3 &
-xinput set-prop 'Synaptics TM3072-003' 'libinput Tapping Enabled' 1 &
-xinput set-prop 'Synaptics TM3072-003' 'libinput Natural Scrolling Enabled' 1 &
-xinput set-prop 'Synaptics TM3072-003' 'libinput Accel Speed' 0.4 &
-dunst &
 bat_notify &
 AC_notify &
 setbg &
 dwmbar &
 
+xinput set-prop 'Synaptics TM3072-003' 'libinput Tapping Enabled' 1 &
+xinput set-prop 'Synaptics TM3072-003' 'libinput Natural Scrolling Enabled' 1 &
+xinput set-prop 'Synaptics TM3072-003' 'libinput Accel Speed' 0.4 &
 setxkbmap 'fr(oss)'
-xmodmap $HOME/.xmodmap
+xmodmap $XDG_CONFIG_HOME/xmodmap
 sxhkd &
