@@ -1,13 +1,13 @@
 #!/bin/sh
 
 ######################################################################
-# @author      : swytch
-# @file        : mom
-# @license     : GPLv3
-# @created     : Wednesday May 20, 2020 18:19:56 CEST
+# @author       : swytch
+# @file         : mom
+# @license      : GPLv3
+# @created      : Wednesday May 20, 2020 18:19:56 CEST
 #
-# @description : create a groff doc with genereic metadata
-#                open it with (neo)vim
+# @description  : create a groff doc with genereic metadata
+#                 open it with (neo)vim
 ######################################################################
 
 

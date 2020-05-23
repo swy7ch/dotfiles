@@ -1,12 +1,12 @@
 #!/bin/sh
 
 ######################################################################
-# @author      : swytch (adapted form Luke Smith - lukesmith.xyz)
-# @file        : refbar
-# @license     : GPLv3
-# @created     : Wednesday May 20, 2020 18:21:19 CEST
+# @author       : swytch (adapted form Luke Smith - lukesmith.xyz)
+# @file         : refbar
+# @license      : GPLv3
+# @created      : Wednesday May 20, 2020 18:21:19 CEST
 #
-# @description : refresh dwmbar
+# @description  : refresh dwmbar
 ######################################################################
 
 

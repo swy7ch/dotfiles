@@ -1,14 +1,14 @@
 #!/bin/sh
 
 ######################################################################
-# @author      : swytch
-# @file        : mommerge
-# @license     : GPLv3
-# @created     : Wednesday May 20, 2020 18:20:23 CEST
+# @author       : swytch
+# @file         : mommerge
+# @license      : GPLv3
+# @created      : Wednesday May 20, 2020 18:20:23 CEST
 #
-# @description : merge mom files from current dir
-#                compile it with `compiler` script
-# @dependencies: `compiler` script
+# @description  : merge mom files from current dir
+#                 compile it with `compiler` script
+# @dependencies : `compiler` script
 ######################################################################
 
 

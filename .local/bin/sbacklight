@@ -1,12 +1,12 @@
 #!/bin/sh
 
 ######################################################################
-# @author      : swytch
-# @file        : sbacklight
-# @license     : GPLv3
-# @created     : Wednesday May 20, 2020 18:22:36 CEST
+# @author       : swytch
+# @file         : sbacklight
+# @license      : GPLv3
+# @created      : Wednesday May 20, 2020 18:22:36 CEST
 #
-# @description : control screen brightness
+# @description  : control screen brightness
 ######################################################################
 
 

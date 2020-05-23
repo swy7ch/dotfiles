@@ -1,13 +1,13 @@
 #!/bin/sh
 
 ######################################################################
-# @author      : swytch
-# @file        : texer
-# @license     : GPLv3
-# @created     : Wednesday May 20, 2020 18:26:30 CEST
+# @author       : swytch
+# @file         : texer
+# @license      : GPLv3
+# @created      : Wednesday May 20, 2020 18:26:30 CEST
 #
-# @description : create a LaTeX doc with generic metadata
-#                open it with (neo)vim
+# @description  : create a LaTeX doc with generic metadata
+#                 open it with (neo)vim
 ######################################################################
 
 

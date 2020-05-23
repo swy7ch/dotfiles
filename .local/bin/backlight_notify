@@ -1,12 +1,12 @@
 #!/bin/sh
 
 ######################################################################
-# @author      : swytch
-# @file        : backlight_notify
-# @license     : GPLv3
-# @created     : Wednesday May 20, 2020 17:53:36 CEST
+# @author       : swytch
+# @file         : backlight_notify
+# @license      : GPLv3
+# @created      : Wednesday May 20, 2020 17:53:36 CEST
 #
-# @description : send a notification with xbacklight value
+# @description  : send a notification with xbacklight value
 ######################################################################
 
 

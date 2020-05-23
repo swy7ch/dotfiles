@@ -1,12 +1,12 @@
 #!/bin/sh
 
 ######################################################################
-# @author      : swytch
-# @file        : bat_notify
-# @license     : GPLv3
-# @created     : Wednesday May 20, 2020 17:54:08 CEST
+# @author       : swytch
+# @file         : bat_notify
+# @license      : GPLv3
+# @created      : Wednesday May 20, 2020 17:54:08 CEST
 #
-# @description : send a notification with charge level
+# @description  : send a notification with charge level
 ######################################################################
 
 
