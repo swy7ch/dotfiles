@@ -1,13 +1,13 @@
 function! CurrentMode()
 	let g:currentmode={
-		\ 'n'	: '[ NORMAL ]',
-		\ 'v'	: '[ VISUAL ]',
-		\ 'V'	: '[ V·LINE ]',
-		\ ''	: '[ V·BLOCK ]',
-		\ 'i'	: '[ INSERT ]',
-		\ 'R'	: '[ REPLACE ]',
-		\ 'Rv'	: '[ V·REPLACE ]',
-		\ 'c'	: '[ COMMAND ]',
+		\ 'n'	: '[ NRM ]',
+		\ 'v'	: '[ VIS ]',
+		\ 'V'	: '[ V·L ]',
+		\ ''	: '[ V·B ]',
+		\ 'i'	: '[ INS ]',
+		\ 'R'	: '[ RPL ]',
+		\ 'Rv'	: '[ V·R ]',
+		\ 'c'	: '[ CMD ]',
 		\}
 
 	return g:currentmode[mode()]
@@ -30,7 +30,7 @@ endfunction
 
 function! FileName()
 	let g:name=' '
-	if winwidth(0)>70
+	if winwidth(0)>90
 		let g:name.='%F'
 	else
 		let g:name.='%t'
@@ -69,11 +69,11 @@ function! StatusLine()
 
 	" Filetype
 	let l:statusline.='%#FileType#'
-	let l:statusline.="%{&filetype!=#''?&filetype.' ':'none '}%*"
+	let l:statusline.="%{&filetype!=#''?&filetype.' ':'no ft '}%*"
 
 	" Encoding & Fileformat
-	let l:statusline.='%#WarningMsg#'
-	let l:statusline.="%{&fileencoding!='utf-8'?'['.&fileencoding.'] ':''}%*"
+	"let l:statusline.='%#WarningMsg#'
+	"let l:statusline.="%{&fileencoding!='utf-8'?'['.&fileencoding.'] ':''}%*"
 
 	" Depth
 	let l:statusline.='%#Percent#'
@@ -81,7 +81,7 @@ function! StatusLine()
 
 	" Location of cursor in line
 	let l:statusline.='%#Column#'
-	let l:statusline.='-%c-'
+	let l:statusline.='-%03.c-'
 
 	return l:statusline
 endfunction
