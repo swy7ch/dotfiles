@@ -20,10 +20,30 @@ uptime="$(uptime -p | sed 's/up //')"
 packages="$(pacman -Q | wc -l)"
 shell="$(basename "$SHELL")"
 wm="$(tail -n 1 "${HOME}/.xinitrc" | cut -d ' ' -f 2)"
-memav="$(grep "MemAvailable" /proc/meminfo | cut -d ':' -f 2 | awk '{ print int($1 / 1024) }')"
-memtot="$(grep "MemTotal" /proc/meminfo | cut -d ':' -f 2 | awk '{ print int($1 / 1024) }')"
-memus="$(expr $memtot - $memav)"
 
+# parse the '/proc/meminfo' file splitting on ':' and 'k'.
+# the format of the file is 'key:   000kB' and an additional
+# split is used on 'k' to filter out 'kB'.
+while IFS=':k '  read -r key val _; do
+	case $key in
+		# MemUsed = MemTotal + Shmem - MemFree - Buffers - Cached - SReclaimable
+		MemTotal)
+			mem_used=$((mem_used + val))
+			mem_total=$val
+		;;
+
+		Shmem)
+			mem_used=$((mem_used + val))
+		;;
+
+		MemFree|Buffers|Cached|SReclaimable)
+			mem_used=$((mem_used - val))
+		;;
+	esac
+done < /proc/meminfo
+
+mem_used=$((mem_used / 1024))
+mem_total=$((mem_total / 1024))
 
 # set colors
 if [ -x "$(command -v tput)" ]; then
@@ -53,6 +73,6 @@ ${c0}       /\\   \\      ${lc}SHELL:     ${ic}${shell}
 ${c0}      /      \\     ${lc}WM:        ${ic}${wm}
 ${c0}     /   ,,   \\    ${lc}UPTIME:    ${ic}${uptime}
 ${c0}    /   |  |  -\\   ${lc}PACKAGES:  ${ic}${packages}
-${c0}   /_-''    ''-_\\  ${lc}MEMORY:    ${ic}${memus}kB/${memtot}kB
+${c0}   /_-''    ''-_\\  ${lc}MEMORY:    ${ic}${mem_used}MiB/${mem_total}MiB
 
 EOF
