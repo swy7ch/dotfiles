@@ -6,6 +6,7 @@ Type = Package
 Target = *
 
 [Action]
-Description = Keep the last cache and the currently installed.
+Description = Keep the last cache and the currently installed...
+Depends = pacman-contrib
 When = PostTransaction
 Exec = /usr/bin/paccache -rvk2
