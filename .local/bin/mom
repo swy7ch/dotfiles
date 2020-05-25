@@ -33,7 +33,7 @@ else
 		echo '.START' >> "$1" && \
 
 		# checks if neovim is intalled
-		if type "nvim" &> /dev/null; then
+		if command -v nvim > /dev/null 2>&1; then
 			nvim "$1"
 		else
 			vim "$1"

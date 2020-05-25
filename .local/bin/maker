@@ -49,28 +49,28 @@ comp=get_compiler
 
 touch makefile
 
-echo "BIN = main" > makefile
-echo "TARGETS = $targets_list" >> makefile
-echo "" >> makefile
-echo "CC = $comp" >> makefile
-echo "FLAGS = -Wall -g" >> makefile
-echo "" >> makefile
-echo "all : \$(BIN)" >> makefile
-echo "" >> makefile
-echo "\$(BIN) : \$(TARGETS)" >> makefile
+printf "\nBIN = main" > makefile
+printf "\nTARGETS = $targets_list" >> makefile
+printf "\n" >> makefile
+printf "\nCC = $comp" >> makefile
+printf "\nFLAGS = -Wall -g" >> makefile
+printf "\n" >> makefile
+printf "\nall : \$(BIN)" >> makefile
+printf "\n" >> makefile
+printf "\n\$(BIN) : \$(TARGETS)" >> makefile
 echo -e "\t\$(CC) \$(TARGETS) -o \$(BIN) \$(FLAGS)" >> makefile
-echo "" >> makefile
+printf "\n" >> makefile
 
 for module in $modules_list; do
 	make_rule "$module"
 done
 
-echo "clean :" >> makefile
+printf "\nclean :" >> makefile
 echo -e "\trm \$(BIN) *.o vgcore.*" >> makefile
 
 sed -i 's/\s$//' makefile
 
-if type "nvim" &> /dev/null; then
+if command -v nvim > /dev/null 2>&1; then
 	nvim makefile
 else
 	vim makefile
