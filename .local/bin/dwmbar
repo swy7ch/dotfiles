@@ -14,7 +14,7 @@
 # Handle SIGTRAP signals sent by refbar to update the status bar immediately.
 trap 'update' 5
 
-delim="|" # Set the delimiter character.
+delim=" | " # Set the delimiter character.
 
 status() { \
 	# Get the volume of ALSA's master volume output.
@@ -22,21 +22,22 @@ status() { \
 	muted="$(pamixer --get-mute)"
 
 	if [ "$muted" = "true" ]; then
-		echo " muted"
+		printf " muted"
 	else
-		echo " 墳 $volume%"
+		printf " 墳 $volume%%"
 	fi
 
-	echo "$delim"
+	printf "$delim"
 
 	# Wifi quality percentage and  icon if ethernet is connected.
-	grep "^\s*w" /proc/net/wireless | awk '{ print "索", int($3 * 100 / 70) "%" }'
+	wifi="$(grep "^\s*w" /proc/net/wireless | awk '{ print "索", int($3 * 100 / 70) "%" }')"
+	printf "$wifi"
 	eth="$(cat /sys/class/net/enp0s25/operstate)"
 	if [ "up" = "$eth" ]; then
-		echo "/ "
+		printf " / "
 	fi
 
-	echo "$delim"
+	printf "$delim"
 
 	# Will show all batteries with approximate icon for remaining power.
 	# Or show that the computer is plugged to a power source
@@ -46,17 +47,17 @@ status() { \
 	do
 	if [ "$AC_ON" = 0 ]; then
 		case "$(cat "$x")" in
-			10[0-9]|101)	echo "" ;;
-			100|9[0-9])	echo " $(cat "$x")%" ;;
-			8[0-9]|7[0-9])	echo " $(cat "$x")%" ;;
-			6[0-9]|5[0-9])	echo " $(cat "$x")%" ;;
-			4[0-9]|3[0-9])	echo " $(cat "$x")%" ;;
-			*)		echo " $(cat "$x")%" ;;
+			10[0-9]|101)	printf "" ;;
+			100|9[0-9])	printf " $(cat "$x")%%" ;;
+			8[0-9]|7[0-9])	printf " $(cat "$x")%%" ;;
+			6[0-9]|5[0-9])	printf " $(cat "$x")%%" ;;
+			4[0-9]|3[0-9])	printf " $(cat "$x")%%" ;;
+			*)		printf " $(cat "$x")%%" ;;
 		esac
 	else
-		echo " $(cat "$x")%"
+		printf " $(cat "$x")%%"
 	fi
-	done && echo "$delim"
+	done && printf "$delim"
 
 	# Date and time.
 	date '+%b. %d - %I:%M%p'

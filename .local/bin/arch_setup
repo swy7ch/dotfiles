@@ -26,12 +26,12 @@ services_list="netctl-auto@wlp4s0 systemd-timescyncd"
 
 git_clone() {
 	git clone https://gitlab.com/swy7ch/$1 ~/suckless/$1
-	echo "$1 downloaded!"
+	printf "\n$1 downloaded!"
 	cd ~/$1
 	git remote set-url origin git@gitlab.com:swy7ch/$1
 	if [ "dotfiles" != $1 ]
 		git remote add upstream git://git.suckless.org/$1
-		echo "$1 setup complete!"
+		printf "\n$1 setup complete!"
 	fi
 	cd
 }
@@ -39,7 +39,7 @@ git_clone() {
 build() {
 	cd ~/$1
 	sudo make clean install
-	echo "$1 compilation complete!"
+	printf "\n$1 compilation complete!"
 }
 
 install() {
@@ -47,7 +47,7 @@ install() {
 	if [ $validation = "y" ]; then
 		yay -S $APP
 	else
-		echo "Skipping $APP"
+		printf "\nSkipping $APP"
 	fi
 }
 
@@ -61,7 +61,7 @@ enable_systemctl() {
 
 
 
-echo "Configuring Arch..."
+printf "\nConfiguring Arch..."
 
 # Retrieving yay
 # We need git
@@ -70,96 +70,96 @@ git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si
 
-echo "YAY is here !"
+printf "\nYAY is here !"
 
 cd ~
 
-echo "Let's get the other apps"
+printf "\nLet's get the other apps"
 
 # Installing apps
 
-echo "Installing base"
+printf "\nInstalling base"
 
 for app in $base_list; do
 	install $app
 done
 
-echo "Done."
+printf "\nDone."
 
-echo "Installing utilitaries"
+printf "\nInstalling utilitaries"
 
 for app in $utilities_list; do
 	install $app
 done
 
-echo "Done."
+printf "\nDone."
 
-echo "Installing fonts"
+printf "\nInstalling fonts"
 
 for app in $fonts_list; do
 	install $app
 done
 
-echo "Done."
+printf "\nDone."
 
-echo "Installing media apps"
+printf "\nInstalling media apps"
 
 for app in $media_list; do
 	install $app
 done
 
-echo "Done."
+printf "\nDone."
 
-echo "Installing other apps"
+printf "\nInstalling other apps"
 
 for app in $other_list; do
 	install $app
 done
 
-echo "Done."
+printf "\nDone."
 
-echo "Installing vim-plug"
+printf "\nInstalling vim-plug"
 
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-echo "Done."
+printf "\nDone."
 
-echo "Installation complete !"
+printf "\nInstallation complete !"
 
 # Symlinking the necessary stuff
 
-echo "Downloading personnal git repos..."
+printf "\nDownloading personnal git repos..."
 
 for repo in $git_list; do
 	git_clone $repo
 done
 
-echo "Done."
+printf "\nDone."
 
-echo "Compiling tools..."
+printf "\nCompiling tools..."
 
 for tool in $build_list; do
 	build $tool
 done
 
-echo "Done."
+printf "\nDone."
 
-echo ""
-echo "!!! Don't forget to link an SSH key to your account !!!"
-echo "!!!   As of now, you can't pull nor push anything   !!!"
-echo ""
+printf "\n"
+printf "\n!!! Don't forget to link an SSH key to your account !!!"
+printf "\n!!!   As of now, you can't pull nor push anything   !!!"
+printf "\n"
 
-echo "Enabling systemctl services"
+printf "\nEnabling systemctl services"
 
 for service in $services_list; do
 	enable_systemctl $service
 done
 
-echo "Done."
+printf "\nDone."
 
-echo ""
-echo "##################################################"
-echo ""
+printf "\n"
+printf "\n##################################################"
+printf "\n"
 
-echo "Configuration complete !"
+printf "\nConfiguration complete !\n"

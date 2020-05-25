@@ -13,14 +13,14 @@
 
 headers_list="$(ls | grep '.h$')"
 sources_list="$(ls | grep '.cp*$')"
-modules_list="$(echo "$sources_list" | sed 's/\.cp*//g' | tr '\n' ' ')"
-targets_list="$(echo "$sources_list" | sed 's/\.cp*/\.o/g' | tr '\n' ' ')"
+modules_list="$(printf "\n$sources_list" | sed 's/\.cp*//g' | tr '\n' ' ')"
+targets_list="$(printf "\n$sources_list" | sed 's/\.cp*/\.o/g' | tr '\n' ' ')"
 
 get_compiler(){
 	for source_ in "$sources_list"; do
 		case "$source_" in
-			*.cpp) echo "g++" && return;;
-			*.c) echo "gcc";;
+			*.cpp) printf "\ng++" && return;;
+			*.c) printf "\ngcc";;
 		esac
 	done
 }
@@ -31,17 +31,17 @@ is_c_project(){
 
 make_rule(){
 	if [ "$comp" = "gcc" ]; then
-		echo "$1.o : $1.c $1.h" >> makefile
+		printf "\n$1.o : $1.c $1.h" >> makefile
 		echo -e "\t\$(CC) -c $1.c \$(FLAGS)" >> makefile
 	else
-		echo "$1.o : $1.cpp $1.h" >> makefile
+		printf "\n$1.o : $1.cpp $1.h" >> makefile
 		echo -e "\t\$(CC) -c $1.cpp \$(FLAGS)" >> makefile
 	fi
-	echo "" >> makefile
+	printf "\n" >> makefile
 }
 
 if ! is_c_project; then
-	echo "No C/C++ project in directory. Exiting..."
+	printf "\nNo C/C++ project in directory. Exiting..."
 	exit 1
 fi
 

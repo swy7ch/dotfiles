@@ -17,7 +17,7 @@
 file=$(readlink -f "$1")
 dir=$(dirname "$file")
 dirname=$(basename "$dir")
-base="$(echo "${file%.*}" | awk -F '/' '{printf $NF}')"
+base="$(printf "${file%.*}" | awk -F '/' '{printf $NF}')"
 shebang=$(sed -n 1p "$file")
 
 sucklesstools="$(ls $XDG_CONFIG_HOME/suckless)"
@@ -47,7 +47,7 @@ texcompile() { \
 s_build(){
 	case "$file" in
 		*config.def.h) sudo make clean install && rm -f config.h ;;
-		*config.h) echo "" && echo "You should build from config.def.h !" ;;
+		*config.h) printf "\nYou should build from config.def.h !" ;;
 	esac
 
 	exit 0

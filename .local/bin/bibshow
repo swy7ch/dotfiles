@@ -16,10 +16,10 @@ file="$(find $HOME/documents/bibliographies/ -type f -not -path '*/\.*' | dmenu 
 refs_list="$(sed -e 's/\t//g' "$file" | tr '\n' ' ' | sed -e 's/}\ /}\n/g')"
 [ -z $refs_list ] && exit 1;
 
-ref="$(echo "$refs_list" | dmenu -i -p 'infos?' -l 10)"
+ref="$(printf "$refs_list" | dmenu -i -p 'reference?' -l 10)"
 [ -z $ref ] && exit 1;
 
-output="$(echo "$ref" | sed 's/author/\n author/g' | sed 's/",/",\n/g')"
+output="$(printf "$ref" | sed -e 's/author/\n author/g' -e 's/",/",\n/g')"
 
-echo "$output" | dmenu -i -p "infos" -l 10
-echo "$ref" | awk -F '{' '{print $2}' | awk -F ',' '{print $1}' | xclip -selection clipboard
+printf "$output" | dmenu -i -p "infos" -l 10
+printf "$ref" | awk -F '{' '{print $2}' | awk -F ',' '{print $1}' | xclip -selection clipboard

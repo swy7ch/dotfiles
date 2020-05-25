@@ -11,26 +11,26 @@
 ######################################################################
 
 
-if [ -z ""$1"" ]; then
-	echo "Please provide a name for your file"
+if [ -z "$1" ]; then
+	printf 'Please provide a name for your file\n'
 elif [ -e "$1" ]; then
-	echo "This filename is already taken, please provide a different name"
+	printf 'This filename is already taken, please provide a different name\n'
 else
 	touch "$1" && \
-		echo "\# metadata" >> "$1" && \
-		echo '.AUTHOR "David JULIEN"' >> "$1" && \
-		echo '.TITLE' >> "$1" && \
-		echo '\# template' >> "$1" && \
-		echo '.PRINTSTYLE TYPESET' >> "$1" && \
-		echo '.QUOTE_STYLE QUAD' >> "$1" && \
-		echo '.SMARTQUOTES FR' >> "$1" && \
-		echo '.ATTRIBUTE_STRING "par"' >> "$1" && \
-		echo '.LINEBREAK_CHAR ""' >> "$1" && \
-		echo '\# cover' >> "$1" && \
-		echo '.COVER AUTHOR TITLE BLANKPAGE' >> "$1" && \
-		echo '.DOCHEADER OFF' >> "$1" && \
-		echo '\#' >> "$1" && \
-		echo '.START' >> "$1" && \
+		printf '\# metadata' >> "$1" && \
+		printf '\n.AUTHOR "David JULIEN"' >> "$1" && \
+		printf '\n.TITLE' >> "$1" && \
+		printf '\n\# template' >> "$1" && \
+		printf '\n.PRINTSTYLE TYPESET' >> "$1" && \
+		printf '\n.QUOTE_STYLE QUAD' >> "$1" && \
+		printf '\n.SMARTQUOTES FR' >> "$1" && \
+		printf '\n.ATTRIBUTE_STRING "par"' >> "$1" && \
+		printf '\n.LINEBREAK_CHAR ""' >> "$1" && \
+		printf '\n\# cover' >> "$1" && \
+		printf '\n.COVER AUTHOR TITLE BLANKPAGE' >> "$1" && \
+		printf '\n.DOCHEADER OFF' >> "$1" && \
+		printf '\n\#' >> "$1" && \
+		printf '\n.START' >> "$1" && \
 
 		# checks if neovim is intalled
 		if command -v nvim > /dev/null 2>&1; then

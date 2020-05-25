@@ -25,7 +25,7 @@ touch rendu.mom
 
 for doc in "$list"; do
 	cat "$doc" >> rendu.mom
-	echo ".COLLATE" >> rendu.mom
+	printf "\n.COLLATE" >> rendu.mom
 done
 
 # Remove the last ".COLLATE"

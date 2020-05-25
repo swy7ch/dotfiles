@@ -12,69 +12,69 @@
 
 
 if [ -z "$1" ]; then
-	echo "Please provide a name for your file"
+	printf "Please provide a name for your file\n"
 elif [ -e $1 ]; then
-	echo "This filename is already taken, please provide a different name"
+	printf "This filename is already taken, please provide a different name\n"
 else
 	touch "$1"
-	echo '% metadata' >> "$1"
+	printf '%%metadata' >> "$1"
 	read -p "Which type is your document? (def: article) " class
 	if [ -z "$class" ]; then
 		class='article'
 	fi
-	echo "\\documentclass[a4paper, 12pt]{$class}" >> "$1"
-	echo '' >> "$1"
+	printf "\n\\documentclass[a4paper, 12pt]{$class}" >> "$1"
+	printf '\n' >> "$1"
 	read -p "Do you want colors?(y/N) " colors
 	if [ "$colors" = "y" ]; then
-		echo '\usepackage[dvipsname]{xcolor}' >> "$1"
+		printf '\n\usepackage[dvipsname]{xcolor}' >> "$1"
 	fi
 	read -p "Do you want hyperlinks management?(y/N) " links
 	if [ "$links" = "y" ]; then
 		if [ "$colors" != "y" ]; then
-			echo '\usepackage[dvipsname]{xcolor}' >> "$1"
+			printf '\n\usepackage[dvipsname]{xcolor}' >> "$1"
 		fi
-		echo '\usepackage[colorlinks=true, urlcolor=BrickRed]{hyperref}' >> "$1"
+		printf '\n\usepackage[colorlinks=true, urlcolor=BrickRed]{hyperref}' >> "$1"
 	fi
 	read -p "Do you want bibliography management?(y/N) " bibliography
 	if [ "$bibliography" = "y" ]; then
 		read -p "Do you want to use apacite?(y/N) " apacite
 		if [ $apacite = "y" ]; then
-			echo '\usepackage{apacite}' >> "$1"
+			printf '\n\usepackage{apacite}' >> "$1"
 			bibstyle="apacite"
 		else
 			bibstyle="unsrt"
-			echo 'The default style is _unsrt_ (you may change it at the end of the document)'
+			printf '\nThe default style is _unsrt_ (you may change it at the end of the document)'
 		fi
 		bibfile="$(basename "$(find $HOME/documents/bibliographies/ -type f -not -path '*/\.*' | dmenu -l 20 -p "which bibliography?")")" # the -not -path allows find to ignore hidden files
 		if [ -z "$bibfile" ]; then
-			echo ''
-			echo '##################################################'
-			echo "Don't forget to specify the .bib file (\\bibliography{.bib}) at the end of the file          " | fold -w 46 | sed "s/$/\ \#/g" | sed "s/^/\#\ /g"
-		echo '##################################################'
-		echo ''
+			printf '\n'
+			printf '\n##################################################'
+			printf "\nDon't forget to specify the .bib file (\\bibliography{.bib}) at the end of the file          " | fold -w 46 | sed "s/$/\ \#/g" | sed "s/^/\#\ /g"
+		printf '\n##################################################'
+		printf '\n'
 		fi
 	fi
 	read -p "Do you want to use another package? If so, please provide a package name; else, just press <Enter>: " package
 	while [ -n "$package" ]; do
-		echo "\usepackage{"$package"}" >> "$1"
+		printf "\n\usepackage{"$package"}" >> "$1"
 		package=''
 		read -p "Do you want to use another package? If so, please provide a package name: " package
 	done
-	echo '' >> "$1"
-	echo '\author{David JULIEN}' >> "$1"
+	printf '\n' >> "$1"
+	printf '\n\\author{David JULIEN}' >> "$1"
 	read -p "What is the title of the document? " title
-	echo "\\title{"$title"}" >> "$1"
-	echo '' >> "$1"
-	echo '%document' >> "$1"
-	echo '\begin{document}' >> "$1"
-	echo '' >> "$1"
-	echo '\maketitle' >> "$1"
-	echo '' >> "$1"
+	printf '\n\\title{"$title"}' >> "$1"
+	printf '\n' >> "$1"
+	printf '\n%%document' >> "$1"
+	printf '\n\\begin{document}' >> "$1"
+	printf '\n' >> "$1"
+	printf '\n\\maketitle' >> "$1"
+	printf '\n' >> "$1"
 	if [ "$bibliography" = "y" ]; then
-		echo "\bibliographystyle{$bibstyle}" >> "$1"
-		echo "\bibliography{$HOME/documents/bibliographies/$bibfile}" >> "$1"
+		printf '\n\bibliographystyle{$bibstyle}' >> "$1"
+		printf '\n\bibliography{$HOME/documents/bibliographies/$bibfile}' >> "$1"
 	fi
-	echo '\end{document}' >> "$1"
+	printf '\n\end{document}' >> "$1"
 
 	# check if neovim is installed
 	if command -v nvim > /dev/null 2>&1; then

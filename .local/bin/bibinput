@@ -26,7 +26,7 @@ input() {
 	if [ "$1" = "reference" ]; then
 		refinput | dmenu -i -p 'reference?' -l 10
 	elif [ "$1" = "doctype" ]; then
-		echo "$doctypes" | sed "s| |\n|g" | dmenu -i -p 'doctype?'
+		printf "$doctypes" | sed "s| |\n|g" | dmenu -i -p 'doctype?'
 	elif [ "$1" = "author" ]; then
 		parse "author" | dmenu -i -p 'author name? (surname, first name)' -l 10
 	elif [ "$1" = "keywords" ]; then
@@ -37,7 +37,7 @@ input() {
 }
 
 refinput(){
-	echo "ref$(cat "$file" | grep '@' | wc -l | awk '{printf $1}')" && parse "@"
+	printf "ref$(cat "$file" | grep '@' | wc -l | awk '{printf $1}')\n" && parse "@"
 }
 
 doctypes="article book online techreport"
@@ -105,14 +105,14 @@ while [ "$keyword_test" = "yes" ]; do
 	fi
 done
 
-echo "@$doctype{"$reference"," >> "$file"
-echo -e "\tauthor = \"$author\"," >> "$file"
-echo -e "\ttitle = \"$title\"," >> "$file"
-echo -e "\tyear = \"$year\"," >> "$file"
-[ -n "$journal" ] && echo -e "\tjournal = \"$journal\"," >> "$file"
-[ -n "$volume" ] && echo -e "\tvolume = \"$volume\"," >> "$file"
-[ -n "$publisher" ] && echo -e "\tpublisher = \"$publisher\"," >> "$file"
-[ -n "$url" ] && echo -e "\turl = \"$url\"," >> "$file"
-[ -n "$institution" ] && echo -e "\tinstitution = \"$institution\"," >> "$file"
-echo -e "\tkeywords = \"$keywords\"" >> "$file"
-echo "}" >> "$file"
+printf "\n@$doctype{"$reference"," >> "$file"
+printf "\n\tauthor = \"$author\"," >> "$file"
+printf "\n\ttitle = \"$title\"," >> "$file"
+printf "\n\tyear = \"$year\"," >> "$file"
+[ -n "$journal" ] && printf "\n\tjournal = \"$journal\"," >> "$file"
+[ -n "$volume" ] && printf "\n\tvolume = \"$volume\"," >> "$file"
+[ -n "$publisher" ] && printf "\n\tpublisher = \"$publisher\"," >> "$file"
+[ -n "$url" ] && printf "\n\turl = \"$url\"," >> "$file"
+[ -n "$institution" ] && printf "\n\tinstitution = \"$institution\"," >> "$file"
+printf "\n\tkeywords = \"$keywords\"" >> "$file"
+printf "\n}" >> "$file"
