@@ -7,16 +7,17 @@
 # @created      : Wednesday May 20, 2020 17:57:47 CEST
 #
 # @description  : create a bibliography entry through dmenu
+# @dependencies : dmenu
 ######################################################################
 
 
 parse(){
 	if [ "$1" = "@" ]; then
-		grep "$1" "$file" | awk -F '{' '{print $2} ' | tr ',' '\n' | sort -r | sed '/^[[:space:]]*$/d'
+		grep "$1" "$file" | awk -F '{' '{print $2} ' | tr ',' '\n' | sed '/^[[:space:]]*$/d' | sort -r
 	elif [ "$1" = "keywords" ]; then
-		grep "$1" "$file" | awk -F '"' '{print $2} ' | tr ' ' '\n' | sed 's/,//g' | sort -u | sed '/^[[:space:]]*$/d'
+		grep "$1" "$file" | awk -F '"' '{print $2} ' | tr ' ' '\n' | sed -e 's/,//g' -e '/^[[:space:]]*$/d' | sort -u
 	else
-		grep "$1" "$file" | sed "s/,$//g" | awk -F '"' '{print $2} ' | sort | uniq
+		grep "$1" "$file" | sed "s/,$//g" | awk -F '"' '{print $2} ' | sort -u
 
 	fi
 }
@@ -88,7 +89,7 @@ if [ -z "$keyword" ]; then
 	keyword_test="no"
 else
 	keyword_test="$(printf "yes\nno" |dmenu -p "another keyword?")"
-	keyword_test=${keyword_test:-no}
+	keyword_test=${keyword_test:-"no"}
 fi
 while [ "$keyword_test" = "yes" ]; do
 	keyword="$(input "keywords")"
@@ -96,7 +97,7 @@ while [ "$keyword_test" = "yes" ]; do
 		keyword_test="no"
 	elif [ "${keywords#*"$keyword"}" != "$keywords" ]; then
 		keyword_test="$(printf "yes\nno" |dmenu -p "keyword already given. another keyword?")"
-		keyword_test=${keyword_test:-no}
+		keyword_test=${keyword_test:-"no"}
 	else
 		keywords="$keywords, $keyword"
 		keyword_test="$(printf "yes\nno" |dmenu -p "another keyword?")"

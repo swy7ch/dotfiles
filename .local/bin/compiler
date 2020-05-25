@@ -56,6 +56,7 @@ s_build(){
 for tool in $sucklesstools; do
 	if [ "$tool" = "$dirname" ]; then
 		s_build
+		break 0
 	fi
 done
 

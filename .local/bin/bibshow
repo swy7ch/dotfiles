@@ -7,12 +7,13 @@
 # @created      : Wednesday May 20, 2020 17:58:14 CEST
 #
 # @description  : interactively display the infos in a .bib entry
+# @dependencies : dmenu
 ######################################################################
 
 
 file="$(find $HOME/documents/bibliographies/ -type f -not -path '*/\.*' | dmenu -l 20 -p "[bibshow] which bibliography?")" # the -not -path allows find to ignore hidden files
 
-refs_list="$(sed 's/\t//g' "$file" | tr '\n' ' ' | sed 's/}\ /}\n/g')"
+refs_list="$(sed -e 's/\t//g' "$file" | tr '\n' ' ' | sed -e 's/}\ /}\n/g')"
 [ -z $refs_list ] && exit 1;
 
 ref="$(echo "$refs_list" | dmenu -i -p 'infos?' -l 10)"
