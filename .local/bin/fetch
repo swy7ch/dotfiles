@@ -51,7 +51,8 @@ if [ -x "$(command -v tput)" ]; then
 	black="$(tput setaf 0)"
 	red="$(tput setaf 1)"
 	green="$(tput setaf 2)"
-	yellow="$(tput setaf 3)"
+	orange="$(tput setaf 3)"
+	yellow="$(tput setaf 11)"
 	blue="$(tput setaf 4)"
 	magenta="$(tput setaf 5)"
 	cyan="$(tput setaf 6)"
@@ -60,19 +61,20 @@ if [ -x "$(command -v tput)" ]; then
 fi
 
 # you can change these
-lc="${bold}${blue}"                 # labels
-nc="${bold}${magenta}"              # user and hostname
-ic="${reset}"                       # info
-c0="${reset}"                		# first color
+lc="${bold}${green}"                # labels
+nc="${bold}${red}"                  # user and hostname
+ic="${reset}${yellow}"              # info
+a0="${reset}${blue}"                # first arch color
+a1="${reset}${cyan}"                # second arch color
 
 cat <<EOF
-${c0}                   ${nc}${USER}${ic}@${nc}${host}
-${c0}         /\\        ${lc}OS:        ${ic}${os}
-${c0}        /  \\       ${lc}KERNEL:    ${ic}${kernel}
-${c0}       /\\   \\      ${lc}SHELL:     ${ic}${shell}
-${c0}      /      \\     ${lc}WM:        ${ic}${wm}
-${c0}     /   ,,   \\    ${lc}UPTIME:    ${ic}${uptime}
-${c0}    /   |  |  -\\   ${lc}PACKAGES:  ${ic}${packages}
-${c0}   /_-''    ''-_\\  ${lc}MEMORY:    ${ic}${mem_used}MiB/${mem_total}MiB
+${a0}                   ${nc}${USER}${ic}@${nc}${host}
+${a0}         /\\        ${lc}OS:        ${ic}${os}
+${a0}        /  \\       ${lc}KERNEL:    ${ic}${kernel}
+${a0}       /\\   \\      ${lc}SHELL:     ${ic}${shell}
+${a1}      /      \\     ${lc}WM:        ${ic}${wm}
+${a1}     /   ,,   \\    ${lc}UPTIME:    ${ic}${uptime}
+${a1}    /   |  |  -\\   ${lc}PACKAGES:  ${ic}${packages}
+${a1}   /_-''    ''-_\\  ${lc}MEMORY:    ${ic}${mem_used}MiB/${mem_total}MiB
 
 EOF
