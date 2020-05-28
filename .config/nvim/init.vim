@@ -107,6 +107,7 @@ set nomodeline
 set termguicolors
 
 " Colorscheme
+set background=dark
 colorscheme polyjuice
 
 "" Text, tab and indent
