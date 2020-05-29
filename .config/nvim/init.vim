@@ -44,9 +44,6 @@ let g:indent_guides_enable_on_vim_startup=1
 
 "" General
 """"""""""""""""""""""""""""""""""""""""""""""""""
-" Set how many lines VIM has to remember
-set history=500
-
 " Set vim update time (milliseconds)
 set updatetime=250
 
@@ -65,9 +62,6 @@ let mapleader = " "
 " Remove the pause when leaving insert mode
 set ttimeoutlen=10
 
-" Set utf8 as standard encoding
-set encoding=utf-8
-
 " No netrw history
 let g:netrw_dirhistmax=0
 
@@ -85,17 +79,8 @@ set relativenumber
 " A buffer becomes hidden when abandonned
 set hid
 
-" Highlights search results
-set hlsearch
-
-" Searches before hitting ENTER
-set incsearch
-
 " Shows matching brackets when cursor is over them
 set showmatch
-
-" Shows the command that's being typed
-set showcmd
 
 " Splits to the right
 set splitright
@@ -114,9 +99,6 @@ colorscheme polyjuice
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " Do not use spaces instead of tabs
 set noexpandtab
-
-" But be smart with tabs
-set smarttab
 
 " 1 tab = 4 spaces
 set tabstop=4
@@ -142,7 +124,6 @@ autocmd BufWritePre * %s/\s\+$//e
 "" Status line
 """""""""""""""""""""""""""""""""""""""""""""""""""
 "Always show the status line
-set laststatus=2
 set noshowmode
 
 source $XDG_CONFIG_HOME/nvim/statusline.vim
