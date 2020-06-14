@@ -32,7 +32,7 @@ shebangtest()
 }
 
 texcompile() { \
-	bibliography="$(grep '\bibliography' "$file")"
+	bibliography="$(grep '\\bibliography' "$file")"
 	if [ -n "$bibliography" ]; then
 		pdflatex --output-directory="$dir" "$base" &&
 		bibtex "$base" &&
@@ -47,16 +47,15 @@ texcompile() { \
 s_build(){
 	case "$file" in
 		*config.def.h) sudo make clean install && rm -f config.h ;;
-		*config.h) printf "\nYou should build from config.def.h !" ;;
+		*config.h) printf "\nYou should build from config.def.h !" && exit 1 ;;
+		*) printf "\nI guess you lost yourself ? Please build from config.def.h !" && exit 1 ;;
 	esac
-
-	exit 0
 }
 
 for tool in $sucklesstools; do
 	if [ "$tool" = "$dirname" ]; then
 		s_build
-		break 0
+		exit 0
 	fi
 done
 
