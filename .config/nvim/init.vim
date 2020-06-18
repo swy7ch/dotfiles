@@ -153,7 +153,7 @@ noremap <leader>n :bn<CR>
 noremap <leader>b :bp<CR>
 
 " Clear the search highlight
-noremap <leader>q :nohl<CR>
+noremap <leader>h :nohl<CR>
 
 " Make use of xclipboard
 nnoremap <leader>v "+p
