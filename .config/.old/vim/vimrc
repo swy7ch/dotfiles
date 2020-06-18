@@ -1,7 +1,5 @@
-" Swy7ch' config file for vim
-
 """"""""""""""""""""""""""""""""""""""""""""""""""
-" Vim-Plug Stuff
+" Vim-Plug
 """"""""""""""""""""""""""""""""""""""""""""""""""
 
 "Automatic installation
@@ -19,20 +17,17 @@ call plug#begin('~/.vim/plugins')
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 
-" List of plugins :
-
-
-" Custom status bar
-Plug 'itchyny/lightline.vim'
-
 " Language hilighting packages
 Plug 'sheerun/vim-polyglot'
 
 " Shows indent guides
 Plug 'nathanaelkane/vim-indent-guides'
 
-" Gruvbox colorscheme
-Plug 'morhetz/gruvbox'
+" Colorscheme management
+Plug 'lifepillar/vim-colortemplate'
+
+" Templates
+Plug 'tibabit/vim-templates'
 
 " All Plugins must be added before the following line
 call plug#end()
@@ -43,6 +38,10 @@ call plug#end()
 " :PlugUpgrade		- upgrades vim-plug
 " :PlugClean		- confirms removal of unused plugins; append `!` to auto-approve removal
 "
+
+" Indent Guides
+let g:indent_guides_enable_on_vim_startup=1
+
 """"""""""""""""""""""""""""""""""""""""""""""""""
 "						 "
 "		Non-plugin stuff :		 "
@@ -77,6 +76,9 @@ set wildmode=longest,list,full
 " Sets the font
 set guifont=FuraCode\ Nerd\ Font\ Mono\ 12
 
+" Set utf8 as standard encoding
+set encoding=utf-8
+
 " Shows the current position
 set ruler
 
@@ -104,23 +106,43 @@ set showcmd
 " Splits to the right
 set splitright
 
-" Shows the current line
-set cursorline
-
 " Prevents nvim from being customized by text files commands
 set nomodeline
 
-""""""""""""""""""""""""""""""""""""""""""""""""""
-" -> Colors and font
-""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+" -> Status line
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+"Always show the status line
+set laststatus=2
+
+"Don't show editor mode
+set noshowmode
+
+source $HOME/.vim/statusline.vim
+
+augroup statusline
+	autocmd!
+	autocmd VimEnter *
+		\ call UpdateInactiveWindows()
+	autocmd VimEnter,WinEnter,BufWinEnter *
+		\ call RefreshStatusLine('active')
+	autocmd WinLeave *
+		\ call RefreshStatusLine('inactive')
+augroup END
+
 " GUI colors
+" set Vim-specific sequences for RGB colors
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+set termguicolors
 syntax enable
 
-" Set utf8 as standard encoding
-set encoding=utf-8
+" Colorscheme
+set background=dark
+colorscheme polyjuice
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
-" -> Text, tab and indent related stuff
+" -> Text, tab and indent
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " Do not use spaces instead of tabs
 set noexpandtab
@@ -145,57 +167,37 @@ set wildmode=longest,list,full
 " Automatically removes all trailing whitespaces on save
 autocmd BufWritePre * %s/\s\+$//e
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""
-" -> Status line
-"""""""""""""""""""""""""""""""""""""""""""""""""""
-"Always show the status line
-set laststatus=2
-
-""""""""""""""""""""""""""""""""""""""""""""""""""
-" -> Plugins stuff
-""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" Correct colors with dark background
-set background=dark
-
-" Gruvbox setup
-let g:gruvbox_contrast_dark='hard'
-
-" Colorscheme
-colorscheme gruvbox
-
-" Airline already shows the mode -> get rid of vim's default
-set noshowmode
-
-" Lightline customization
-let g:lightline = {
-			\ 'colorscheme': 'gruvbox',
-			\ 'active': {
-			\   'left': [ [ 'mode', 'paste' ],
-			\             [ 'readonly', 'filename', 'modified' ] ]
-			\ },
-			\ 'component_function': {
-			\ },
-			\ }
-
-" Indent Guides
-let g:indent_guides_enable_on_vim_startup=1
-
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " -> Macros
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " Source files
-noremap <leader>s :source ~/.vimrc <CR>
-noremap <leader>r :source %<CR>
+noremap <leader>s :source ~/.vim/vimrc <CR>
 
-" Reset the search buffer
-noremap <leader>h :let @/ = ""<CR>
+" Circle through buffers
+noremap <leader>n :bn<CR>
+noremap <leader>b :bp<CR>
 
-" Plugin management
-noremap <leader>i :PlugInstall
-noremap <leader>c :PlugClean
-noremap <leader>u :PlugUpdate \| PlugUpgrade
+" Clear the search highlight
+noremap <leader>h :nohl<CR>
 
 " Make use of xclipboard
-inoremap <C-v> <Esc>"+pA
-vnoremap <C-c> "+y
+nnoremap <leader>v "+p
+vnoremap <leader>c "+y
+
+" Compile document
+noremap <leader><Enter> :w! \| !compiler %<CR>
+
+" Compile mom folder into pdf
+noremap <leader>m :w! \| !mommerge<CR>
+
+" Plugin management
+noremap <leader>pi :PlugInstall<CR>
+noremap <leader>pc :PlugClean<CR>
+noremap <leader>pu :PlugUpdate \| PlugUpgrade<CR>
+
+" Colorize
+noremap <leader>cc :ColorizerToggle<CR>
+
+" Template
+noremap <leader>ti :TemplateInit<CR>
+noremap <leader>te :TemplateExpand<CR>

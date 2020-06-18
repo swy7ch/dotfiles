@@ -123,7 +123,7 @@ autocmd BufWritePre * %s/\s\+$//e
 
 "" Status line
 """""""""""""""""""""""""""""""""""""""""""""""""""
-"Always show the status line
+"Don't show editor mode
 set noshowmode
 
 source $XDG_CONFIG_HOME/nvim/statusline.vim
