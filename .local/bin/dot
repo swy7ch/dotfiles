@@ -16,6 +16,7 @@ cmd="$git status" # by default, give the status
 [ "$1" = "-g" ] && shift && cmd="$git $@" # make the wrapper transparent
 
 [ "$1" = "-l" ] && shift && cmd="$git log"
+[ "$1" = "-lg" ] && shift && cmd="$git log --graph --format=short"
 [ "$1" = "-c" ] && shift && cmd="$git commit $@"
 [ "$1" = "-ca" ] && shift && cmd="$git commit -a"
 [ "$1" = "-cas" ] && shift && cmd="$git commit -S --amend $@"
@@ -24,6 +25,8 @@ cmd="$git status" # by default, give the status
 [ "$1" = "-ps" ] && shift && cmd="$git push $@"
 [ "$1" = "-pl" ] && shift && cmd="$git pull"
 [ "$1" = "-a" ] && shift && cmd="$git add $@"
+[ "$1" = "-b" ] && shift && cmd="$git branch $@"
+[ "$1" = "-s" ] && shift && cmd="$git show $@"
 [ "$1" = "-rm" ] && shift && cmd="$git rm --cached $@"
 [ "$1" = "-rb" ] && shift && cmd="$git rebase $@"
 [ "$1" = "-rbi" ] && shift && cmd="$git rebase -i $@"
