@@ -1,5 +1,5 @@
 " tex filetype config
-" Licence GPL3
+" Licence MIT
 
 " spellcheck enabled
 setlocal spell spelllang=fr

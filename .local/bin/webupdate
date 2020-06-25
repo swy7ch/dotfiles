@@ -3,7 +3,7 @@
 ######################################################################
 # @author       : swytch
 # @file         : webupdate
-# @license      : GPLv3
+# @license      : MIT
 # @created      : Wednesday May 20, 2020 18:27:35 CEST
 #
 # @description  : update my website with $HOME/public_html

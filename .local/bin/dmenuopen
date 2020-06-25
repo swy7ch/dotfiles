@@ -3,7 +3,7 @@
 ######################################################################
 # @author       : swytch
 # @file         : dmenuopen
-# @license      : GPLv3
+# @license      : MIT
 # @created      : Wednesday May 20, 2020 18:08:05 CEST
 #
 # @description  : find a file, open it with appropriate application

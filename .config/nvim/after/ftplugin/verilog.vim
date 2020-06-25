@@ -1,4 +1,4 @@
 " verilog fietype config
-" Licence GPLv3
+" Licence MIT
 
 noremap <leader><Enter> :w! \| :CoqRunToCursor<CR>

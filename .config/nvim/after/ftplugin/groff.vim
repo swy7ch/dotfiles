@@ -1,5 +1,5 @@
 " groff filetype config
-" Licence GPLv3
+" Licence MIT
 
 inoremap <buffer> à \[`a]
 inoremap <buffer> 'A \[`A]

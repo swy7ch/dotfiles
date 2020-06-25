@@ -3,7 +3,7 @@
 ######################################################################
 # @author       : swytch
 # @file         : texer
-# @license      : GPLv3
+# @license      : MIT
 # @created      : Wednesday May 20, 2020 18:26:30 CEST
 #
 # @description  : create a LaTeX doc with generic metadata

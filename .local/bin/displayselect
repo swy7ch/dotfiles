@@ -3,7 +3,7 @@
 ######################################################################
 # @author       : swytch (adapted from Luke Smith - lukesmith.xyz)
 # @file         : displayselect
-# @license      : GPLv3
+# @license      : MIT
 # @created      : Wednesday May 20, 2020 18:04:01 CEST
 #
 # @description  : detect displays and select an organisation

@@ -3,7 +3,7 @@
 ######################################################################
 # @author       : swytch
 # @file         : mom
-# @license      : GPLv3
+# @license      : MIT
 # @created      : Wednesday May 20, 2020 18:19:56 CEST
 #
 # @description  : create a groff doc with genereic metadata

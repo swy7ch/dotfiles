@@ -3,7 +3,7 @@
 ######################################################################
 # @author       : swytch
 # @file         : maker
-# @license      : GPLv3
+# @license      : MIT
 # @created      : Wednesday May 20, 2020 18:18:53 CEST
 #
 # @description  : create a makefile for current project (if c/c++)

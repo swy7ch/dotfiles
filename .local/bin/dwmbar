@@ -3,7 +3,7 @@
 ######################################################################
 # @author       : swytch (adapted from Luke Smith - lukesmith.xyz)
 # @file         : dwmbar
-# @license      : GPLv3
+# @license      : MIT
 # @created      : Wednesday May 20, 2020 18:14:14 CEST
 #
 # @description  : set the statusbar in `dwm`
@@ -47,11 +47,11 @@ status() { \
 	do
 	if [ "$AC_ON" = 0 ]; then
 		case "$(cat "$x")" in
-			10[0-9]|101)	printf "" ;;
+			10[1-9])	printf "" ;;
 			100|9[0-9])	printf " $(cat "$x")%%" ;;
 			8[0-9]|7[0-9])	printf " $(cat "$x")%%" ;;
-			6[0-9]|5[0-9])	printf " $(cat "$x")%%" ;;
-			4[0-9]|3[0-9])	printf " $(cat "$x")%%" ;;
+			6[0-9]|5[0-9]|4[0-9])	printf " $(cat "$x")%%" ;;
+			3[0-9]|2[0-9])	printf " $(cat "$x")%%" ;;
 			*)		printf " $(cat "$x")%%" ;;
 		esac
 	else
