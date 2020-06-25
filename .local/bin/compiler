@@ -20,7 +20,7 @@ dirname=$(basename "$dir")
 base="$(printf "${file%.*}" | awk -F '/' '{printf $NF}')"
 shebang=$(sed -n 1p "$file")
 
-sucklesstools="$(ls $XDG_CONFIG_HOME/suckless)"
+sucklesstools="$(ls $HOME/.local/src/suckless)"
 
 cd "$dir" || exit
 
