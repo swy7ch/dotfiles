@@ -3,7 +3,7 @@
 ######################################################################
 # @author       : swytch
 # @file         : arch_setup
-# @license      : GPLv3
+# @license      : MIT
 # @created      : Wednesday May 20, 2020 17:49:05 CEST
 #
 # @description  : automate the setup of my arch installation

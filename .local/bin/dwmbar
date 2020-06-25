@@ -3,7 +3,7 @@
 ######################################################################
 # @author       : swytch (adapted from Luke Smith - lukesmith.xyz)
 # @file         : dwmbar
-# @license      : GPLv3
+# @license      : MIT
 # @created      : Wednesday May 20, 2020 18:14:14 CEST
 #
 # @description  : set the statusbar in `dwm`

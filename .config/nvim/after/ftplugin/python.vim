@@ -1,5 +1,5 @@
 " python filetype config
-" Licence GPLv3
+" Licence MIT
 
 " proper PEP 8 indentation
 set tabstop=4

@@ -3,7 +3,7 @@
 ######################################################################
 # @author       : swytch (adapted from Luke Smith - lukesmith.xyz)
 # @file         : dmenuprompt
-# @license      : GPLv3
+# @license      : MIT
 # @created      : Wednesday May 20, 2020 18:10:13 CEST
 #
 # @description  : dmenu prompt ($1) to perform a command ($2)

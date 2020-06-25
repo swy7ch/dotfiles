@@ -1,4 +1,4 @@
 " vim filetype config
-" Licence GPL3
+" Licence MIT
 
 setlocal spell spelllang=fr,en_us

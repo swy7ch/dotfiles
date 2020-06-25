@@ -3,7 +3,7 @@
 ######################################################################
 # @author       : swytch
 # @file         : bibinput
-# @license      : GPLv3
+# @license      : MIT
 # @created      : Wednesday May 20, 2020 17:57:47 CEST
 #
 # @description  : create a bibliography entry through dmenu
