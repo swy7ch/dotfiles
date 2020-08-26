@@ -21,7 +21,7 @@ notify() { \
 	}
 
 update() { \
-	# We want the notification to be sent every 2 mins
+	# We want the notification to be sent every 5 mins
 	# But only if the computer is unplugged
 	if [ "$(cat /sys/class/power_supply/AC/online)" = 0 ]; then
 		notify && refbar
@@ -31,7 +31,7 @@ update() { \
 
 while :; do
 	update
-	# Sleep for two minutes before sending another notification
-	sleep 120 &
+	# Sleep for 5 minutes before sending another notification
+	sleep 300 &
 	wait
 done
