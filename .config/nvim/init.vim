@@ -61,9 +61,6 @@ let g:netrw_dirhistmax=0
 
 "" User Interface
 """"""""""""""""""""""""""""""""""""""""""""""""""
-" Sets the font
-set guifont=FuraCode\ Nerd\ Font\ Mono\ 12
-
 " Shows the current position
 set number
 
