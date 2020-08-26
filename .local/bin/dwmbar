@@ -24,14 +24,14 @@ status() { \
 	if [ "$muted" = "true" ]; then
 		printf " muted"
 	else
-		printf " 墳 $volume%%"
+		printf " 墳 %3d%%" $volume
 	fi
 
 	printf "$delim"
 
 	# Wifi quality percentage and  icon if ethernet is connected.
-	wifi="$(grep "^\s*w" /proc/net/wireless | awk '{ print "索", int($3 * 100 / 70) "%" }')"
-	printf "$wifi%"
+	wifi="$(grep "^\s*w" /proc/net/wireless | awk '{ printf "索 %3d", int($3 * 100 / 70) }')"
+	printf "$wifi%%"
 	eth="$(cat /sys/class/net/enp0s25/operstate)"
 	if [ "up" = "$eth" ]; then
 		printf " / "
@@ -48,11 +48,11 @@ status() { \
 	if [ "$AC_ON" = 0 ]; then
 		case "$(cat "$x")" in
 			10[1-9])	printf "" ;;
-			100|9[0-9])	printf " $(cat "$x")%%" ;;
-			8[0-9]|7[0-9])	printf " $(cat "$x")%%" ;;
-			6[0-9]|5[0-9]|4[0-9])	printf " $(cat "$x")%%" ;;
-			3[0-9]|2[0-9])	printf " $(cat "$x")%%" ;;
-			*)		printf " $(cat "$x")%%" ;;
+			100|9[0-9])	printf " %3d%%" $(cat "$x") ;;
+			8[0-9]|7[0-9])	printf " %3d%%" $(cat "$x") ;;
+			6[0-9]|5[0-9]|4[0-9])	printf " %3d%%" $(cat "$x") ;;
+			3[0-9]|2[0-9])	printf " %3d%%" $(cat "$x") ;;
+			*)		printf " %3d%%" $(cat "$x") ;;
 		esac
 	else
 		printf " $(cat "$x")%%"
