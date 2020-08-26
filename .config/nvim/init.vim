@@ -50,12 +50,6 @@ set updatetime=250
 " Detect filetypes plugins and indent rules
 filetype plugin indent on
 
-" To recognize groff filetype
-au BufNewFile,BufRead *.mom set filetype=groff
-
-" Always use LaTeX flavor
-au BufNewFile,BufRead *.tex set filetype=tex
-
 " Defining the <leader>
 let mapleader = " "
 
@@ -95,6 +89,10 @@ set termguicolors
 set background=dark
 colorscheme polyjuice
 
+" Change cursor behaviour when entering insert mode
+let &t_SI.="\e[6 q" "SI = INSERT mode // steady bar
+let &t_SR.="\e[4 q" "SR = REPLACE mode // underline
+
 "" Text, tab and indent
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " Do not use spaces instead of tabs
@@ -111,15 +109,18 @@ set wrap
 " Stop auto-commenting new line
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
-" Change cursor behaviour when entering insert mode
-let &t_SI.="\e[6 q" "SI = INSERT mode // steady bar
-let &t_SR.="\e[4 q" "SR = REPLACE mode // underline
 
 " Enable autocompletion
 set wildmode=longest,full
 
 " Automatically remove all trailing whitespaces on save
 autocmd BufWritePre * %s/\s\+$//e
+
+" To recognize groff filetype
+au BufNewFile,BufRead *.mom set filetype=groff
+
+" Always use LaTeX flavor
+au BufNewFile,BufRead *.tex set filetype=tex
 
 "" Status line
 """""""""""""""""""""""""""""""""""""""""""""""""""
