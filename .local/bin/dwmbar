@@ -30,8 +30,8 @@ status() { \
 	printf "$delim"
 
 	# Wifi quality percentage and  icon if ethernet is connected.
-	wifi="$(grep "^\s*w" /proc/net/wireless | awk '{ printf "索 %3d", int($3 * 100 / 70) }')"
-	printf "$wifi%%"
+	wifi="$(grep "^\s*w" /proc/net/wireless | awk '{ printf int($3 * 100 / 70) }')"
+	[ $wifi -ne 0 ] && printf "索 %3d%%" $wifi || printf "索 ---"
 	eth="$(cat /sys/class/net/enp0s25/operstate)"
 	if [ "up" = "$eth" ]; then
 		printf " / "
@@ -45,7 +45,7 @@ status() { \
 	AC_ON="$(cat /sys/class/power_supply/AC/online)"
 	for x in /sys/class/power_supply/BAT?/capacity;
 	do
-	if [ "$AC_ON" = 0 ]; then
+	if [ $AC_ON -eq 0 ]; then
 		case "$(cat "$x")" in
 			10[1-9])	printf "" ;;
 			100|9[0-9])	printf " %3d%%" $(cat "$x") ;;
@@ -55,7 +55,7 @@ status() { \
 			*)		printf " %3d%%" $(cat "$x") ;;
 		esac
 	else
-		printf " $(cat "$x")%%"
+		printf " %3d%%" $(cat "$x")
 	fi
 	done && printf "$delim"
 
