@@ -31,7 +31,7 @@ status() { \
 
 	# Wifi quality percentage and  icon if ethernet is connected.
 	wifi="$(grep "^\s*w" /proc/net/wireless | awk '{ printf int($3 * 100 / 70) }')"
-	[ $wifi -ne 0 ] && printf "索 %3d%%" $wifi || printf "索 ---"
+	[ $wifi -ne 0 ] && printf "索 %3d%%" $wifi || printf "索  ---"
 	eth="$(cat /sys/class/net/enp0s25/operstate)"
 	if [ "up" = "$eth" ]; then
 		printf " / "
@@ -48,9 +48,9 @@ status() { \
 	if [ $AC_ON -eq 0 ]; then
 		case "$(cat "$x")" in
 			10[1-9])	printf "" ;;
-			100|9[0-9])	printf " %3d%%" $(cat "$x") ;;
-			8[0-9]|7[0-9])	printf " %3d%%" $(cat "$x") ;;
-			6[0-9]|5[0-9]|4[0-9])	printf " %3d%%" $(cat "$x") ;;
+			100|9[0-9]|8[0-9])	printf " %3d%%" $(cat "$x") ;;
+			7[0-9]|6[0-9])	printf " %3d%%" $(cat "$x") ;;
+			5[0-9]|4[0-9])	printf " %3d%%" $(cat "$x") ;;
 			3[0-9]|2[0-9])	printf " %3d%%" $(cat "$x") ;;
 			*)		printf " %3d%%" $(cat "$x") ;;
 		esac

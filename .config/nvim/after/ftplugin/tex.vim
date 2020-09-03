@@ -1,9 +1,15 @@
-" tex filetype config
-" Licence MIT
+" Author        : swytch
+" Created       : 06/05/2020
+" License       : MIT
+" Description   : tex filetype config
 
 " spellcheck enabled
 setlocal spell spelllang=fr
 
+" Caps
+inoremap <buffer> AA À
+inoremap <buffer> CC Ç
+inoremap <buffer> EE É
 " Unbreakable space before 'etc'
 inoremap <buffer> <Space>etc \,etc.
 " Unbreakable space before ':'
@@ -20,8 +26,3 @@ inoremap <buffer> BB \textbf{}<Esc>i
 inoremap <buffer> BI \textit{\textbf{}}<Esc>hi
 " Smallcaps
 inoremap <buffer> SC \fsc{}<Esc>i
-
-" Caps
-inoremap <buffer> AA À
-inoremap <buffer> CC Ç
-inoremap <buffer> EE É

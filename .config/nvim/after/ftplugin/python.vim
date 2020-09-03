@@ -1,9 +1,11 @@
-" python filetype config
-" Licence MIT
+" Author        : swytch
+" Created       : 06/05/2020
+" License       : MIT
+" Description   : python filetype config
 
-" proper PEP 8 indentation
+" PEP8
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
-set textwidth=79
+set textwidth=80
 set expandtab

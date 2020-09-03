@@ -1,5 +1,7 @@
-" groff filetype config
-" Licence MIT
+" Author        : swytch
+" Created       : 06/05/2020
+" License       : MIT
+" Description   : groff filetype config
 
 inoremap <buffer> à \[`a]
 inoremap <buffer> 'A \[`A]
@@ -20,9 +22,9 @@ inoremap <buffer> ô \[^o]
 inoremap <buffer> Ô \[^O]
 inoremap <buffer> û \[^u]
 inoremap <buffer> ù \[`u]
-" Espace insécable devant etc
+" Unbreakable space before 'etc'
 inoremap <buffer> <Space>etc \~etc.
-" Espace insécable devant ':'
+" Unbreakable space before ':'
 inoremap <buffer> <Space>: \~:
 " Centered point
 inoremap <buffer> .. \[u00B7]

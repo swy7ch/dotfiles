@@ -102,9 +102,10 @@ set shiftwidth=4
 " Indent and wrap rules
 set autoindent
 
-" Hard wrap at 80
-set textwidth=80
-autocmd FileType * setlocal formatoptions+=t
+" Formatting
+set textwidth=99
+autocmd FileType * setlocal formatoptions+=jp
+autocmd FileType * setlocal formatoptions-=ro
 
 " Enable autocompletion
 set wildmode=longest,full
