@@ -13,7 +13,7 @@
 
 file="$(find $HOME/documents/bibliographies/ -type f -not -path '*/\.*' | dmenu -l 20 -p "[bibshow] which bibliography?")" # the -not -path allows find to ignore hidden files
 
-refs_list="$(sed -e 's/\t//g' "$file" | tr '\n' ' ' | sed -e 's/}\ /}\n/g')"
+refs_list="$(sed -e 's/\t//g' "$file" | tr '\n' ' ' | sed -e 's/}\s\s/}\n/g')"
 [ -z $refs_list ] && exit 1;
 
 ref="$(printf "$refs_list" | dmenu -i -p 'reference?' -l 10)"

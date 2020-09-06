@@ -47,7 +47,7 @@ status() { \
 	do
 	if [ $AC_ON -eq 0 ]; then
 		case "$(cat "$x")" in
-			10[1-9])	printf "" ;;
+			10[1-9])	printf " %3d%%" ;;
 			100|9[0-9]|8[0-9])	printf " %3d%%" $(cat "$x") ;;
 			7[0-9]|6[0-9])	printf " %3d%%" $(cat "$x") ;;
 			5[0-9]|4[0-9])	printf " %3d%%" $(cat "$x") ;;
