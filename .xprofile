@@ -7,7 +7,7 @@
 xss-lock -- slock &
 redshift &
 dunst -follow mouse &
-pamixer --set-volume 50 &
+amixer set Master 50%
 sbacklight set 3 &
 bat_notify &
 AC_notify &

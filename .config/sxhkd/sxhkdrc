@@ -3,7 +3,7 @@
 # System stuff
 
 {F1, F2, F3}
-		pamixer {--toggle-mute, --decrease 5, --increase 5}; refbar; audio_notify
+		amixer --quiet set Master {toggle, 5%-, 5%+}; refbar; audio_notify
 
 {F5, F6}
 		sbacklight {dec,inc}

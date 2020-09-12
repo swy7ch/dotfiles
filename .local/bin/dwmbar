@@ -18,13 +18,13 @@ delim=" | " # Set the delimiter character.
 
 status() { \
 	# Get the volume of ALSA's master volume output.
-	volume="$(pamixer --get-volume)"
-	muted="$(pamixer --get-mute)"
+	level="$(amixer sget Master | awk -F "[][]" ' { printf "%s", $2 }' | awk -F "%" '{printf $1}')"
+	muted="$(amixer sget Master | awk -F "[][]" '/%/ { printf "%4s", $4 }' | awk '{printf $1}')"
 
-	if [ "$muted" = "true" ]; then
-		printf " muted"
+	if [ "$muted" = "off" ]; then
+		printf " 婢  ---"
 	else
-		printf " 墳 %3d%%" $volume
+		printf " 墳 %3d%%" $level
 	fi
 
 	printf "$delim"
