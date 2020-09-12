@@ -14,6 +14,9 @@ super + u
 super + shift + u
 		dmenuumount
 
+super + s
+		dmenuprompt "suspend?" "systemctl suspend"
+
 super + shift + s
 		dmenuprompt "shutdown?" "shutdown -h now"
 
