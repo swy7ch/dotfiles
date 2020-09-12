@@ -6,7 +6,7 @@
 
 xss-lock -- slock &
 redshift &
-dunst &
+dunst -follow mouse &
 pamixer --set-volume 50 &
 sbacklight set 3 &
 bat_notify &
