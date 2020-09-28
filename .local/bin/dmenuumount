@@ -16,9 +16,9 @@ if [ -z "$chosen" ]; then
 	exit
 else
 	if sudo -A umount "$chosen" ; then
-		notify-send " USB unmounting" "$chosen unmounted."
+		notify-send " USB unmounting" "$chosen unmounted."
 	else
-		notify-send -u "critical" -t 3000 " USB ERROR" "Unmounting failed."
+		notify-send -u "critical" -t 3000 " USB ERROR" "Unmounting failed."
 	fi
 fi
 }
