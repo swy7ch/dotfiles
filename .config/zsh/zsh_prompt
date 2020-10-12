@@ -1,0 +1,13 @@
+# Git infos on the right
+autoload -Uz vcs_info
+precmd_vcs_info() { vcs_info }
+precmd_functions+=( precmd_vcs_info )
+setopt prompt_subst
+zstyle ':vcs_info:git:*' check-for-changes true
+zstyle ':vcs_info:git:*' stagedstr '*'
+zstyle ':vcs_info:git:*' unstagedstr '!'
+zstyle ':vcs_info:git:*' formats '(%F{208}%b%F{015}: %c/%u%F{015}) '
+zstyle ':vcs_info:*' enable git
+
+PROMPT="[ %B%{$fg[magenta]%}%(4~|%-1~/.../%2~|%~)%}%{$reset_color%} ] \
+\$vcs_info_msg_0_%(?:%{$fg_bold[green]%}:%{$fg_bold[red]%})$%{$reset_color%}%b "

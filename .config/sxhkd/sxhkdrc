@@ -3,7 +3,7 @@
 # System stuff
 
 {F1, F2, F3}
-		pamixer {--toggle-mute, --decrease 5, --increase 5}; refbar; audio_notify
+		amixer --quiet set Master {toggle, 5%-, 5%+}; refbar; audio_notify
 
 {F5, F6}
 		sbacklight {dec,inc}
@@ -13,6 +13,9 @@ super + u
 
 super + shift + u
 		dmenuumount
+
+super + s
+		dmenuprompt "suspend?" "systemctl suspend"
 
 super + shift + s
 		dmenuprompt "shutdown?" "shutdown -h now"

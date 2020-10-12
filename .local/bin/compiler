@@ -60,7 +60,7 @@ for tool in $sucklesstools; do
 done
 
 case "$file" in
-	*.c*|.h*) make && ./main ;;
+	*.c*|*.h*) make && ./main ;;
 	*.mom) refer -PS -e "$file" | pdfmom > "$base.pdf" ;;
 	*.tex) texcompile "$base" ; texclear "$file" ;;
 	*.py) python "$file" ;;

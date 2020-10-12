@@ -6,8 +6,8 @@
 
 xss-lock -- slock &
 redshift &
-dunst &
-pamixer --set-volume 50 &
+dunst -follow mouse &
+amixer set Master 50%
 sbacklight set 3 &
 bat_notify &
 AC_notify &
@@ -20,3 +20,4 @@ xinput set-prop 'Synaptics TM3072-003' 'libinput Accel Speed' 0.4 &
 setxkbmap 'fr(oss)'
 xmodmap $XDG_CONFIG_HOME/xmodmap
 sxhkd &
+xbanish&

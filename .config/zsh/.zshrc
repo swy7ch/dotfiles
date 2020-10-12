@@ -3,7 +3,7 @@
 
 # Enable colors and change prompt:
 autoload -U colors && colors
-PS1="[ %B%{$fg[magenta]%}%(4~|%-1~/.../%2~|%~)%}%{$reset_color%} ] $%b "
+source $XDG_CONFIG_HOME/zsh/zsh_prompt
 
 # Home/End/Insert/Del keys
 bindkey '^[[P'  delete-char 			# Delete
@@ -11,18 +11,6 @@ bindkey '^[[H'  beginning-of-line 		# Home
 bindkey '^[[4~' end-of-line 			# End
 bindkey '^[[5~' up-line-or-history 		# PageUp
 bindkey '^[[6~' down-line-or-history 	# PageDown
-
-# Git infos on the right
-autoload -Uz vcs_info
-precmd_vcs_info() { vcs_info }
-precmd_functions+=( precmd_vcs_info )
-setopt prompt_subst
-RPROMPT=\$vcs_info_msg_0_
-zstyle ':vcs_info:git:*' check-for-changes true
-zstyle ':vcs_info:git:*' stagedstr '*'
-zstyle ':vcs_info:git:*' unstagedstr '!'
-zstyle ':vcs_info:git:*' formats '%F{214}%r%f %F{208}(%b): %c/%u'
-zstyle ':vcs_info:*' enable git
 
 # History in cache directory:
 HISTSIZE=10000

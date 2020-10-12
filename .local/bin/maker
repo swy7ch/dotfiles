@@ -19,8 +19,8 @@ targets_list="$(printf "\n$sources_list" | sed 's/\.cp*/\.o/g' | tr '\n' ' ')"
 get_compiler(){
 	for source_ in "$sources_list"; do
 		case "$source_" in
-			*.cpp) printf "\ng++" && return;;
-			*.c) printf "\ngcc";;
+			*.cpp) comp="g++" && return;;
+			*.c) comp="gcc";;
 		esac
 	done
 }
@@ -31,11 +31,19 @@ is_c_project(){
 
 make_rule(){
 	if [ "$comp" = "gcc" ]; then
-		printf "\n$1.o : $1.c $1.h" >> makefile
-		echo -e "\t\$(CC) -c $1.c \$(FLAGS)" >> makefile
+		if [ "$1" = "main" ]; then
+			printf "\n$1.o : $1.c" >> makefile
+		else
+			printf "\n$1.o : $1.c $1.h" >> makefile
+		fi
+		printf "\n\t\$(CC) -c $1.c \$(FLAGS)" >> makefile
 	else
-		printf "\n$1.o : $1.cpp $1.h" >> makefile
-		echo -e "\t\$(CC) -c $1.cpp \$(FLAGS)" >> makefile
+		if [ "$1" = "main" ]; then
+			printf "\n$1.o : $1.cpp" >> makefile
+		else
+			printf "\n$1.o : $1.cpp $1.hpp" >> makefile
+		fi
+		printf "\n\t\$(CC) -c $1.cpp \$(FLAGS)" >> makefile
 	fi
 	printf "\n" >> makefile
 }
@@ -45,11 +53,11 @@ if ! is_c_project; then
 	exit 1
 fi
 
-comp=get_compiler
+get_compiler
 
 touch makefile
 
-printf "\nBIN = main" > makefile
+printf "BIN = main" > makefile
 printf "\nTARGETS = $targets_list" >> makefile
 printf "\n" >> makefile
 printf "\nCC = $comp" >> makefile
@@ -58,7 +66,7 @@ printf "\n" >> makefile
 printf "\nall : \$(BIN)" >> makefile
 printf "\n" >> makefile
 printf "\n\$(BIN) : \$(TARGETS)" >> makefile
-echo -e "\t\$(CC) \$(TARGETS) -o \$(BIN) \$(FLAGS)" >> makefile
+printf "\n\t\$(CC) \$(TARGETS) -o \$(BIN) \$(FLAGS)" >> makefile
 printf "\n" >> makefile
 
 for module in $modules_list; do
@@ -66,7 +74,7 @@ for module in $modules_list; do
 done
 
 printf "\nclean :" >> makefile
-echo -e "\trm \$(BIN) *.o vgcore.*" >> makefile
+printf "\n\trm \$(BIN) *.o vgcore.*" >> makefile
 
 sed -i 's/\s$//' makefile
 

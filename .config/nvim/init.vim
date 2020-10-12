@@ -103,8 +103,8 @@ set shiftwidth=4
 set autoindent
 
 " Formatting
-set textwidth=99
-autocmd FileType * setlocal formatoptions+=jp
+set textwidth=80
+autocmd FileType * setlocal formatoptions+=jpt
 autocmd FileType * setlocal formatoptions-=ro
 
 " Enable autocompletion
