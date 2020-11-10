@@ -1,0 +1,10 @@
+/**
+ * @author      : {{NAME}} ({{EMAIL}})
+ * @file        : {{FILE}}
+ * @license     : {{LICENSE}}
+ * @created     : {{TIMESTAMP}}
+ */
+
+#include "{{FILE}}.h"
+
+{{CURSORS}}

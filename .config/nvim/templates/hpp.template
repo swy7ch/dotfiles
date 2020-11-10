@@ -1,0 +1,22 @@
+/**
+ * @author      : {{NAME}} ({{EMAIL}})
+ * @file        : {{FILE}}
+ * @license     : {{LICENSE}}
+ * @created     : {{TIMESTAMP}}
+ */
+
+#ifndef {{MACRO_GUARD}}
+
+#define {{MACRO_GUARD}}
+
+
+class {{CAMEL_CLASS}}
+{
+    public:
+        {{CAMEL_CLASS}}({{CURSOR}});
+        virtual ~{{CAMEL_CLASS}}();
+    private:
+        /* private data */
+};
+
+#endif /* end of include guard {{MACRO_GUARD}} */
