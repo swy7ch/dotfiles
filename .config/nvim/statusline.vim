@@ -1,3 +1,8 @@
+" Author        : swytch
+" Created       : 08/05/2020
+" License       : MIT
+" Description   : My own personnal statusline script
+
 function! CurrentMode()
 	let g:currentmode={
 		\ 'n'	: '[ NRM ]',
