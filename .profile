@@ -7,8 +7,9 @@
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
+
 ## paths
-export PATH="$PATH:$(du --exclude ".git" "$HOME/.local/bin" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
+export PATH="$PATH:$HOME/.local/bin"
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc-2.0"
 export GNUPGHOME="$XDG_CONFIG_HOME/gnupg"

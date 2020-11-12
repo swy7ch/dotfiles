@@ -1,0 +1,17 @@
+/**
+ * @author      : {{NAME}} ({{EMAIL}})
+ * @file        : {{FILE}}
+ * @license     : {{LICENSE}}
+ * @created     : {{TIMESTAMP}}
+ */
+
+#include "{{FILE}}.hpp"
+
+{{CAMEL_CLASS}}::{{CAMEL_CLASS}}()
+{
+    {{CURSOR}}
+}
+
+{{CAMEL_CLASS}}::~{{CAMEL_CLASS}}()
+{
+}

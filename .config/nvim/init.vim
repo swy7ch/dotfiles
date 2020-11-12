@@ -1,3 +1,8 @@
+" Author        : swytch
+" Created       : 06/05/2020
+" License       : MIT
+" Description   : My own personnal nvim configuration
+
 "" Plugin stuff
 
 " Vim-Plug
