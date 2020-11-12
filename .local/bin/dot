@@ -9,28 +9,37 @@
 # @description  : git wrapper for dotfiles management
 ######################################################################
 
+flags="false"
+for arg in $@
+do
+	case $arg in
+		-*) [ "$flags" = "true" ] &&  flags="error" && break || flags="true" ;;
+	esac
+done
+
+[ "$flags" = "error" ] && echo "error: only one flag permitted" && exit 1
 
 git="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
 
 case $1 in
 	-*)
-		[ "$1" = "-l" ] && shift && cmd="$git log"
-		[ "$1" = "-lg" ] && shift && cmd="$git log --graph --format=short"
-		[ "$1" = "-c" ] && shift && cmd="$git commit $@"
-		[ "$1" = "-ca" ] && shift && cmd="$git commit -a"
-		[ "$1" = "-cas" ] && shift && cmd="$git commit -S --amend $@"
-		[ "$1" = "-ch" ] && shift && cmd="$git checkout $@"
-		[ "$1" = "-mv" ] && shift && cmd="$git mv $@"
-		[ "$1" = "-ps" ] && shift && cmd="$git push $@"
-		[ "$1" = "-pl" ] && shift && cmd="$git pull"
-		[ "$1" = "-a" ] && shift && cmd="$git add $@"
-		[ "$1" = "-b" ] && shift && cmd="$git branch $@"
-		[ "$1" = "-s" ] && shift && cmd="$git show $@"
-		[ "$1" = "-rm" ] && shift && cmd="$git rm --cached $@"
-		[ "$1" = "-rb" ] && shift && cmd="$git rebase $@"
-		[ "$1" = "-rbi" ] && shift && cmd="$git rebase -i $@"
-		[ "$1" = "-rs" ] && shift && cmd="$git reset --soft $@"
-		[ "$1" = "-d" ] && shift && cmd="$git diff $@"
+		[ "$1" = "-l" ] && cmd="$git log" && break
+		[ "$1" = "-lg" ] && cmd="$git log --graph --format=short" && break
+		[ "$1" = "-c" ] && shift && cmd="$git commit $@" && break
+		[ "$1" = "-ca" ] && cmd="$git commit -a" && break
+		[ "$1" = "-cas" ] && shift && cmd="$git commit -S --amend $@" && break
+		[ "$1" = "-ch" ] && shift && cmd="$git checkout $@" && break
+		[ "$1" = "-mv" ] && shift && cmd="$git mv $@" && break
+		[ "$1" = "-ps" ] && shift && cmd="$git push $@" && break
+		[ "$1" = "-pl" ] && cmd="$git pull" && break
+		[ "$1" = "-a" ] && shift && cmd="$git add $@" && break
+		[ "$1" = "-b" ] && shift && cmd="$git branch $@" && break
+		[ "$1" = "-s" ] && shift && cmd="$git show $@" && break
+		[ "$1" = "-rm" ] && shift && cmd="$git rm --cached $@" && break
+		[ "$1" = "-rb" ] && shift && cmd="$git rebase $@" && break
+		[ "$1" = "-rbi" ] && shift && cmd="$git rebase -i $@" && break
+		[ "$1" = "-rs" ] && shift && cmd="$git reset --soft $@" && break
+		[ "$1" = "-d" ] && shift && cmd="$git diff $@" && break
 		if [ "$1" = "-m" ] ; then
 			shift
 			[ "$1" = "" ] && echo "Please provide a branche to merge from" && exit 1
