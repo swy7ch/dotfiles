@@ -42,9 +42,7 @@ case $1 in
 			else
 				branches="$(echo "$($git branch)" | sed -e 's/\*/ /;t')"
 				for arg in $branches ; do
-					if [ "$arg" != "dev" ] ; then
-						$git checkout $arg && $git merge dev
-					fi
+					[ "$arg" != "dev" ] && $git checkout $arg && $git merge dev
 				done
 			fi
 			cmd="$git checkout dev"
