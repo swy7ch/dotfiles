@@ -15,42 +15,41 @@ twoscreen() { # If multi-monitor is selected and there are two screens.
     # Mirror displays using native resolution of external display and a scaled
     # version for the internal display
     if [ "$mirror" = "yes" ]; then
-        external=$(echo "$screens" | dmenu -i -p "Optimize resolution for:")
-        internal=$(echo "$screens" | grep -v "$external")
+		external=$(echo "$screens" | dmenu -i -p "Optimize resolution for:")
+		internal=$(echo "$screens" | grep -v "$external")
 
-        res_external=$(xrandr --query | sed -n "/^$external/,/\+/p" | \
-            tail -n 1 | awk '{print $1}')
-        res_internal=$(xrandr --query | sed -n "/^$internal/,/\+/p" | \
-            tail -n 1 | awk '{print $1}')
+		res_external=$(xrandr --query | sed -n "/^$external/,/\+/p" | \
+			tail -n 1 | awk '{print $1}')
+		res_internal=$(xrandr --query | sed -n "/^$internal/,/\+/p" | \
+			tail -n 1 | awk '{print $1}')
 
-        res_ext_x=$(echo $res_external | sed 's/x.*//')
-        res_ext_y=$(echo $res_external | sed 's/.*x//')
-        res_int_x=$(echo $res_internal | sed 's/x.*//')
-        res_int_y=$(echo $res_internal | sed 's/.*x//')
+		res_ext_x=$(echo $res_external | sed 's/x.*//')
+		res_ext_y=$(echo $res_external | sed 's/.*x//')
+		res_int_x=$(echo $res_internal | sed 's/x.*//')
+		res_int_y=$(echo $res_internal | sed 's/.*x//')
 
-        scale_x=$(echo "$res_ext_x / $res_int_x" | bc -l)
-        scale_y=$(echo "$res_ext_y / $res_int_y" | bc -l)
+		scale_x=$(echo "$res_ext_x / $res_int_x" | bc -l)
+		scale_y=$(echo "$res_ext_y / $res_int_y" | bc -l)
 
-        xrandr --output "$external" --auto --scale 1.0x1.0 \
-            --output "$internal" --auto --same-as "$external" \
-            --scale "$scale_x"x"$scale_y"
+		xrandr --output "$external" --auto --scale 1.0x1.0 \
+			--output "$internal" --auto --same-as "$external" \
+			--scale "$scale_x"x"$scale_y"
     else
-
-        default=$(printf "yes\\nno" | dmenu -i -p "Default settings?")
-        if [ $default = "no" ]; then
-            primary=$(echo "$screens" | dmenu -i -p "Select primary display:")
-            secondary=$(echo "$screens" | grep -v "$primary")
-            direction=$(printf "left\\nright" | dmenu -i -p "What side of $primary should $secondary be on?")
-            rotation=$(printf "normal\\nleft\\nright" | dmenu -i -p "Rotate $secondary?")
-            xrandr --output "$primary" --auto --scale 1.0x1.0 \
-                --output "$secondary" --"$direction"-of "$primary" --auto --scale 1.2x1.2 --rotate $rotation
+		default=$(printf "yes\\nno" | dmenu -i -p "Default settings?")
+		if [ $default = "no" ]; then
+			primary=$(echo "$screens" | dmenu -i -p "Select primary display:")
+			secondary=$(echo "$screens" | grep -v "$primary")
+			direction=$(printf "left\\nright" | dmenu -i -p "What side of $primary should $secondary be on?")
+			rotation=$(printf "normal\\nleft\\nright" | dmenu -i -p "Rotate $secondary?")
+			xrandr --output "$primary" --auto --scale 1.0x1.0 \
+				--output "$secondary" --"$direction"-of "$primary" --auto --scale 1.2x1.2 --rotate $rotation
         else
-            xrandr --fb 4224x2376 \
-                --output eDP1 --auto --mode 1920x1080 --pos 2304x0 \
-                --output HDMI2 --auto --scale 1.2x1.2
-        fi
-    fi
-    }
+			xrandr --fb 4224x2376 \
+				--output "eDP-1" --mode 1920x1080 --pos 2304x0\
+				--output "HDMI-2" --scale 1.2x1.2 --pos 0x0
+		fi
+	fi
+	}
 
 morescreen() { # If multi-monitor is selected and there are more than two screens.
 	primary=$(echo "$screens" | dmenu -i -p "Select primary display:")
