@@ -1,0 +1,12 @@
+# general
+set adjust-open "best-fit"
+# colors
+set default-bg "#FFFFF0"
+set recolor true
+set recolor-lightcolor "#FFFFF0"
+set recolor-darkcolor "#000000"
+
+# keybindings
+unmap f
+map f toggle_fullscreen
+map [fullscreen] f toggle_fullscreen

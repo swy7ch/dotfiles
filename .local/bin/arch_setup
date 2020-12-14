@@ -11,23 +11,26 @@
 
 
 #Lists of apps sorted by type and criticity
-base_list="dash xorg-server xorg-xinit xorg-xinput xorg-xsetroot xclip sxhkd xss-lock zsh neovim firefox"
-utilities_list="xf86-video-intel pulseaudio pulseaudio-alsa pamixer zsh-syntax-highlighting zsh-history-substring-search dunst dunstify libnotify sxiv xwallpaper redshift htop ffmpeg imagemagick upower pacman-contrib"
-fonts_list="fira adobe-source-han-sans-jp-fonts adobe-source-han-sans-cn-fonts"
-media_list="mpv zathura"
-other_list="transmission-gtk texlive-core texlive-latexextra"
+base="dash xorg-server xorg-xinit xorg-xinput xorg-xsetroot xclip sxhkd"
+base="xss-lock zsh neovim firefox man-db pass"
+utilities="xf86-video-intel pulseaudio pulseaudio-alsa alsa-utils \
+	zsh-syntax-highlighting zsh-history-substring-search pulsemixer \
+	dunstify libnotify sxiv xwallpaper redshift htop ffmpeg imagemagick \
+	upower pacman-contrib"
+fonts="iosevka-fixed-slab adobe-source-han-sans-jp-fonts adobe-source-han-sans-cn-fonts"
+media="mpd ncmpcpp mpv zathura zathura-mupdf"
+other="transmission-gtk texlive-core texlive-latexextra capitaine-cursors"
 
-git_list="st dwm dmenu slock"
-
-build_list="st dwm dmenu slock"
+repos="st dwm dmenu slock"
 
 services_list="systemd-timescyncd"
 
 
 git_clone() {
-	git clone https://gitlab.com/swy7ch/$1 ~/$HOME/.local/src/suckless/$1
-	printf "\n$1 downloaded!"
-	cd ~/$1
+	printf "\nDownloading $1..."
+	git clone https://gitlab.com/swy7ch/$1 ~/$HOME/.local/src/tools/$1
+	printf "\tDone."
+	cd ~/$HOME/.local/src/tools/$1
 	git remote set-url origin git@gitlab.com:swy7ch/$1
 	git remote add upstream git://git.suckless.org/$1
 	printf "\n$1 setup complete!"
@@ -41,9 +44,9 @@ build() {
 }
 
 install() {
-	read -p "\nInstalling $app? (y/N)" validation
-	if [ $validation = "y" ]; then
-		yay -S $app
+	read -p "\nInstalling $app? [Y/n]" validation
+	if [ $validation != "n" ]; then
+		paru -S $app
 	else
 		printf "\nSkipping $app"
 	fi
@@ -61,99 +64,81 @@ enable_systemctl() {
 
 printf "\nConfiguring Arch...\n"
 
-# Retrieving yay
+# Retrieving paru
 
-git clone https://aur.archlinux.org/yay.git
-cd yay
+printf "\nGetting paru..."
+
+git clone https://aur.archlinux.org/paru.git
+cd paru
 makepkg -si
 
-printf "\nYAY is here !"
+printf "\nparu is here !"
 
 cd ~
 
-printf "\nLet's get the other apps"
-
 # Installing apps
 
-printf "\nInstalling base\n"
+printf "\nInstalling base..."
 
-for app in $base_list; do
+for app in $base; do
 	install $app
 done
 
-printf "\nDone."
-
-printf "\nInstalling utilitaries\n"
-
-for app in $utilities_list; do
+for app in $utilities; do
 	install $app
 done
 
-printf "\nDone."
-
-printf "\nInstalling fonts\n"
-
-for app in $fonts_list; do
+for app in $fonts; do
 	install $app
 done
 
-printf "\nDone."
-
-printf "\nInstalling media apps\n"
-
-for app in $media_list; do
+for app in $media; do
 	install $app
 done
 
-printf "\nDone."
-
-printf "\nInstalling other apps\n"
-
-for app in $other_list; do
+for app in $other; do
 	install $app
 done
 
-printf "\nDone."
-
-printf "\nInstalling vim-plug\n"
+printf "\nInstalling vim-plug..."
 
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-printf "\nDone."
+printf "\tDone."
 
-printf "\nInstallation complete !"
+printf "\nInstallation complete !\n"
 
 # Symlinking the necessary stuff
 
 printf "\nDownloading personnal git repos..."
 
-for repo in $git_list; do
+for repo in $git; do
 	git_clone $repo
 done
 
-printf "\nDone."
+printf "\tDone."
 
 printf "\nCompiling tools..."
 
-for tool in $build_list; do
+for tool in $git; do
 	build $tool
 done
 
-printf "\nDone."
+printf "\tDone."
 
 printf "\n"
 printf "\n!!! Don't forget to link an SSH key to your account !!!"
 printf "\n!!!   As of now, you can't pull nor push anything   !!!"
 printf "\n"
 
-printf "\nEnabling systemctl services"
+printf "\nEnabling systemctl services..."
 
 for service in $services_list; do
 	enable_systemctl $service
 done
 
-printf "\nDone."
+printf "\tDone."
 
 printf "\n"
 printf "\n##################################################"
