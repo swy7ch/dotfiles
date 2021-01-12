@@ -13,6 +13,7 @@ flags="false"
 for arg in $@
 do
 	case $arg in
+		--*) ;;
 		-*) [ "$flags" = "true" ] &&  flags="error" && break || flags="true" ;;
 	esac
 done
@@ -42,7 +43,7 @@ case $1 in
 		[ "$1" = "-d" ] && shift && cmd="$git diff $@" && break
 		if [ "$1" = "-m" ] ; then
 			shift
-			[ "$1" = "" ] && echo "Please provide a branche to merge from" && exit 1
+			[ "$1" = "" ] && echo "Please provide a branche to merge into" && exit 1
 			if [ "$1" != "-a" ] ; then
 				while [ "$1" != "" ] ; do
 					$git checkout $1 && $git merge dev
