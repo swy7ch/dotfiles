@@ -16,6 +16,9 @@ export GNUPGHOME="$XDG_CONFIG_HOME/gnupg"
 export LESSHISTFILE="-"
 export TEXMFHOME="$XDG_DATA_HOME/texmf"
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME/pass"
+export ANDROID_PREFS_ROOT="$XDG_CONFIG_HOME/android"
+export ANDROID_EMULATOR_HOME="$XDG_DATA_HOME/android/emulator"
+export CARGO_HOME="$XDG_DATA_HOME/cargo"
 
 ## default programs
 export SUDO_ASKPASS="$HOME/.local/bin/dmenupass"
