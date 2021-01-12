@@ -2,10 +2,10 @@
 
 # System stuff
 
-{F1, F2, F3}
+super + {F1, F2, F3}
 		amixer --quiet set Master {toggle, 5%-, 5%+}; refbar; audio_notify
 
-{F5, F6}
+super + {F5, F6}
 		sbacklight {dec,inc}
 
 super + u

@@ -18,6 +18,6 @@ xinput set-prop 'Synaptics TM3072-003' 'libinput Tapping Enabled' 1 &
 xinput set-prop 'Synaptics TM3072-003' 'libinput Natural Scrolling Enabled' 1 &
 xinput set-prop 'Synaptics TM3072-003' 'libinput Accel Speed' 0.4 &
 setxkbmap 'fr(oss)'
-xmodmap $XDG_CONFIG_HOME/xmodmap
+remaps &
 sxhkd &
 xbanish&
