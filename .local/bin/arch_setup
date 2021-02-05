@@ -10,17 +10,6 @@
 ######################################################################
 
 
-#Lists of apps sorted by type and criticity
-base="dash xorg-server xorg-xinit xorg-xinput xorg-xsetroot xclip sxhkd"
-base="xss-lock zsh neovim firefox man-db pass"
-utilities="xf86-video-intel pulseaudio pulseaudio-alsa alsa-utils \
-	zsh-syntax-highlighting zsh-history-substring-search pulsemixer \
-	dunstify libnotify sxiv xwallpaper redshift htop ffmpeg imagemagick \
-	upower pacman-contrib"
-fonts="iosevka-fixed-slab adobe-source-han-sans-jp-fonts adobe-source-han-sans-cn-fonts"
-media="mpd ncmpcpp mpv zathura zathura-mupdf"
-other="transmission-gtk texlive-core texlive-latexextra capitaine-cursors"
-
 repos="st dwm dmenu slock"
 
 services_list="systemd-timescyncd"
@@ -78,27 +67,7 @@ cd ~
 
 # Installing apps
 
-printf "\nInstalling base..."
-
-for app in $base; do
-	install $app
-done
-
-for app in $utilities; do
-	install $app
-done
-
-for app in $fonts; do
-	install $app
-done
-
-for app in $media; do
-	install $app
-done
-
-for app in $other; do
-	install $app
-done
+paru -S	 --needed - < ~/.config/paru/pkglist.txt
 
 printf "\nInstalling vim-plug..."
 
