@@ -48,5 +48,8 @@ super + shift + p
 super + shift + {h,j,k,l}
 		player {prev,stop,toggle,next}
 
+super + shift + m
+		st -c "ncmpcpp" -e ncmpcpp
+
 super + shift + b
 		script="$(printf "bibinput\nbibshow" | dmenu -i -p "which script?")" && $script
