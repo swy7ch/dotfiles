@@ -45,5 +45,8 @@ super + shift + {w,z}
 super + shift + p
 		$BROWSER --private-window
 
+super + shift + {h,j,k,l}
+		player {prev,stop,toggle,next}
+
 super + shift + b
 		script="$(printf "bibinput\nbibshow" | dmenu -i -p "which script?")" && $script
