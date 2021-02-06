@@ -1,0 +1,14 @@
+#!/usr/bin/env sh
+
+######################################################################
+# @author      : swytch (swytch@$HOSTNAME)
+# @file        : player
+# @license     : MIT
+# @created     : Friday Feb 05, 2021 21:42:00 CET
+#
+# @description : Simple wrapper to mpc, to send notifications
+######################################################################
+
+out="$(mpc $1 | head -n2)"
+
+dunstify -r 10010 -u "normal" MPD "$out"

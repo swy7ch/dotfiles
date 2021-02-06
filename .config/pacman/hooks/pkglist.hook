@@ -1,0 +1,10 @@
+[Trigger]
+Operation = Remove
+Operation = Install
+Type = Package
+Target = *
+
+[Action]
+Description = Update the pkglist...
+When = PostTransaction
+Exec = /bin/sh -c '/usr/bin/pacman -Qqe > /home/swytch/.config/paru/pkglist.txt'

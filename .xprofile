@@ -6,7 +6,8 @@
 
 xss-lock -- slock &
 redshift &
-dunst -follow mouse &
+dunst -follow mouse &> /dev/null & #temp fix
+mpd &
 amixer set Master 50%
 sbacklight set 3 &
 bat_notify &
