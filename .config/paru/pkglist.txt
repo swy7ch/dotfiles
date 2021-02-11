@@ -55,6 +55,7 @@ pkgconf
 pulseaudio-alsa
 pulsemixer
 python-eyed3
+python-requests
 redshift
 sed
 shotgun
