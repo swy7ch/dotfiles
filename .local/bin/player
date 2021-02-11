@@ -9,6 +9,14 @@
 # @description : Simple wrapper to mpc, to send notifications
 ######################################################################
 
-out="$(mpc $1 | head -n2)"
 
-dunstify -r 10010 -u "normal" MPD "$out"
+if [ "$1" = "stop" ]; then
+	mpc $1
+	dunstify -r 10010 -u "normal" "MPD" "Music stopped"
+else
+	export MPC_FORMAT="Artist: <b>%artist%</b> \nTitle: %title% \nAlbum: %album%"
+	out="$(mpc $1 | head -n-1)"
+	path="$(mpc --format %file% | head -n1 | awk -F '/' '{ printf "music/%s/%s/cover.png\n", $1,$2 }')"
+
+	dunstify -r 10010 -u "normal" -i "$HOME/$path" "MPD" "$out"
+fi
