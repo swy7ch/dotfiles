@@ -24,6 +24,8 @@ export PATH="$HOME/.local/bin:$PATH"
 
 ## default programs
 export SUDO_ASKPASS="$HOME/.local/bin/dmenupass"
+export GPG_TTY=$(tty)
+export GPG_ASKPASS="/usr/bin/pinentry-curses"
 export SUDO_EDITOR="nvim"
 export EDITOR="nvim"
 export TERMINAL="st"
