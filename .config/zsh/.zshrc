@@ -1,6 +1,9 @@
 # Swy7ch' config for the Zoomer Shell
 # based on Luke Smith' work (lukesmith.xyz)
 
+# Reset tty for gpg
+export GPG_TTY=$(tty)
+
 # Enable colors and change prompt:
 autoload -U colors && colors
 source $XDG_CONFIG_HOME/zsh/zsh_prompt
