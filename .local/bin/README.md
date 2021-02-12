@@ -14,7 +14,7 @@
 - bat_notify : send a notification when battery runs low
 - bibinput : add a **.bib** entry through `dmenu`
 - bibshow : retrieve a **.bib** reference and copy to `xclip`
-- brightup : raise the keyboard brightness
+- bulk : execute batch commands through your favorite $EDITOR
 - colorblocks : show the system colors through colored squares
 - compiler : compile a file / runs a script if the filetype is supported
 - displayselect : handle a multimonitor setup
