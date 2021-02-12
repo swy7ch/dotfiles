@@ -26,23 +26,30 @@ Contains the files that I haven't been able to put in `~/.config`
 ## Programs whose config files can be found in ~/.config/
 
 - `dunst`
+- `git`
 - `htop`
-- `neofetch`
 - `neovim`
+- `mpd`
+- `ncmpcpp`
+- `pacman` **(hooks only)**
+- `paru`
+- `redshift`
 - `sxhkd`
+- `zathura`
 - `zsh`
 - `old`
+	- `fish-shell`
 	- `i3-gaps`
+	- `neofetch`
 	- `polybar`
 	- `termite`
-	- `vim`
 	- `ranger`
-	- `fish-shell`
+	- `vim`
 
 ### ~/.config/root/
 
 Where I keep the files I have to copy into the `/` folder. It is not called in
-`arch_setup` as it is quite sensible
+`arch_setup` as it is quite sensible.
 
 ## Window manager and terminal emulator
 
@@ -50,7 +57,7 @@ I currently use [suckless](https://suckless.org/)' programs, i.e. `dmenu`
 (binary launcher), `dwm` (window manager) and `st` (terminal emulator),
 so my files are set accordingly. You can check my
 [dmenu](https://gitlab.com/Swy7ch/dmenu), [dwm](https://gitlab.com/Swy7ch/dwm)
-and [st](https://gitlab.com/Swy7ch/st) forks
+and [st](https://gitlab.com/Swy7ch/st) forks.
 
 ## MIT License
 
