@@ -6,10 +6,9 @@
 
 ## Scripts
 
-- arch_setup : my personnal machine setup script
 - AC_notify : send a notification when the computer is plugged/unplugged
+- arch_setup : my personnal machine setup script
 - audio-notify : send a notification when audio level is changed
-- backlight : change backlight level
 - backlight_notify : send a notification when backlight level is changed
 - bat_notify : send a notification when battery runs low
 - bibinput : add a **.bib** entry through `dmenu`
@@ -18,18 +17,22 @@
 - colorblocks : show the system colors through colored squares
 - compiler : compile a file / runs a script if the filetype is supported
 - displayselect : handle a multimonitor setup
+- dmenumount : mount USB drives through a `dmenu` prompt
 - dmenupass : `dmenu` prompt for password, when needed
 - dmenuprompt : ask for a binary choice through `dmenu`
-- dmenumount : mount USB drives through a `dmenu` prompt
-- dmenuumount : unmount USB drives through a `dmenu` prompt
 - dmenuopen : fuzzy-find a file and open it with appropriate application
+- dmenuumount : unmount USB drives through a `dmenu` prompt
 - dot : git wrapper to manage dotfiles
 - dwmbar : set the statusbar and updates every minute
 - fetch : display basic system infos
+- kbacklight : change keyboard backlight level
 - maker : create a basic makefile for **C/C++** project
 - mom : create a `groff/mom` file with generic metadata
 - mommerge : merge all **.mom** files of a directory and compiles it
+- player : control `mpc` and send notifications of current `mpd` state
 - refbar : refresh `dwm` statusbar
+- remaps : remap keys
+- sbacklight : change screen backlight level
 - setbg : set the wallpaper using `xwallpaper`
 - texclear : remove `LaTeX` compilation files
 - texer : create a **.tex** file with generic metadata + input packages
