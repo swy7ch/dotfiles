@@ -10,11 +10,29 @@ so that I can reinstall Arch easily without much tinkering.
 
 ## Installation
 
-Just run
+Retrieve the repo:
 
-- `git clone --bare https://gitlab.com/swy7ch/dotfiles.git` for HTTPS cloning, or
+```sh
+$ git clone --bare https://gitlab.com/swy7ch/dotfiles.git .dotfiles
+```
+for HTTPS cloning, or
 
-- `git clone --bare git@gitlab.com:swy7ch/dotfiles.git` if you're using SSH
+```sh
+$ git clone --bare git@gitlab.com:swy7ch/dotfiles.git .dotfiles
+```
+if you're using SSH
+
+After setting an alias like
+
+```sh
+$ alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+```
+
+just run
+
+```sh
+$ dotfiles checkout
+```
 
 ## ~/
 
@@ -50,6 +68,10 @@ Contains the files that I haven't been able to put in `~/.config`
 
 Where I keep the files I have to copy into the `/` folder. It is not called in
 `arch_setup` as it is quite sensible.
+
+## ~/.local/bin
+
+My personnal scripts that I use to make things easier.
 
 ## Window manager and terminal emulator
 
