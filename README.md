@@ -44,9 +44,10 @@ Contains the files that I haven't been able to put in `~/.config`
 - `dunst`
 - `git`
 - `htop`
-- `neovim`
 - `mpd`
 - `ncmpcpp`
+- `neovim`
+- `neomutt`
 - `pacman` **(hooks only)**
 - `paru`
 - `redshift`
@@ -78,6 +79,10 @@ I currently use [suckless](https://suckless.org/)' programs, i.e. `dmenu`
 so my files are set accordingly. You can check my
 [dmenu](https://gitlab.com/Swy7ch/dmenu), [dwm](https://gitlab.com/Swy7ch/dwm)
 and [st](https://gitlab.com/Swy7ch/st) forks.
+
+My statusbar is set through
+[dwmblocks](https://github.com/torrinfail/dwmblocks). You can find my fork
+[here](https://gitlab.com/swy7ch/dwmblocks).
 
 ## MIT License
 
