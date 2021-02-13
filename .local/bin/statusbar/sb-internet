@@ -1,0 +1,20 @@
+#!/usr/bin/env sh
+
+######################################################################
+# @author      : swytch (swytch@$HOSTNAME)
+# @file        : sb-internet
+# @license     : MIT
+# @created     : Saturday Feb 13, 2021 17:35:49 CET
+#
+# @description : internet block for dwmblocks
+######################################################################
+
+
+# Wifi quality percentage and  icon if ethernet is connected.
+wifi="$(grep "^\s*w" /proc/net/wireless | awk '{ printf int($3 * 100 / 70) }')"
+[ $wifi -ne 0 ] && printf "直 %3d%%" $wifi || printf "睊  ---"
+eth="$(cat /sys/class/net/enp0s25/operstate)"
+if [ "up" = "$eth" ]; then
+	printf " / "
+fi
+

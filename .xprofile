@@ -14,7 +14,7 @@ sbacklight set 3 &
 bat_notify &
 AC_notify &
 setbg &
-dwmbar &
+dwmblocks &
 
 xinput set-prop 'Synaptics TM3072-003' 'libinput Tapping Enabled' 1 &
 xinput set-prop 'Synaptics TM3072-003' 'libinput Natural Scrolling Enabled' 1 &

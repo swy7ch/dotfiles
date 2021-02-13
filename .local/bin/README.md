@@ -23,7 +23,6 @@
 - dmenuopen : fuzzy-find a file and open it with appropriate application
 - dmenuumount : unmount USB drives through a `dmenu` prompt
 - dot : git wrapper to manage dotfiles
-- dwmbar : set the statusbar and updates every minute
 - fetch : display basic system infos
 - kbacklight : change keyboard backlight level
 - maker : create a basic makefile for **C/C++** project
@@ -47,3 +46,7 @@ This is the shell script I run just after I installed Arch. It does few things:
 - Download my personnal repos
 - Compile my WM (`dwm`), my binary launcher (`dmenu`) and my terminal emulator (`st`), which are part of the [suckless](https://suckless.org/) project.
 
+## statusbar
+
+A collection of scripts I call in my
+[dwmblocks](https://gitlab.com/swy7ch/dwmblocks) build.

@@ -23,7 +23,7 @@ export ANDROID_EMULATOR_HOME="$XDG_DATA_HOME/android/emulator"
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
 
 ## paths
-export PATH="$HOME/.local/bin:$PATH"
+export PATH="$(find $HOME/.local/bin -type d | tr '\n' ':' | sed 's/:$//'):$PATH"
 
 ## default programs
 export SUDO_ASKPASS="$HOME/.local/bin/dmenupass"

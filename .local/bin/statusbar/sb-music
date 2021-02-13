@@ -1,0 +1,18 @@
+#!/usr/bin/env sh
+
+######################################################################
+# @author      : swytch (swytch@$HOSTNAME)
+# @file        : sb-music
+# @license     : MIT
+# @created     : Saturday Feb 13, 2021 18:05:21 CET
+#
+# @description : music block for dwmblocks
+######################################################################
+
+
+mpc="$(mpc --format "%albumartist% - %title%")"
+format() { tac | sed "s/^volume: n\/a.*/ 🎵 ---/g;/^volume:/d;s/\\&/&amp;/g;s/\\[paused\\].*/ ⏸/g;s/\\[playing\\].*/ 🎵/g" | paste -sd ' ' -;}
+
+pgrep -f sb-mpdup >/dev/null 2>&1 || sb-mpdup >/dev/null 2>&1 &
+
+echo "$mpc" | format
