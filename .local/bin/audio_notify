@@ -24,3 +24,5 @@ else
 
 	dunstify -r 100002 -u "$criticity" "Current volume :" "$level%"
 fi
+
+kill -38 $(pidof dwmblocks)

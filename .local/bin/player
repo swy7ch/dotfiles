@@ -20,3 +20,5 @@ else
 
 	dunstify -r 10010 -u "normal" -i "$HOME/$path" "MPD" "$out"
 fi
+
+kill -39 $(pidof dwmblocks)
