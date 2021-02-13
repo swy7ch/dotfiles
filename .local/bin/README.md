@@ -6,9 +6,9 @@
 
 ## Scripts
 
-- arch_setup : my personnal machine setup script
+- arch-setup : my personnal machine setup script
 - audio-notify : send a notification when audio level is changed
-- backlight_notify : send a notification when backlight level is changed
+- backlight-notify : send a notification when backlight level is changed
 - bibinput : add a **.bib** entry through `dmenu`
 - bibshow : retrieve a **.bib** reference and copy to `xclip`
 - bulk : execute batch commands through your favorite $EDITOR

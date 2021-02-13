@@ -3,9 +3,9 @@
 # System stuff
 
 super + F1
-		pulsemixer --toggle-mute; audio_notify
+		pulsemixer --toggle-mute; audio-notify
 super + {F2, F3}
-		pulsemixer --change-volume {-5, +5}; audio_notify
+		pulsemixer --change-volume {-5, +5}; audio-notify
 
 super + {F5, F6}
 		sbacklight {dec,inc}
