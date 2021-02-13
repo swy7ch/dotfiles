@@ -6,11 +6,9 @@
 
 ## Scripts
 
-- AC_notify : send a notification when the computer is plugged/unplugged
 - arch_setup : my personnal machine setup script
 - audio-notify : send a notification when audio level is changed
 - backlight_notify : send a notification when backlight level is changed
-- bat_notify : send a notification when battery runs low
 - bibinput : add a **.bib** entry through `dmenu`
 - bibshow : retrieve a **.bib** reference and copy to `xclip`
 - bulk : execute batch commands through your favorite $EDITOR
