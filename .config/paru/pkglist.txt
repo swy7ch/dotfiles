@@ -13,6 +13,7 @@ beets
 binutils
 bison
 capitaine-cursors
+cronie
 dash
 dunst
 efibootmgr
@@ -42,7 +43,9 @@ man-db
 mpc
 mpd
 mpv
+mutt-wizard
 ncmpcpp
+neomutt
 neovim
 noto-fonts
 pacman
