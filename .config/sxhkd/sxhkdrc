@@ -2,8 +2,10 @@
 
 # System stuff
 
-super + {F1, F2, F3}
-		amixer --quiet set Master {toggle, 5%-, 5%+}; refbar; audio_notify
+super + F1
+		pulsemixer --toggle-mute; audio_notify
+super + {F2, F3}
+		pulsemixer --change-volume {-5, +5}; audio_notify
 
 super + {F5, F6}
 		sbacklight {dec,inc}

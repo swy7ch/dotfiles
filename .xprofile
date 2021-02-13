@@ -9,7 +9,7 @@ redshift &
 dunst -follow mouse &> /dev/null & #temp fix
 # MPD daemon start (if no other user instance exists)
 [ ! -s ~/.config/mpd/pid ] && mpd
-amixer set Master 50%
+pulsemixer --set-volume 50
 sbacklight set 3 &
 bat_notify &
 AC_notify &
