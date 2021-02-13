@@ -60,6 +60,7 @@ for tool in $sucklesstools; do
 done
 
 case "$file" in
+	*blocks.def.h) make && sudo make clean install ;;
 	*.c*|*.h*) make && ./main ;;
 	*.mom) refer -PS -e "$file" | pdfmom > "$base.pdf" ;;
 	*.tex) texcompile "$base" ; texclear "$file" ;;
