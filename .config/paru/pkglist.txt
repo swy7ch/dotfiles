@@ -29,9 +29,11 @@ git
 grep
 groff
 grub
+gsasl
 gzip
 htop
 imagemagick
+isync
 iwd
 libnotify
 libtool
@@ -43,11 +45,12 @@ man-db
 mpc
 mpd
 mpv
-mutt-wizard
+msmtp
 ncmpcpp
 neomutt
 neovim
 noto-fonts
+notmuch
 pacman
 pacman-contrib
 paru

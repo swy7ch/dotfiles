@@ -27,6 +27,7 @@
 - fetch : display basic system infos
 - kbacklight : change keyboard backlight level
 - maker : create a basic makefile for **C/C++** project
+- mailsync : synchronize mail accounts
 - mom : create a `groff/mom` file with generic metadata
 - mommerge : merge all **.mom** files of a directory and compiles it
 - player : control `mpc` and send notifications of current `mpd` state
