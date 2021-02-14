@@ -49,7 +49,6 @@ msmtp
 ncmpcpp
 neomutt
 neovim
-noto-fonts
 notmuch
 pacman
 pacman-contrib
@@ -72,6 +71,7 @@ texinfo
 texlive-core
 texlive-latexextra
 transmission-gtk
+ttf-fira-sans
 ttf-iosevka-fixed-slab
 ttf-nerd-fonts-symbols-mono
 unzip
