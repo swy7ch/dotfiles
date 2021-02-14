@@ -1,4 +1,4 @@
-#! /bin/sh
+#!/usr/bin/env sh
 
 # This file is sourced when launching a DM from startx/xinit
 
