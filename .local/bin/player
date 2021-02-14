@@ -6,7 +6,7 @@
 # @license     : MIT
 # @created     : Friday Feb 05, 2021 21:42:00 CET
 #
-# @description : Simple wrapper to mpc, to send notifications
+# @description : simple wrapper for mpc, to send notifications
 ######################################################################
 
 

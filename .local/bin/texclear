@@ -1,12 +1,12 @@
 #!/usr/bin/env sh
 
 ######################################################################
-# @author       : swytch (adapted form Luke Smith - lukesmith.xyz)
-# @file         : texclear
-# @license      : MIT
-# @created      : Wednesday May 20, 2020 18:24:59 CEST
+# @author      : swytch (adapted form Luke Smith - lukesmith.xyz)
+# @file        : texclear
+# @license     : MIT
+# @created     : Wednesday May 20, 2020 18:24:59 CEST
 #
-# @description  : clear the build files of LaTeX build
+# @description : clear the build files of LaTeX build
 ######################################################################
 
 

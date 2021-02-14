@@ -1,12 +1,12 @@
 #!/usr/bin/env sh
 
 ######################################################################
-# @author       : swytch
-# @file         : webupdate
-# @license      : MIT
-# @created      : Wednesday May 20, 2020 18:27:35 CEST
+# @author      : swytch
+# @file        : webupdate
+# @license     : MIT
+# @created     : Wednesday May 20, 2020 18:27:35 CEST
 #
-# @description  : update my website with $HOME/public_html
+# @description : update my website with $HOME/public_html
 ######################################################################
 
 

@@ -1,13 +1,13 @@
 #!/usr/bin/env sh
 
 ######################################################################
-# @author       : swytch
-# @file         : texer
-# @license      : MIT
-# @created      : Wednesday May 20, 2020 18:26:30 CEST
+# @author      : swytch
+# @file        : texer
+# @license     : MIT
+# @created     : Wednesday May 20, 2020 18:26:30 CEST
 #
-# @description  : create a LaTeX doc with generic metadata
-#                 open it with (neo)vim
+# @description : create a LaTeX doc with generic metadata
+#                open it with (neo)vim
 ######################################################################
 
 

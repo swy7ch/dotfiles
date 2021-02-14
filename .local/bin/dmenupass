@@ -1,12 +1,12 @@
 #!/usr/bin/env sh
 
 ######################################################################
-# @author       : swytch (adapted from Luke Smith - lukesmith.xyz)
-# @file         : dmenupass
-# @license      : MIT
-# @created      : Wednesday May 20, 2020 18:08:50 CEST
+# @author      : swytch (adapted from Luke Smith - lukesmith.xyz)
+# @file        : dmenupass
+# @license     : MIT
+# @created     : Wednesday May 20, 2020 18:08:50 CEST
 #
-# @description  : [sudo] prompt (SUDO_ASKPASS variable)
+# @description : [sudo] prompt (SUDO_ASKPASS variable)
 ######################################################################
 
 

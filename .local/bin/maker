@@ -1,13 +1,13 @@
 #!/usr/bin/env sh
 
 ######################################################################
-# @author       : swytch
-# @file         : maker
-# @license      : MIT
-# @created      : Wednesday May 20, 2020 18:18:53 CEST
+# @author      : swytch
+# @file        : maker
+# @license     : MIT
+# @created     : Wednesday May 20, 2020 18:18:53 CEST
 #
-# @description  : create a makefile for current project (if c/c++)
-#                 open it with (neo)vim
+# @description : create a makefile for current project (if c/c++)
+#                open it with (neo)vim
 ######################################################################
 
 

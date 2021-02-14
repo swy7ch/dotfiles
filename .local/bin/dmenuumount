@@ -1,12 +1,12 @@
 #!/usr/bin/env sh
 
 ######################################################################
-# @author       : swytch (adapted form Luke Smith - lukesmith.xyz)
-# @file         : dmenuumount
-# @license      : MIT
-# @created      : Wednesday May 20, 2020 18:11:17 CEST
+# @author      : swytch (adapted form Luke Smith - lukesmith.xyz)
+# @file        : dmenuumount
+# @license     : MIT
+# @created     : Wednesday May 20, 2020 18:11:17 CEST
 #
-# @description  : dmenu prompt to unmount drives
+# @description : dmenu prompt to unmount drives
 ######################################################################
 
 
