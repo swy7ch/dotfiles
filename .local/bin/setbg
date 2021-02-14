@@ -1,11 +1,10 @@
 #!/usr/bin/env sh
 
 ######################################################################
-# @author       : swytch
+# @author       : swytch (adapted from Luke Smith - lukesmith.xyz)
 # @file         : setbg
 # @license      : MIT
 # @created      : Wednesday May 20, 2020 18:23:50 CEST
-#
 # @description  : set the wallpaper
 # @dependencies : `xwallpaper`
 ######################################################################

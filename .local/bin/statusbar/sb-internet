@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 ######################################################################
-# @author      : swytch (swytch@$HOSTNAME)
+# @author      : swytch (adapted from Luke Smith - lukesmith.xyz)
 # @file        : sb-internet
 # @license     : MIT
 # @created     : Saturday Feb 13, 2021 17:35:49 CET
