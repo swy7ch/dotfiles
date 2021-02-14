@@ -52,6 +52,7 @@ neovim
 notmuch
 pacman
 pacman-contrib
+pam-gnupg
 paru
 pass
 patch
