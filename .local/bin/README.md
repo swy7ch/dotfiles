@@ -2,7 +2,11 @@
 
 **Hello, world!** This is my scripts directory. Feel free to use it at your convenience :)
 
-**/!\\** Those scripts are POSIX-compliant (hence `#! /usr/bin/env sh`), they are supposed to be run with such shell (BaSH, zsh, dash...); FISH, for example, might cause problems (with `if` statements, for instance) if a script is run directly in a terminal; I recommend launching background scripts within `.xinit` to avoid those issues
+**/!\\** Those scripts are POSIX-compliant (hence `#!/usr/bin/env sh`), they are
+supposed to be run with such shell (BaSH, zsh, dash...); FISH, for example,
+might cause issues (with `if` statements, for instance) if a script is run
+directly in a terminal; I recommend launching background scripts within
+`.xinit` to avoid those issues.
 
 ## Scripts
 
