@@ -3,7 +3,7 @@
 ######################################################################
 # @author      : swytch (swytch@$HOSTNAME)
 # @file        : player
-# @license     : MIT
+# @license     : GPLv3
 # @created     : Friday Feb 05, 2021 21:42:00 CET
 #
 # @description : simple wrapper for mpc, to send notifications

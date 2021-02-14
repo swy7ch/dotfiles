@@ -3,7 +3,7 @@
 ######################################################################
 # @author      : swytch (adapted from Luke Smith - lukesmith.xyz)
 # @file        : sb-battery
-# @license     : MIT
+# @license     : GPLv3
 # @created     : Saturday Feb 13, 2021 17:19:04 CET
 #
 # @description : battery block dwmblocks

@@ -3,7 +3,7 @@
 ######################################################################
 # @author      : swytch (adapated from github.com/jschx/ufetch)
 # @file        : fetch
-# @license     : MIT
+# @license     : GPLv3
 # @created     : Wednesday May 20, 2020 18:16:09 CEST
 #
 # @description : display system infos

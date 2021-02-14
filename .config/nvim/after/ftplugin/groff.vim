@@ -1,6 +1,6 @@
 " Author        : swytch
 " Created       : 06/05/2020
-" License       : MIT
+" License       : GPLv3
 " Description   : groff filetype config
 
 inoremap <buffer> à \[`a]

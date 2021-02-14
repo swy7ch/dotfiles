@@ -1,6 +1,6 @@
 " Author        : swytch
 " Created       : 08/05/2020
-" License       : MIT
+" License       : GPLv3
 " Description   : My own personnal statusline script
 
 function! CurrentMode()

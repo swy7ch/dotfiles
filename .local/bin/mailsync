@@ -3,7 +3,7 @@
 ######################################################################
 # @author      : swytch (adapted from Luke Smith - lukesmith.xyz)
 # @file        : mailsync
-# @license     : MIT
+# @license     : GPLv3
 # @created     : Sunday Feb 14, 2021 12:46:24 CET
 #
 # @description : synchronize mail accounts
