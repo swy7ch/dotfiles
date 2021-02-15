@@ -111,7 +111,7 @@ function! StatusLineNC()
 
 	" Depth
 	let l:statusline.='%#Percent#'
-	let l:statusline.='%03.p%%'
+	let l:statusline.=' %03.p%%'
 
 	return l:statusline
 endfunction
