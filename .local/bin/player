@@ -10,15 +10,13 @@
 ######################################################################
 
 
-if [ "$1" = "stop" ]; then
-	mpc $1
-	dunstify -r 10010 -u "normal" "MPD" "Music stopped"
+MPC_FORMAT="Artist: <b>%artist%</b> \nTitle: %title% \nAlbum: %album%"
+out="$(mpc --format "$MPC_FORMAT" $1 | head -n-1)"
+if [ -z "$out" ]; then
+	out="No music"
 else
-	MPC_FORMAT="Artist: <b>%artist%</b> \nTitle: %title% \nAlbum: %album%"
-	out="$(mpc --format "$MPC_FORMAT" $1 | head -n-1)"
 	path="$(mpc --format %file% | head -n1 | awk -F '/' '{ printf "music/%s/%s/cover.png\n", $1,$2 }')"
-
-	dunstify -r 10010 -u "normal" -i "$HOME/$path" "MPD" "$out"
 fi
 
+dunstify -r 10010 -u "normal" -i "$HOME/$path" "MPD" "$out"
 kill -39 $(pidof dwmblocks)
