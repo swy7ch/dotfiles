@@ -1,0 +1,15 @@
+#!/usr/bin/env sh
+
+######################################################################
+# @author      : swytch (swytch@$HOSTNAME)
+# @file        : sb-date
+# @license     : MIT
+# @created     : Tuesday Feb 16, 2021 20:43:14 CET
+#
+# @description : date block for dwmblocks
+######################################################################
+
+
+date="$(date '+%b. %d - %I:%M%p')"
+
+printf " %s " "$date"
