@@ -11,8 +11,9 @@
 
 
 mpc="$(mpc --format "%albumartist% - %title%")"
-format() { tac | sed "s/^volume: n\/a.*/ 🎵 ---/g;/^volume:/d;s/\\&/&amp;/g;s/\\[paused\\].*/ ⏸/g;s/\\[playing\\].*/ 🎵/g" | paste -sd ' ' -;}
+format() { tac | sed "s/^volume:n\/a.*//g;/^volume:/d;s/\\&/&amp;/g;s/\\[paused\\].*/⏸/g;s/\\[playing\\].*/🎵/g" | paste -sd ' ' -;}
 
 pgrep -f sb-mpdup >/dev/null 2>&1 || sb-mpdup >/dev/null 2>&1 &
 
-echo "$mpc" | format
+mpc=$(echo "$mpc" | format)
+[ -n "$mpc" ] && printf " %s " "$mpc"

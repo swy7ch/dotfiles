@@ -27,7 +27,8 @@ do
 	status="$(cat "$bat/status")"
 	capacity="$(cat "$bat/capacity")"
 	if [ "$status" = "Full" ]; then
-		printf "  FULL" && exit
+		status=" " && capacity="FULL"
+		printf " %s %s " "$status" "$capacity" && exit
  	elif [ "$status" = "Charging" ]; then
 		status=""
 	else
@@ -39,5 +40,5 @@ do
 			*)	status="" ; notify;;
 		esac
 	fi
-	printf "%s %3d%%\n" "$status" "$capacity";
+	printf " %s %3d%% " "$status" "$capacity";
 done && return 0
