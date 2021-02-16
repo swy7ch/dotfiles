@@ -1,0 +1,5 @@
+# vim: filetype=neomuttrc
+source /home/swytch/.config/mutt/neomutt.muttrc
+source /home/swytch/.config/mutt/accounts/account_template.muttrc
+macro index,pager i1 '<sync-mailbox><enter-command>source
+/home/swytch/.config/mutt/accounts/account_template.muttrc<enter><change-folder>!<enter>;<check-stats>' "switch to david.julien@posteo.net"

@@ -1,0 +1,71 @@
+#!/usr/bin/env sh
+
+######################################################################
+# @author      : swytch (adapted from Luke Smith - lukesmith.xyz)
+# @file        : mailsync
+# @license     : MIT
+# @created     : Sunday Feb 14, 2021 12:46:24 CET
+#
+# @description : synchronize mail accounts
+######################################################################
+
+# First, get the right variables for the mbsync file, the pass archive, notmuch
+# and the GPG home.  This is done by searching common profile files for variable
+# assignments.
+
+eval "$(grep -h -- \
+	"^\s*\(export \)\?\(XDG_CACHE_HOME\|XDG_CONFIG_HOME\|XDG_DATA_HOME\)=" \
+	"$HOME/.profile" 2>/dev/null)"
+
+eval "$(grep -h -- \
+	"^\s*\(export \)\?\(MBSYNCRC\|PASSWORD_STORE_DIR\|NOTMUCH_CONFIG\|GNUPGHOME\)=" \
+	"$HOME/.profile" "$HOME/.pam_environment" 2>/dev/null)"
+
+case "$(readlink -f /sbin/init)" in
+	*systemd*) export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u)/bus ;;
+esac
+export GPG_TTY=$TTY
+
+# Config file location must be passed at execution, not as envrionment variable
+[ -n "$MBSYNCRC" ] && alias mbsync="mbsync -c $MBSYNCRC" || MBSYNCRC="$HOME/.mbsyncrc"
+
+displays="$(pgrep -a X\(org\|wayland\) | grep -wo "[0-9]*:[0-9]\+" | sort -u)"
+notify() { for x in $displays; do
+	notify-send "neomutt" " $2 new mail(s) in \`$1\` account."
+done ;}
+messageinfo() { for x in $displays; do
+	export DISPLAY=$x
+	notify-send " $from:" "$subject"
+done ;}
+
+# Check account for new mail. Notify if there is new content.
+syncandnotify() {
+    acc="$(echo "$account" | sed "s/.*\///")"
+    if [ -z "$opts" ]; then mbsync "$acc"; else mbsync "$opts" "$acc"; fi
+	new="$(find "${XDG_DATA_HOME:-$HOME/.local/share}"/mail/*/[Ii][Nn][Bb][Oo][Xx]/new/* -type f -newer "${XDG_CONFIG_HOME:-$HOME/.config}/mutt/.mailsynclastrun" 2>/dev/null)"
+    newcount=$(echo "$new" | sed '/^\s*$/d' | wc -l)
+    if [ "$newcount" -gt "0" ]; then
+        for file in $new; do
+            # Extract subject and sender from mail.
+            from=$(awk '/^From: / && ++n ==1,/^\<.*\>:/' "$file" | perl -CS -MEncode -ne 'print decode("MIME-Header", $_)' | awk '{ $1=""; if (NF>=3)$NF=""; print $0 }' | sed 's/^[[:blank:]]*[\"'\''\<]*//;s/[\"'\''\>]*[[:blank:]]*$//')
+            subject=$(awk '/^Subject: / && ++n == 1,/^\<.*\>: / && ++i == 2' "$file" | head -n 1 | perl -CS -MEncode -ne 'print decode("MIME-Header", $_)' | sed 's/^Subject: //' | sed 's/^{[[:blank:]]*[\"'\''\<]*//;s/[\"'\''\>]*[[:blank:]]*$//' | tr -d '\n')
+	    	messageinfo &
+		notify "$acc" "$newcount" &
+        done
+		[ -n "$(pidof dwmblocks)" ] && kill -40 $(pidof dwmblocks)
+    fi
+}
+
+accounts="$(awk '/^Channel/ {print $2}' "$MBSYNCRC")"
+
+# Parallelize multiple accounts
+for account in $accounts; do
+    syncandnotify &
+done
+
+wait
+
+notmuch new 2>/dev/null
+
+#Create a touch file that indicates the time of the last run of mailsync
+touch "${XDG_CONFIG_HOME:-$HOME/.config}/mutt/.mailsynclastrun"

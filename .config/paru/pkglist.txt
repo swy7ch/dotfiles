@@ -2,7 +2,6 @@ abcde
 adobe-source-han-sans-cn-fonts
 adobe-source-han-sans-jp-fonts
 alsa-plugins
-alsa-utils
 android-tools
 android-udev
 arandr
@@ -14,6 +13,7 @@ beets
 binutils
 bison
 capitaine-cursors
+cronie
 dash
 dunst
 efibootmgr
@@ -29,9 +29,11 @@ git
 grep
 groff
 grub
+gsasl
 gzip
 htop
 imagemagick
+isync
 iwd
 libnotify
 libtool
@@ -43,9 +45,12 @@ man-db
 mpc
 mpd
 mpv
+msmtp
 ncmpcpp
+neomutt
 neovim
 noto-fonts
+notmuch
 pacman
 pacman-contrib
 paru

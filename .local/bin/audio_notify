@@ -10,10 +10,10 @@
 ######################################################################
 
 
-level="$(amixer sget Master | awk -F "[][]" ' { printf "%s", $2 }' | awk -F "%" '{printf $1}')"
-muted="$(amixer sget Master | awk -F "[][]" '/%/ { printf "%4s", $4 }' | awk '{printf $1}')"
+level="$(pulsemixer --get-volume | awk -F " " '{ printf "%d", $1 }')"
+muted="$(pulsemixer --get-mute)"
 
-if [ "$muted" = "off" ]; then
+if [ "1" = "$muted" ]; then
 	dunstify -r 100002 "Sound muted" "$level%"
 else
 	case "$level" in
