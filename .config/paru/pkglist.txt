@@ -39,6 +39,7 @@ libnotify
 libtool
 linux
 linux-firmware
+lynx
 m4
 make
 man-db
