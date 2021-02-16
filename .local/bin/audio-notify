@@ -1,12 +1,12 @@
 #!/usr/bin/env sh
 
 ######################################################################
-# @author       : swytch
-# @file         : audio_notify
-# @license      : MIT
-# @created      : Wednesday May 20, 2020 17:52:58 CEST
+# @author      : swytch
+# @file        : audio_notify
+# @license     : GPLv3
+# @created     : Wednesday May 20, 2020 17:52:58 CEST
 #
-# @description  : send a notification with sound level
+# @description : send a notification with sound level
 ######################################################################
 
 
@@ -19,8 +19,10 @@ else
 	case "$level" in
 		[0-9]|1[0-9]|2[0-9]|3[0-9]|4[0-9]|5[0-9]) criticity="low" ;;
 		6[0-9]|7[0-9]) criticity="normal" ;;
-		8[0-9]|9[0-9]|10[0-9]) criticity="critical" ;;
+		*) criticity="critical" ;;
 	esac
 
-	dunstify -r 100002 -u "$criticity" "Current pamixer value :" "$level%"
+	dunstify -r 100002 -u "$criticity" "Current volume :" "$level%"
 fi
+
+kill -38 $(pidof dwmblocks)

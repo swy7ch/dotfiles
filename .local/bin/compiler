@@ -1,15 +1,16 @@
 #!/usr/bin/env sh
 
 ######################################################################
-# @author       : swytch (adapted from Luke Smith - lukesmith.xyz)
-# @file         : compiler
-# @license      : MIT
-# @created      : Wednesday May 20, 2020 18:00:51 CEST
+# @author      : swytch (adapted from Luke Smith - lukesmith.xyz)
+# @file        : compiler
+# @license     : GPLv3
+# @created     : Wednesday May 20, 2020 18:00:51 CEST
 #
-# @description  : compile or run another finishing operation on a file
+# @description : compile or run another finishing operation on a file
 #                      groff-mom : compile via pdfmom to a pdf document
 #                      c : compile via gcc
-#                      config.def.h (suckless) recompile, install
+#                      config.def.h (suckless) : recompile, install
+#					   blocks.def.h (dwmblocks) : recompile, install
 #                      tex : compile via pdflatex (bibtex if needed)
 ######################################################################
 
@@ -60,6 +61,7 @@ for tool in $sucklesstools; do
 done
 
 case "$file" in
+	*blocks.def.h) make && sudo make clean install ;;
 	*.c*|*.h*) make && ./main ;;
 	*.mom) refer -PS -e "$file" | pdfmom > "$base.pdf" ;;
 	*.tex) texcompile "$base" ; texclear "$file" ;;

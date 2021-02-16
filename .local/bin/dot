@@ -1,12 +1,12 @@
 #!/usr/bin/env sh
 
 ######################################################################
-# @author       : swytch
-# @file         : dot
-# @license      : MIT
-# @created      : Wednesday May 20, 2020 18:13:05 CEST
+# @author      : swytch
+# @file        : dot
+# @license     : GPLv3
+# @created     : Wednesday May 20, 2020 18:13:05 CEST
 #
-# @description  : git wrapper for dotfiles management
+# @description : git wrapper for dotfiles management
 ######################################################################
 
 flags="false"

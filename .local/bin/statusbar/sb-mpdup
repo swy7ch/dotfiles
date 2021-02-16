@@ -1,0 +1,16 @@
+#!/usr/bin/env sh
+
+######################################################################
+# @author      : swytch (adapted from Luke Smith - lukesmith.xyz)
+# @file        : sb-mpdup
+# @license     : GPLv3
+# @created     : Saturday Feb 13, 2021 18:04:04 CET
+#
+# @description : update music block for dwmblocks
+######################################################################
+
+
+while : ; do
+	mpc idle >/dev/null && kill -39 $(pidof dwmblocks) || break
+done
+

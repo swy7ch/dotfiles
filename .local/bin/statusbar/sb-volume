@@ -1,0 +1,25 @@
+#!/usr/bin/env sh
+
+######################################################################
+# @author      : swytch (adapted from Luke Smith - lukesmith.xyz)
+# @file        : sb-volume
+# @license     : GPLv3
+# @created     : Saturday Feb 13, 2021 17:51:16 CET
+#
+# @description : volume block for dwmblocks
+######################################################################
+
+[ "1" = $(pulsemixer --get-mute) ] && echo "婢  ---" && exit
+
+vol="$(pulsemixer --get-volume | awk -F " " '{ printf "%d", $1 }')"
+
+if [ "$vol" -gt "70" ]; then
+	icon="墳"
+elif [ "$vol" -lt "30" ]; then
+	icon="奄"
+else
+	icon="奔"
+fi
+
+printf "%s %3d%%" $icon $vol
+

@@ -1,6 +1,6 @@
 " Author        : swytch
 " Created       : 08/05/2020
-" License       : MIT
+" License       : GPLv3
 " Description   : My own personnal statusline script
 
 function! CurrentMode()
@@ -111,7 +111,7 @@ function! StatusLineNC()
 
 	" Depth
 	let l:statusline.='%#Percent#'
-	let l:statusline.='%03.p%%'
+	let l:statusline.=' %03.p%%'
 
 	return l:statusline
 endfunction

@@ -1,13 +1,12 @@
 #!/usr/bin/env sh
 
 ######################################################################
-# @author       : swytch
-# @file         : bibinput
-# @license      : MIT
-# @created      : Wednesday May 20, 2020 17:57:47 CEST
+# @author      : swytch
+# @file        : bibinput
+# @license     : GPLv3
+# @created     : Wednesday May 20, 2020 17:57:47 CEST
 #
-# @description  : create a bibliography entry through dmenu
-# @dependencies : dmenu
+# @description : create a bibliography entry through dmenu
 ######################################################################
 
 

@@ -1,9 +1,9 @@
 #!/usr/bin/env sh
 
 ######################################################################
-# @author       : swytch (adapted from Luke Smith - lukesmith.xyz)
+# @author      : swytch (adapted from Luke Smith - lukesmith.xyz)
 # @file        : remaps
-# @license     : MIT
+# @license     : GPLv3
 # @created     : Wednesday Jan 13, 2021 00:41:18 CET
 #
 # @description : remap keys to others

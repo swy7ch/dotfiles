@@ -1,13 +1,13 @@
 #!/usr/bin/env sh
 
 ######################################################################
-# @author       : swytch
-# @file         : kbacklight
-# @license      : MIT
-# @created      : Wednesday May 20, 2020 18:17:03 CEST
+# @author      : swytch
+# @file        : kbacklight
+# @license     : GPLv3
+# @created     : Wednesday May 20, 2020 18:17:03 CEST
 #
-# @description  : control keyboard brightness
-# @dependencies : `upower`
+# @description : control keyboard brightness
+# @dependencies: upower
 ######################################################################
 
 

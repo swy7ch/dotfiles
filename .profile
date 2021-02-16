@@ -1,4 +1,4 @@
-#! /bin/sh
+#!/usr/bin/env sh
 
 # This file is sourced when launching a DM from startx/xinit
 
@@ -19,11 +19,12 @@ export NMBGIT="$XDG_DATA_HOME/notmuch/nmbug"
 export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc-2.0"
 export TEXMFHOME="$XDG_DATA_HOME/texmf"
 export ANDROID_PREFS_ROOT="$XDG_CONFIG_HOME/android"
+export ADB_KEYS_PATH="$ANDROID_PREFS_ROOT"
 export ANDROID_EMULATOR_HOME="$XDG_DATA_HOME/android/emulator"
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
 
 ## paths
-export PATH="$HOME/.local/bin:$PATH"
+export PATH="$(find $HOME/.local/bin -type d | tr '\n' ':' | sed 's/:$//'):$PATH"
 
 ## default programs
 export SUDO_ASKPASS="$HOME/.local/bin/dmenupass"

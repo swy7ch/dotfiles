@@ -1,12 +1,12 @@
 #!/bin/bash
 
 ######################################################################
-# @author       : swytch (based on u/deepjyoti30 on GitHub)
-# @file         : colorblocks
-# @license      : MIT
-# @created      : Wednesday May 20, 2020 17:59:44 CEST
+# @author      : swytch (based on u/deepjyoti30 on GitHub)
+# @file        : colorblocks
+# @license     : GPLv3
+# @created     : Wednesday May 20, 2020 17:59:44 CEST
 #
-# @description  : display terminal colors as big blocks
+# @description : display terminal colors as big blocks
 ######################################################################
 
 

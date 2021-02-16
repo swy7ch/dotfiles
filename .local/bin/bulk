@@ -3,7 +3,7 @@
 ######################################################################
 # @author      : swytch (swytch@$HOSTNAME)
 # @file        : bulk
-# @license     : MIT
+# @license     : GPLv3
 # @created     : Wednesday Feb 10, 2021 00:27:55 CET
 #
 # @description : execute batch commands through your favorite $EDITOR
