@@ -26,17 +26,17 @@ for bat in /sys/class/power_supply/BAT?/
 do
 	status="$(cat "$bat/status")"
 	capacity="$(cat "$bat/capacity")"
- 	if [ "$status" = "Charging" ]; then
+	if [ "$status" = "Full" ]; then
+		printf "  FULL" && exit
+ 	elif [ "$status" = "Charging" ]; then
 		status=""
-	elif [ "$status" = "Full" ];
-		printf "%s FULL" "$status";
 	else
 		case "$capacity" in
 			100|9[0-9]|8[0-9])	status="" ;;
 			7[0-9]|6[0-9])	status="" ;;
 			5[0-9]|4[0-9])	status="" ;;
 			3[0-9]|2[0-9])	status="" ;;
-			*)	status="" ; [ "$status" != "Charging" ] && notify;;
+			*)	status="" ; notify;;
 		esac
 	fi
 	printf "%s %3d%%\n" "$status" "$capacity";

@@ -1,0 +1,19 @@
+#!/usr/bin/env sh
+
+######################################################################
+# @author      : swytch (adapted from Luke Smith - lukesmith.xyz)
+# @file        : mutt-openfile
+# @license     : GPLv3
+# @created     : Tuesday Feb 16, 2021 11:50:16 CET
+#
+# @description : open a file with xdg-open from mutt
+######################################################################
+
+
+tempdir="${XDG_CACHE_HOME:-$HOME/.cache}/mutt/files"
+file="$tempdir/$(basename "$1")"
+opener="setsid -f xdg-open"
+mkdir -p "$tempdir"
+cp -f "$1" "$file"
+$opener "$file" >/dev/null 2>&1
+find "${tempdir:?}" -mtime +1 -type f -delete
