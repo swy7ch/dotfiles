@@ -54,7 +54,10 @@ super + shift + m
 		$TERMINAL -c "ncmpcpp" -e ncmpcpp
 
 super + shift + n
-		$TERMINAL -c "neomutt" -e neomutt
+		$TERMINAL -g 128x32 -c "neomutt" -e neomutt
+
+super + shift + t
+		$TERMINAL -c -e tremc
 
 super + shift + b
 		script="$(printf "bibinput\nbibshow" | dmenu -i -p "which script?")" && $script

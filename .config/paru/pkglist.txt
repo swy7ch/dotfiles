@@ -1,4 +1,3 @@
-abcde
 adobe-source-han-sans-cn-fonts
 adobe-source-han-sans-jp-fonts
 alsa-plugins
@@ -50,6 +49,7 @@ msmtp
 ncmpcpp
 neomutt
 neovim
+nnn
 notmuch
 pacman
 pacman-contrib
@@ -72,7 +72,8 @@ sxiv
 texinfo
 texlive-core
 texlive-latexextra
-transmission-gtk
+transmission-cli
+tremc
 ttf-fira-sans
 ttf-iosevka-fixed-slab
 ttf-nerd-fonts-symbols-mono

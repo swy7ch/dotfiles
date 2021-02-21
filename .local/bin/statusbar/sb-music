@@ -10,9 +10,15 @@
 ######################################################################
 
 
+format() { sed "s/^volume:n\/a.*//g;/^volume:/d;s/\\&/&amp;/g;s/\\[paused\\].*//g;s/\\[playing\\].*//g"; }
+
 mpc="$(mpc --format "%albumartist% - %title%")"
-format() { tac | sed "s/^volume: n\/a.*/ 🎵 ---/g;/^volume:/d;s/\\&/&amp;/g;s/\\[paused\\].*/ ⏸/g;s/\\[playing\\].*/ 🎵/g" | paste -sd ' ' -;}
+title="$(echo "$mpc" | head -n1 | awk -F " - " '{ printf "%s", $2 }')"
+[ "$(echo "$title" | wc -c)" -gt 18 ] && title="$(printf "%.15s..." "$title")"
+artist="$(echo "$mpc" | head -n1 | awk -F " - " '{ printf "%s", $1 }')"
+[ "$(echo "$artist" | wc -c)" -gt 18 ] && artist="$(printf "%.15s..." "$artist")"
+status="$(echo "$mpc" | tail -n2 | format)"
 
 pgrep -f sb-mpdup >/dev/null 2>&1 || sb-mpdup >/dev/null 2>&1 &
 
-echo "$mpc" | format
+[ -n "$status" ] && printf " %s %s - %s " "$status" "$artist" "$title"

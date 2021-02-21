@@ -9,7 +9,7 @@
 # @description : volume block for dwmblocks
 ######################################################################
 
-[ "1" = $(pulsemixer --get-mute) ] && echo "婢  ---" && exit
+[ "1" = $(pulsemixer --get-mute) ] && echo " 婢  --- " && exit
 
 vol="$(pulsemixer --get-volume | awk -F " " '{ printf "%d", $1 }')"
 
@@ -21,5 +21,5 @@ else
 	icon="奔"
 fi
 
-printf "%s %3d%%" $icon $vol
+printf " %s %3d%% " $icon $vol
 

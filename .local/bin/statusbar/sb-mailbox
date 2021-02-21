@@ -22,4 +22,4 @@ do
 done
 [ -n "$unread" ] && unread="($(echo "$unread" | cut -c 2-))" || exit
 
-printf " %s%s" "$unread" "$icon"
+printf "  %s%s " "$unread" "$icon"
