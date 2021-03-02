@@ -42,7 +42,7 @@ do
 		status=""
 	else
 		case "$capacity" in
-			[8-9][0-9])	status="" ;;
+			100|[8-9][0-9])	status="" ;;
 			[6-7][0-9])	status="" ;;
 			[4-5][0-9])	status="" ;;
 			[2-3][0-9])	status="" ;;

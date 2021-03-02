@@ -17,7 +17,7 @@ do
 	if [ $new -gt 0 ]; then
 		[ -n "$(echo "$acc" | sed -n '/@etu/p')" ] && box=""
 		[ -n "$(echo "$acc" | sed -n '/@posteo/p')" ] && box=""
-		unread="$unread/$box:$new"
+		unread="$unread/$box$new"
 	fi
 done
 [ -n "$unread" ] && unread="($(echo "$unread" | cut -c 2-))" || exit
