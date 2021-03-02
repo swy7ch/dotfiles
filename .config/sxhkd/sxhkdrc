@@ -57,7 +57,7 @@ super + shift + n
 		$TERMINAL -g 128x32 -c "neomutt" -e neomutt
 
 super + shift + t
-		$TERMINAL -c -e tremc
+		$TERMINAL -g 128x32 -c "transmission" -e tremc
 
 super + shift + b
 		script="$(printf "bibinput\nbibshow" | dmenu -i -p "which script?")" && $script
