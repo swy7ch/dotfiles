@@ -1,2 +1,2 @@
+# GPG-agent
 GNUPGHOME DEFAULT=@{HOME}/.config/gnupg
-XDG_CONFIG_HOME DEFAULT=@{HOME}/.config

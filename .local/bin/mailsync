@@ -15,11 +15,11 @@
 
 eval "$(grep -h -- \
 	"^\s*\(export \)\?\(XDG_CACHE_HOME\|XDG_CONFIG_HOME\|XDG_DATA_HOME\)=" \
-	"$HOME/.profile" 2>/dev/null)"
+	"$HOME/.zshenv" 2>/dev/null)"
 
 eval "$(grep -h -- \
 	"^\s*\(export \)\?\(MBSYNCRC\|PASSWORD_STORE_DIR\|NOTMUCH_CONFIG\|GNUPGHOME\)=" \
-	"$HOME/.profile" "$HOME/.pam_environment" 2>/dev/null)"
+	"$XDG_CONFIG_HOME/zsh/.zprofile" "$HOME/.pam_environment" 2>/dev/null)"
 
 case "$(readlink -f /sbin/init)" in
 	*systemd*) export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u)/bus ;;
