@@ -16,9 +16,18 @@
 # Also sends a notification if battery running low
 
 notify() { \
-	case "$(cat "$x")" in
-		1[0-9])	notify-send -u "normal" "Battery is $status and running low ($capacity%)" "Please plug your computer to a power source" ;;
-		[0-9])	notify-send -u "critical" "Battery is $status and dangerously low ($capacity%)" "Please plug your computer to a power source - <b>NOW!</b>" ;;
+	now=$(date +%s)
+	if [ -e $XDG_CONFIG_HOME/batteryupdate ]; then
+		old=$(cat $XDG_CONFIG_HOME/batteryupdate)
+		delta=$(expr $now - $old)
+	else
+		delta=$now
+	fi
+	[ 300 -gt $delta ] && return;
+	echo $now > $XDG_CONFIG_HOME/batteryupdate
+	case "$capacity" in
+		1[0-9])	notify-send -u "normal" "Battery is running low ($capacity%)" "Please plug your computer to a power source" ;;
+		[0-9])	notify-send -u "critical" "Battery is dangerously low ($capacity%)" "Please plug your computer to a power source - <b>NOW!</b>" ;;
 	esac
 	}
 
@@ -33,10 +42,10 @@ do
 		status=""
 	else
 		case "$capacity" in
-			100|9[0-9]|8[0-9])	status="" ;;
-			7[0-9]|6[0-9])	status="" ;;
-			5[0-9]|4[0-9])	status="" ;;
-			3[0-9]|2[0-9])	status="" ;;
+			100|[8-9][0-9])	status="" ;;
+			[6-7][0-9])	status="" ;;
+			[4-5][0-9])	status="" ;;
+			[2-3][0-9])	status="" ;;
 			*)	status="" ; notify;;
 		esac
 	fi

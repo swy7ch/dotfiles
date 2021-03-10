@@ -1,0 +1,24 @@
+#!/usr/bin/env sh
+
+######################################################################
+# @author      : swytch
+# @file        : sb-torrent
+# @license     : GPLv3
+# @created     : Sunday March 7, 2021 18:19:04 CET
+#
+# @description : torrent block for dwmblocks
+######################################################################
+
+pid="$(pidof transmission-daemon)"
+[ -z "$pid" ] && exit
+
+out="$(transmission-remote --list)"
+cntd="$(echo "$out" | grep -e "Downloading" | wc -l)"
+cntu="$(echo "$out" | grep -e "Seeding" | wc -l)"
+infos="$(echo "$out"| tail -n1)"
+spdd="$(echo "$infos" | awk -F " " '{ printf "%.2f", $5/1000 }')"
+spdu="$(echo "$infos" | awk -F " " '{ printf "%.2f", $4/1000 }')"
+[ 0 -ne $cntd ] && down="$(printf "%s(%sM)" "$cntd" "$spdd")" || down="---"
+[ 0 -ne $cntu ] && up="$(printf "%s(%sM)" "$cntu" "$spdu")" || up="---"
+
+printf "  %s/%s " "$down" "$up"
