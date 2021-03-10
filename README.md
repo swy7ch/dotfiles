@@ -84,8 +84,20 @@ My statusbar is set through
 [dwmblocks](https://github.com/torrinfail/dwmblocks). You can find my fork
 [here](https://gitlab.com/swy7ch/dwmblocks).
 
-## MIT License
+## GPLv3 License
 
-This repo is licensed under MIT License, which means you can do pretty much
-anything with it as long as you cite my work with MIT License. You can
-re-license it, modify it, re-distribute it, be it open or close sourced.
+This repo is, since commit `a7ee60f`, licensed under the GPLv3. Depending on
+your situation, it might not change anything. This is what is required:
+
+0. For your personnal usage, do what you want.
+1. If you ever wanted to re-publish it, you can.
+2. If you ever want to modify it, you can.
+3. If you want to melt any part of this repo into your project, this
+   project **must** be licensed under the GPLv3.
+
+More informations:
+
+* The GNU webpage regarding the license:
+https://www.gnu.org/licenses/gpl-3.0.en.html
+* The Choose A License page about GPLv3:
+https://choosealicense.com/licenses/gpl-3.0/
