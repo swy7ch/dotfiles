@@ -14,4 +14,4 @@ col_yellow="#ffeca3"
 col_black="#1d2021"
 col_orange="#f7a583"
 
-dmenu -sb $col_orange -sf $col_black -nf "#000000" -nb "#000000" -p "$1" <&-
+dmenu -sb $col_orange -sf $col_black -nf $col_black -nb $col_black -p "$1" <&-
