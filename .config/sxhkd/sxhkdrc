@@ -38,6 +38,9 @@ super + shift + o
 super + Return
 		$TERMINAL
 
+super + shift + Return
+		$TERMINAL -g 128x32 -c "floating"
+
 super + d
 		dmenu_run -p "run:"
 
