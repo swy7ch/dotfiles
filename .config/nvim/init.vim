@@ -56,7 +56,7 @@ set updatetime=250
 filetype plugin indent on
 
 " Defining the <leader>
-let mapleader = " "
+map <Space> <leader>
 
 " Remove the pause when leaving insert mode
 set ttimeoutlen=10

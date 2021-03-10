@@ -100,8 +100,8 @@ function! StatusLineNC()
 	" File name and status
 	let l:statusline.=' %t'
 
-	let l:statusline .= "%{&readonly?' [MO]':''}"
-	let l:statusline .= "%{&modified?' [RO]':''}"
+	let l:statusline .= "%{&readonly?' [RO]':''}"
+	let l:statusline .= "%{&modified?' [MO]':''}"
 
 	" Truncate line here
 	let l:statusline.='%<'

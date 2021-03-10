@@ -12,11 +12,12 @@
 
 MPC_FORMAT="Artist: <b>%artist%</b> \nTitle: %title% \nAlbum: %album%"
 out="$(mpc --format "$MPC_FORMAT" $1 | head -n-1)"
+kill -39 $(pidof dwmblocks)
 if [ -z "$out" ]; then
-	out="No music"
+	exit
 else
-	path="$(mpc --format %file% | head -n1 | awk -F '/' '{ printf "music/%s/%s/cover.png\n", $1,$2 }')"
+	path="$(mpc --format %file% | head -n1 | awk -F '/' '{ printf "music/%s/%s/cover.jpg\n", $1,$2 }')"
+	echo $path
+	dunstify -r 10010 -u "normal" -i "$HOME/$path" "MPD" "$out"
 fi
 
-dunstify -r 10010 -u "normal" -i "$HOME/$path" "MPD" "$out"
-kill -39 $(pidof dwmblocks)
