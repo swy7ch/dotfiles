@@ -13,11 +13,11 @@ so that I can reinstall Arch easily without much tinkering.
 Retrieve the repo:
 
 ```sh
-$ git clone --bare https://gitlab.com/swy7ch/dotfiles.git .dotfiles # HTTPS
+$ git clone --bare https://forge.chapril.org/swytch/dotfiles.git .dotfiles # HTTPS
 ```
 
 ```sh
-$ git clone --bare git@gitlab.com:swy7ch/dotfiles.git .dotfiles # SSH
+$ git clone --bare ssh://gitea@forge.chapril.org:222/swytch/dotfiles.git .dotfiles # SSH
 ```
 
 After setting an alias like
