@@ -22,4 +22,4 @@ status="$(echo "$mpc" | tail -n2 | format)"
 
 pgrep -f sb-mpdup >/dev/null 2>&1 || sb-mpdup >/dev/null 2>&1 &
 
-[ -n "$status" ] && printf " %s %s - %s " "$status" "$artist" "$title"
+[ -n "$status" ] && printf " %s %s-%s " "$status" "$artist" "$title"
