@@ -10,14 +10,14 @@
 ######################################################################
 
 
-repos="st dwm dmenu slock"
+repos="st dwm dmenu slock dwmblocks"
 
 services_list="systemd-timescyncd"
 
 
 git_clone() {
 	printf "\nDownloading $1..."
-	git clone https://gitlab.com/swy7ch/$1 ~/$HOME/.local/src/tools/$1
+	git clone https://forge.chapril.org/swytch/$1 ~/$HOME/.local/src/$1
 	printf "\tDone."
 	cd ~/$HOME/.local/src/tools/$1
 	git remote set-url origin git@gitlab.com:swy7ch/$1
