@@ -28,5 +28,4 @@ else
 	. "$HOME/.xprofile"
 fi
 
-# starts the WM
 exec dwm
