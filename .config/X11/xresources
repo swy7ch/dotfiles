@@ -1,0 +1,46 @@
+!! Set a default font and font size as below:
+*.font: Iosevka Fixed Slab:size=12
+*.symbols: Symbols Nerd Font:size=11
+
+/* name		dark	light */
+/* black	0	8 */
+/* red		1	9 */
+/* green	2	10 */
+/* yellow	3	11 */
+/* blue		4	12 */
+/* purple	5	13 */
+/* cyan		6	14 */
+/* white	7	15 */
+
+/* theme */
+*.color0: #1d2021
+*.color1: #b73935
+*.color2: #5d9179
+*.color3: #f7a583
+*.color4: #458588
+*.color5: #b16286
+*.color6: #7cafa3
+*.color7: #d5c4a1
+*.color8: #373737
+*.color9: #ea6962
+*.color10: #89b594
+*.color11: #ffeca3
+*.color12: #7daea3
+*.color13: #d3869b
+*.color14: #ace5d7
+*.color15: #fbf1c7
+*.background: #1d2021
+*.selbackground: #373737
+*.foreground: #fbf1c7
+*.normforeground: #a89984
+*.selforeground: #ebdbb2
+*.cursorColor: #ebdbb2
+
+/* st config */
+st.font: Iosevka Fixed Slab:size=14
+st.termname: st-256color
+st.borderpx: 5
+
+/* dwm config */
+dwm.borderpx: 2
+dwm.gappx: 20

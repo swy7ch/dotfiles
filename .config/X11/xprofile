@@ -11,10 +11,9 @@ dunst -follow mouse &> /dev/null & #temp fix
 [ ! -s ~/.config/mpd/pid ] && mpd
 pulsemixer --set-volume 50
 sbacklight set 3 &
-bat_notify &
-AC_notify &
 setbg &
 dwmblocks &
+xrdb ${XDG_CONFIG_HOME:-$HOME/.config}/X11/xresources
 
 xinput set-prop 'Synaptics TM3072-003' 'libinput Tapping Enabled' 1 &
 xinput set-prop 'Synaptics TM3072-003' 'libinput Natural Scrolling Enabled' 1 &
