@@ -41,7 +41,7 @@ done ;}
 # Check account for new mail. Notify if there is new content.
 syncandnotify() {
     acc="$(echo "$account" | sed "s/.*\///")"
-    if [ -z "$opts" ]; then mbsync "$acc"; else mbsync "$opts" "$acc"; fi
+    mbsync "$acc"
 	new="$(find "${XDG_DATA_HOME:-$HOME/.local/share}"/mail/$acc/[Ii][Nn][Bb][Oo][Xx]/new/* -type f -newer "${XDG_CONFIG_HOME:-$HOME/.config}/mutt/.mailsynclastrun" 2>/dev/null)"
     newcount=$(echo "$new" | sed '/^\s*$/d' | wc -l)
     if [ "$newcount" -gt "0" ]; then
