@@ -44,9 +44,9 @@ twoscreen() { # If multi-monitor is selected and there are two screens.
 			xrandr --output "$primary" --auto --scale 1.0x1.0 \
 				--output "$secondary" --"$direction"-of "$primary" --auto --scale 1.2x1.2 --rotate $rotation
         else
-			xrandr --fb 4224x2376 \
-				--output "eDP1" --mode 1920x1080 --pos 2304x0\
-				--output "HDMI2" --scale 1.2x1.2 --pos 0x0
+			xrandr --fb 3840x1080 \
+				--output "eDP1" --mode 1920x1080 --pos 1920x0\
+				--output "HDMI2"  --pos 0x0
 		fi
 	fi
 	}
