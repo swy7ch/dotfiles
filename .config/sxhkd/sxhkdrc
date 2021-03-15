@@ -28,7 +28,7 @@ super + shift + r
 super + shift + d
 		displayselect
 
-super + shift + space
+super + shift + k
 		kbacklight
 
 super + shift + o
