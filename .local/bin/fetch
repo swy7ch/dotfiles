@@ -19,7 +19,7 @@ kernel="$(uname -sr)"
 uptime="$(uptime -p | sed 's/up //')"
 packages="$(pacman -Q | wc -l)"
 shell="$(basename "$SHELL")"
-wm="$(tail -n 1 "${HOME}/.xinitrc" | cut -d ' ' -f 2)"
+wm="$(tail -n 1 "$XDG_CONFIG_HOME/X11/xinitrc" | cut -d ' ' -f 2)"
 
 # parse the '/proc/meminfo' file splitting on ':' and 'k'.
 # the format of the file is 'key:   000kB' and an additional
