@@ -35,6 +35,7 @@ grub
 gsasl
 gzip
 htop
+iftop
 imagemagick
 isync
 iwd
@@ -55,6 +56,8 @@ neomutt
 neovim
 nnn
 notmuch
+openvpn
+openvpn-update-systemd-resolved
 pacman
 pacman-contrib
 pam-gnupg
