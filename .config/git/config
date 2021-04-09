@@ -11,3 +11,5 @@
 	program = gpg2
 [fetch]
 	prune = true
+[init]
+	defaultBranch = main
