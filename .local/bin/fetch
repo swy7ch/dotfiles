@@ -56,16 +56,16 @@ if [ -x "$(command -v tput)" ]; then
 	blue="$(tput setaf 4)"
 	magenta="$(tput setaf 5)"
 	cyan="$(tput setaf 6)"
-	white="$(tput setaf 7)"
+	white="$(tput setaf 15)"
 	reset="$(tput sgr0)"
 fi
 
 # you can change these
 lc="${bold}${green}"                # labels
 nc="${bold}${red}"                  # user and hostname
-ic="${reset}${yellow}"              # info
-a0="${reset}${blue}"                # first arch color
-a1="${reset}${cyan}"                # second arch color
+ic="${white}"                       # info
+a0="${blue}"                        # first arch color
+a1="${cyan}"                        # second arch color
 
 cat <<EOF
 ${a0}                   ${nc}${USER}${ic}@${nc}${host}
