@@ -15,3 +15,6 @@ require("lsp")          -- ./lua/lsp/init.lua
 require("lsp.maps")     -- ./lua/lsp/maps.lua
 require("lsp.c")        -- ./lua/lsp/c.lua
 require("lsp.python")   -- ./lua/lsp/python.lua
+
+-- auto complete
+require("plugin.compe") -- ./lua/compe.lua

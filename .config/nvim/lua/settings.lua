@@ -42,7 +42,7 @@ o.showmatch             = true
 o.ignorecase            = true
 o.smartcase             = true
 o.inccommand            = "split"
-o.completeopt           = "menuone,noinsert,noselect"
+o.completeopt           = "menuone,noselect"
 
 -- statusline
 o.laststatus            = 2

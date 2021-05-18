@@ -38,6 +38,9 @@ return require("packer").startup(function()
         -- LSP
         use "neovim/nvim-lspconfig"
 
+        -- auto completion
+        use "hrsh7th/nvim-compe"
+
         -- display colors directly in editor
         use {
                 "norcalli/nvim-colorizer.lua",
