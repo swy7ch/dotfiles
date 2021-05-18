@@ -36,6 +36,7 @@ o.background            = "dark"
 o.shortmess             = o.shortmess .. "c"
 w.number                = true
 w.relativenumber        = true
+w.signcolumn            = "yes"
 o.listchars             = "tab:<->,nbsp:␣,trail:·,extends:>,precedes:<"
 o.showmatch             = true
 o.ignorecase            = true

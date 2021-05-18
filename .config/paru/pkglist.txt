@@ -16,6 +16,7 @@ binutils
 bison
 capitaine-cursors
 cdparanoia
+clang
 cmake
 cronie
 dash
@@ -40,6 +41,7 @@ iftop
 imagemagick
 isync
 iwd
+jedi-language-server
 libnotify
 libtool
 linux

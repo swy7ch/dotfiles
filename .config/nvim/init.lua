@@ -9,3 +9,9 @@ require("maps")         -- ./lua/maps.lua
 require("statusline")   -- ./lua/statusline.lua
 
 require("polyjuice")    -- colorscheme
+
+-- LSP
+require("lsp")          -- ./lua/lsp/init.lua
+require("lsp.maps")     -- ./lua/lsp/maps.lua
+require("lsp.c")        -- ./lua/lsp/c.lua
+require("lsp.python")   -- ./lua/lsp/python.lua

@@ -35,6 +35,9 @@ return require("packer").startup(function()
                 cmd = {"Telescope"}
         }
 
+        -- LSP
+        use "neovim/nvim-lspconfig"
+
         -- display colors directly in editor
         use {
                 "norcalli/nvim-colorizer.lua",
