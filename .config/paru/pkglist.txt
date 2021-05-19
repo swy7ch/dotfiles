@@ -16,6 +16,8 @@ binutils
 bison
 capitaine-cursors
 cdparanoia
+clang
+cmake
 cronie
 dash
 dunst
@@ -39,6 +41,7 @@ iftop
 imagemagick
 isync
 iwd
+jedi-language-server
 libnotify
 libtool
 linux
@@ -53,7 +56,7 @@ mpv
 msmtp
 ncmpcpp
 neomutt
-neovim
+ninja
 nnn
 notmuch
 openvpn
@@ -80,6 +83,7 @@ texinfo
 texlive-core
 texlive-latexextra
 transmission-cli
+tree-sitter
 tremc
 ttf-dejavu
 ttf-fira-sans
