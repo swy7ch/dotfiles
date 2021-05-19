@@ -13,7 +13,7 @@ so that I can reinstall Arch easily without much tinkering.
 Clone the repo :
 
 ```sh
-$ git clone --bare
+$ git clone --bare <repo_url> ~/.dotfiles.git
 ```
 
 then after setting an alias like
@@ -46,7 +46,7 @@ Contains the files that I haven't been able to put in `~/.config`
 - `htop`
 - `mpd`
 - `ncmpcpp`
-- `neovim`
+- `neovim v0.5+`
 - `neomutt`
 - `pacman` **(hooks only)**
 - `paru`
@@ -58,6 +58,7 @@ Contains the files that I haven't been able to put in `~/.config`
 	- `fish-shell`
 	- `i3-gaps`
 	- `neofetch`
+	- `neovim v0.4.4`
 	- `polybar`
 	- `termite`
 	- `ranger`
