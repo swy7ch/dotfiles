@@ -20,7 +20,7 @@ done
 
 [ "$flags" = "error" ] && echo "error: only one flag permitted" && exit 1
 
-git="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
+git="/usr/bin/git --git-dir=$DOTFILES --work-tree=$HOME"
 
 case $1 in
 	-*)
@@ -63,4 +63,4 @@ case $1 in
 		;;
 esac
 
-$cmd
+eval $cmd
