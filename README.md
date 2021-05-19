@@ -13,17 +13,17 @@ so that I can reinstall Arch easily without much tinkering.
 Retrieve the repo:
 
 ```sh
-$ git clone --bare https://forge.chapril.org/swytch/dotfiles.git .dotfiles # HTTPS
+$ git clone --bare https://forge.chapril.org/swytch/dotfiles.git ~/.dotfiles.git # HTTPS
 ```
 
 ```sh
-$ git clone --bare ssh://gitea@forge.chapril.org:222/swytch/dotfiles.git .dotfiles # SSH
+$ git clone --bare ssh://gitea@forge.chapril.org:222/swytch/dotfiles.git ~/.dotfiles.git # SSH
 ```
 
 After setting an alias like
 
 ```sh
-$ alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+$ alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME'
 ```
 
 just run
@@ -31,6 +31,10 @@ just run
 ```sh
 $ dotfiles checkout
 ```
+
+Note: the repo already provides an alias file (`~/.config/aliasrc`) which sets
+this alias up. For this alias to work, you need to source
+`~/.config/zsh/.zprofile` before.
 
 ## ~/
 
