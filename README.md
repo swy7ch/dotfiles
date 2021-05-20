@@ -34,10 +34,7 @@ this alias up. For this alias to work, you need to source
 
 ## ~/
 
-Contains the files that I haven't been able to put in `~/.config`
-
-**/!\\** X files call a few of my personnal scripts, which you can find in
-`~/.local/bin`
+Contains the files that I haven't been able to put in `~/.config`.
 
 ## Programs whose config files can be found in ~/.config/
 
@@ -71,20 +68,17 @@ Where I keep the files I have to copy into the `/` folder. It is not called in
 
 ## ~/.local/bin
 
-My personnal scripts that I use to make things easier.
+My personnal scripts that I use to make things easier. Some of them are used by
+programs I use, like my WM for instance.
 
 ## Window manager and terminal emulator
 
 I currently use [suckless](https://suckless.org/)' programs, i.e. `dmenu`
 (binary launcher), `dwm` (window manager) and `st` (terminal emulator),
-so my files are set accordingly. You can check my
-[dmenu](https://forge.chapril.org/swytch/dmenu),
-[dwm](https://forge.chapril.org/swytch/dwm)
-and [st](https://forge.chapril.org/swytch/st) forks.
+so my files are set accordingly. My statusbar is set through
+[dwmblocks](https://github.com/torrinfail/dwmblocks).
 
-My statusbar is set through
-[dwmblocks](https://github.com/torrinfail/dwmblocks). You can find my fork
-[here](https://forge.chapril.org/swytch/dwmblocks).
+All my forks are available on this account!
 
 ## GPLv3 License
 
