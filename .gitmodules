@@ -1,0 +1,18 @@
+[submodule ".local/src/polyjuice"]
+	path = .local/src/polyjuice
+	url = git@github.com:swy7ch/polyjuice.git
+[submodule ".local/src/dwm"]
+	path = .local/src/dwm
+	url = git@github.com:swy7ch/dwm.git
+[submodule ".local/src/dwmblocks"]
+	path = .local/src/dwmblocks
+	url = git@github.com:swy7ch/dwmblocks.git
+[submodule ".local/src/st"]
+	path = .local/src/st
+	url = git@github.com:swy7ch/st.git
+[submodule ".local/src/dmenu"]
+	path = .local/src/dmenu
+	url = git@github.com:swy7ch/dmenu
+[submodule ".local/src/slock"]
+	path = .local/src/slock
+	url = git@github.com:swy7ch/slock.git
