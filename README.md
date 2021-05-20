@@ -82,8 +82,8 @@ All my forks are available on this account!
 
 ## Submodules
 
-Since commit `93440b9`, those forks are provided as submodules. To retrieve
-them, run
+Since commit `93440b9`, those forks are provided as submodules, provided in
+`~/.local/src`. To retrieve them, run
 
 ```sh
 $ git submodule init
