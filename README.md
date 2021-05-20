@@ -13,7 +13,7 @@ so that I can reinstall Arch easily without much tinkering.
 Clone the repo :
 
 ```sh
-$ git clone --bare <repo_url> ~/.dotfiles.git
+$ git clone --bare --recurse-submodules <repo_url> ~/.dotfiles.git
 ```
 
 then after setting an alias like
@@ -79,6 +79,17 @@ so my files are set accordingly. My statusbar is set through
 [dwmblocks](https://github.com/torrinfail/dwmblocks).
 
 All my forks are available on this account!
+
+## Submodules
+
+Since commit `93440b9`, those forks are provided as submodules. To retrieve
+them, run
+
+```sh
+$ git submodule init
+...
+$ git module update
+```
 
 ## GPLv3 License
 
