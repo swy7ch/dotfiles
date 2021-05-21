@@ -3,6 +3,7 @@
 -- License       : GPLv3
 -- Description   : neovim configuration file
 
+require("globals") 	-- ./lua/globals.lua
 require("settings")     -- ./lua/settings.lua
 require("plugins")      -- ./lua/plugins.lua
 require("maps")         -- ./lua/maps.lua

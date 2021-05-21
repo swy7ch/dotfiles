@@ -155,9 +155,21 @@ local function statusline_focused()
                 gen_section(
                         "%#Alert#",
                         {
-                                process_diagnostics("E:", diagnostics.errors, "%#LspDiagnosticsDefaultError#"),
-                                process_diagnostics("W:", diagnostics.warnings, "%#LspDiagnosticsDefaultWarning#"),
-                                process_diagnostics("I:", diagnostics.info, "%#LspDiagnosticsDefaultInformation#")
+                                process_diagnostics(
+                                        globals.sign_error .. " ",
+                                        diagnostics.errors,
+                                        "%#LspDiagnosticsDefaultError#"
+                                ),
+                                process_diagnostics(
+                                        globals.sign_warning .. " ",
+                                        diagnostics.warnings,
+                                        "%#LspDiagnosticsDefaultWarning#"
+                                ),
+                                process_diagnostics(
+                                        globals.sign_info .. " ",
+                                        diagnostics.info,
+                                        "%#LspDiagnosticsDefaultInformation#"
+                                )
                         }
                 )
         }
