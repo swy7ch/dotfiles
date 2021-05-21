@@ -38,9 +38,10 @@
 
 /* st config */
 st.font: Iosevka Fixed Slab:size=14
+st.symbols: Symbols Nerd Font:size=14
 st.termname: st-256color
 st.borderpx: 5
 
 /* dwm config */
 dwm.borderpx: 2
-dwm.gappx: 20
+dwm.gappx: 15
