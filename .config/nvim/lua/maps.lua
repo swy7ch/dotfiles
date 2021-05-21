@@ -11,3 +11,11 @@ utils.map("v", "<leader>p", "\"+P")
 utils.map("n", "<leader><enter>", "<cmd>w! | !compiler %<CR>")
 utils.map("n", "<leader>s", "<cmd>PackerSync<CR>")
 utils.map("n", "<leader>c", "<cmd>ColorizerToggle<CR>")
+
+-- LSP
+utils.map("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>")
+utils.map("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>")
+utils.map("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>")
+utils.map("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>")
+utils.map("n", "<leader>ln", "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>")
+utils.map("n", "<leader>lp", "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>")
