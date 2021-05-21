@@ -15,6 +15,7 @@ require("polyjuice")    -- colorscheme
 require("lsp")          -- ./lua/lsp/init.lua
 require("lsp.maps")     -- ./lua/lsp/maps.lua
 require("lsp.c")        -- ./lua/lsp/c.lua
+require("lsp.lua")      -- ./lua/lsp/lua.lua
 require("lsp.python")   -- ./lua/lsp/python.lua
 
 -- auto complete
