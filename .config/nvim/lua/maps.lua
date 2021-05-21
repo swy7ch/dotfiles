@@ -3,8 +3,6 @@
 -- License       : GPLv3
 -- Description   : neovim mappings file
 
-utils = require("utils")
-
 utils.map("n", "<space>", "<leader>")
 utils.map("n", "<leader>j", "<cmd>bn<CR>")
 utils.map("n", "<leader>k", "<cmd>bp<CR>")

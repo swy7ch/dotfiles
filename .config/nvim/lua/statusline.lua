@@ -6,7 +6,7 @@
 
 
 local function gen_section(hl_string, items)
-        out = ""
+        local out = ""
         for _, item in pairs(items) do
                 if item ~= "" then
                         out = out .. " " .. item
@@ -134,7 +134,7 @@ end
 
 local function spell_check()
         if vim.wo.spell then
-                lang = vim.o.spelllang
+                local lang = vim.o.spelllang
                 return "[SPELL=" .. lang .. "]"
         else
                 return ""
@@ -204,7 +204,7 @@ local function statusline_not_focused()
         }
 end
 
-function gen_statusline()
+function _G.gen_statusline()
         if vim.g.statusline_winid == vim.fn.win_getid() then
                 return statusline_focused()
         else

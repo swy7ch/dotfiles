@@ -3,8 +3,6 @@
 -- License       : GPLv3
 -- Description   : neovim settings file
 
-utils = require("utils")
-
 local g = vim.g
 
 local o = vim.o
