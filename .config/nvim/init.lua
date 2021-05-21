@@ -18,4 +18,4 @@ require("lsp.c")        -- ./lua/lsp/c.lua
 require("lsp.python")   -- ./lua/lsp/python.lua
 
 -- auto complete
-require("plugin.compe") -- ./lua/compe.lua
+require("plugin.compe") -- ./lua/plugin/compe.lua
