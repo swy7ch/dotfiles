@@ -10,7 +10,7 @@ require("plugins")      -- ./lua/plugins.lua
 require("maps")         -- ./lua/maps.lua
 require("statusline")   -- ./lua/statusline.lua
 
-require("polyjuice")    -- colorscheme
+require("polyjuice")    -- ~/.local/src/polyjuice/lua/polyjuice.lua
 
 -- LSP
 require("lsp")          -- ./lua/lsp/init.lua
