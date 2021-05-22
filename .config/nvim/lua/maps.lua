@@ -19,3 +19,8 @@ utils.map("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>")
 utils.map("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>")
 utils.map("n", "<leader>ln", "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>")
 utils.map("n", "<leader>lp", "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>")
+utils.map("n", "<leader>lf", "<cmd>lua vim.lsp.buf.formatting()<CR>")
+
+-- telescope
+utils.map("n", "<leader>tf", "<cmd>Telescope find_files<CR>")
+utils.map("n", "<leader>tb", "<cmd>Telescope file_browser<CR>")
