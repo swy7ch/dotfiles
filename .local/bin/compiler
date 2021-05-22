@@ -10,7 +10,7 @@
 #                      groff-mom : compile via pdfmom to a pdf document
 #                      c : compile via gcc
 #                      config.def.h (suckless) : recompile, install
-#					   blocks.def.h (dwmblocks) : recompile, install
+#                      blocks.def.h (dwmblocks) : recompile, install
 #                      tex : compile via pdflatex (bibtex if needed)
 ######################################################################
 
@@ -20,8 +20,6 @@ dir=$(dirname "$file")
 dirname=$(basename "$dir")
 base="$(printf "${file%.*}" | awk -F '/' '{printf $NF}')"
 shebang=$(sed -n 1p "$file")
-
-sucklesstools="$(ls $HOME/.local/src/suckless)"
 
 cd "$dir" || exit
 
@@ -45,14 +43,6 @@ texcompile() { \
 	fi
 }
 
-s_build(){
-	case "$file" in
-		*config.def.h) sudo make clean install ;;
-		*config.h) printf "\nYou should build from config.def.h !" && exit 1 ;;
-		*) printf "\nI guess you lost yourself ? Please build from config.def.h !" && exit 1 ;;
-	esac
-}
-
 for tool in $sucklesstools; do
 	if [ "$tool" = "$dirname" ]; then
 		s_build
@@ -61,7 +51,8 @@ for tool in $sucklesstools; do
 done
 
 case "$file" in
-	*blocks.def.h) make && sudo make clean install ;;
+	*blocks.def.h) sudo make clean install ;;
+	*config.def.h) sudo make clean install ;;
 	*.c*|*.h*) make && ./main ;;
 	*.mom) refer -PS -e "$file" | pdfmom > "$base.pdf" ;;
 	*.tex) texcompile "$base" ; texclear "$file" ;;

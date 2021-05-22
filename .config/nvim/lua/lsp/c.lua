@@ -3,4 +3,11 @@
 -- License       : GPLv3
 -- Description   : clangd config file for lsp
 
-require("lspconfig").clangd.setup {}
+require("lspconfig").clangd.setup {
+        cmd = { "clangd",
+                "--background-index",
+                "--suggest-missing-includes",
+                "--clang-tidy",
+                "--header-insertion=iwyu"
+        }
+}
