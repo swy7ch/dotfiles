@@ -21,3 +21,6 @@ require("lsp.tex")      -- ./lua/lsp/python.lua
 
 -- auto complete
 require("plugin.compe") -- ./lua/plugin/compe.lua
+
+-- treesitter
+require("plugin.treesitter")    -- ./lua/plugin/treesitter.lua

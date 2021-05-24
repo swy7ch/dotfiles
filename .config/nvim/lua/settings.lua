@@ -53,7 +53,6 @@ b.softtabstop          = -1
 b.expandtab             = true
 b.shiftwidth            = 0
 o.backspace             = "indent,eol,start"
-o.cindent               = true
 
 -- augroups
 utils.create_augroup({
