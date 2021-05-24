@@ -80,6 +80,7 @@ sudo
 sxhkd
 sxiv
 texinfo
+texlab
 texlive-core
 texlive-latexextra
 transmission-cli
