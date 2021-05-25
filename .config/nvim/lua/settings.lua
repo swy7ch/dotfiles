@@ -22,7 +22,6 @@ o.wildignore            = [[
 ]]
 o.wildmode              = "longest,full"
 o.wildoptions           = "pum"
-o.clipboard             = "unnamedplus"
 g.netrw_dirhistmax      = 0
 
 -- editor
@@ -53,7 +52,6 @@ b.softtabstop          = -1
 b.expandtab             = true
 b.shiftwidth            = 0
 o.backspace             = "indent,eol,start"
-o.cindent               = true
 
 -- augroups
 utils.create_augroup({
