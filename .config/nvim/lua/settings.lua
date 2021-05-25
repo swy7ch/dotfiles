@@ -22,7 +22,6 @@ o.wildignore            = [[
 ]]
 o.wildmode              = "longest,full"
 o.wildoptions           = "pum"
-o.clipboard             = "unnamedplus"
 g.netrw_dirhistmax      = 0
 
 -- editor
