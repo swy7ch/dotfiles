@@ -148,7 +148,6 @@ local function statusline_focused()
         local accent_color = get_mode_color(mg)
 
         local left = table.concat {
-                gen_section("%#Buffer#", {"[%n]"}),
                 gen_section(accent_color, {get_mode_display_name(mg)}),
                 gen_section("%#Middle#", {filename()}),
                 gen_section("%#Bottom#", {"%m", "%r"}),
@@ -196,7 +195,6 @@ end
 
 local function statusline_not_focused()
         return table.concat {
-                gen_section("%#StatuslineNF#", {"[%n]"}),
                 gen_section("%#StatuslineNF#", {filename(), "%m"}),
                 "%=",
                 gen_section("%#StatuslineNF#", {"%03.p%%"}),
