@@ -37,7 +37,6 @@ grub
 gsasl
 gzip
 htop
-iftop
 imagemagick
 isync
 iwd
@@ -46,6 +45,7 @@ libnotify
 libtool
 linux
 linux-firmware
+linux-lts
 lynx
 m4
 make
@@ -59,8 +59,6 @@ neomutt
 ninja
 nnn
 notmuch
-openvpn
-openvpn-update-systemd-resolved
 pacman
 pacman-contrib
 pam-gnupg
@@ -81,6 +79,7 @@ sxhkd
 sxiv
 texinfo
 texlab
+texlive-bibtexextra
 texlive-core
 texlive-latexextra
 transmission-cli
