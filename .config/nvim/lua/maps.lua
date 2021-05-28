@@ -6,7 +6,7 @@
 utils.map("n", "<space>", "<leader>")
 utils.map("n", "<leader>j", "<cmd>bn<CR>")
 utils.map("n", "<leader>k", "<cmd>bp<CR>")
-utils.map("v", "<leader>y", "\"+y")
+utils.map("n", "<leader>y", "\"+y")
 utils.map("n", "<leader>p", "\"+P")
 utils.map("n", "<leader><enter>", "<cmd>w! | !compiler %<CR>")
 utils.map("n", "<leader>s", "<cmd>PackerSync<CR>")
