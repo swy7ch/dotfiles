@@ -24,3 +24,4 @@ utils.map("n", "<leader>lf", "<cmd>lua vim.lsp.buf.formatting()<CR>")
 -- telescope
 utils.map("n", "<leader>tf", "<cmd>Telescope find_files<CR>")
 utils.map("n", "<leader>tb", "<cmd>Telescope file_browser<CR>")
+utils.map("n", "<leader>tl", "<cmd>Telescope live_grep<CR>")
