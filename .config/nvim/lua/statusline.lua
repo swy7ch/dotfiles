@@ -98,15 +98,6 @@ local function get_mode_color(m)
         return color[m]
 end
 
--- don't return a filename that's too long
-local function filename()
-        if vim.api.nvim_win_get_width(0) > 80 then
-                return "%F"
-        else
-                return "%t"
-        end
-end
-
 -- from https://github.com/nvim-lua/lsp-status.nvim/blob/master/lua/lsp-status/diagnostics.lua
 local function get_lsp_diagnostics(bufnr)
         local result = {}
@@ -149,7 +140,7 @@ local function statusline_focused()
 
         local left = table.concat {
                 gen_section(accent_color, {get_mode_display_name(mg)}),
-                gen_section("%#Middle#", {filename()}),
+                gen_section("%#Middle#", {"%f"}),
                 gen_section("%#Bottom#", {"%m", "%r"}),
                 gen_section(
                         "%#Alert#",
@@ -195,7 +186,7 @@ end
 
 local function statusline_not_focused()
         return table.concat {
-                gen_section("%#StatuslineNF#", {filename(), "%m"}),
+                gen_section("%#StatuslineNF#", {"%f", "%m"}),
                 "%=",
                 gen_section("%#StatuslineNF#", {"%03.p%%"}),
                 gen_section("%#StatuslineNF#", {"-%03.c-"})
