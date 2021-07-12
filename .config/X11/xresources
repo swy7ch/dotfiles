@@ -37,8 +37,8 @@
 *.cursorColor: #ebdbb2
 
 /* st config */
-st.font: Iosevka Fixed Slab:size=14
-st.symbols: Symbols Nerd Font:size=14
+st.font: Iosevka Fixed Slab:size=13
+st.symbols: Symbols Nerd Font:size=13
 st.termname: st-256color
 st.borderpx: 5
 

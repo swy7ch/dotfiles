@@ -13,4 +13,3 @@
 while : ; do
 	mpc idle >/dev/null && kill -39 $(pidof dwmblocks) || break
 done
-

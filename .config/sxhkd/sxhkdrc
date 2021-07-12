@@ -2,13 +2,11 @@
 
 # System stuff
 
-super + F1
+XF86AudioMute
 		pulsemixer --toggle-mute; audio-notify
-super + {F2, F3}
-		pulsemixer --change-volume {-5, +5}; audio-notify
 
-super + {F5, F6}
-		sbacklight {dec,inc}
+{XF86AudioLowerVolume, XF86AudioRaiseVolume}
+		pulsemixer --change-volume {-5, +5}; audio-notify
 
 super + u
 		dmenumount
@@ -28,12 +26,6 @@ super + shift + r
 super + shift + d
 		displayselect
 
-super + F9
-		kbacklight
-
-super + shift + o
-		dmenuopen
-
 # Others
 super + Return
 		$TERMINAL
@@ -43,6 +35,9 @@ super + shift + Return
 
 super + d
 		dmenu_run -p "run:"
+
+super + shift + o
+		dmenuopen
 
 super + shift + {w,z}
 		$BROWSER

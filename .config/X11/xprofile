@@ -4,20 +4,17 @@
 
 # session launch
 
+xrdb ${XDG_CONFIG_HOME:-$HOME/.config}/X11/xresources
 xss-lock -- slock &
 redshift &
 dunst -follow mouse &> /dev/null & #temp fix
 # MPD daemon start (if no other user instance exists)
 [ ! -s ~/.config/mpd/pid ] && mpd
+[ -z "$(pgrep -f sb-mpdup)" ] && sb-mpdup &
 pulsemixer --set-volume 50
-sbacklight set 3 &
 setbg &
 dwmblocks &
-xrdb ${XDG_CONFIG_HOME:-$HOME/.config}/X11/xresources
 
-xinput set-prop 'Synaptics TM3072-003' 'libinput Tapping Enabled' 1 &
-xinput set-prop 'Synaptics TM3072-003' 'libinput Natural Scrolling Enabled' 1 &
-xinput set-prop 'Synaptics TM3072-003' 'libinput Accel Speed' 0.4 &
 setxkbmap 'fr(oss)'
-remaps &
+xset r rate 300 50 &
 sxhkd &
