@@ -25,7 +25,10 @@ return require("packer").startup(function()
         }
 
         -- tree-sitter
-        use "nvim-treesitter/nvim-treesitter"
+        use {
+                "nvim-treesitter/nvim-treesitter",
+                run = ":TSUpdate"
+        }
 
         -- fuzzy finder
         use {
