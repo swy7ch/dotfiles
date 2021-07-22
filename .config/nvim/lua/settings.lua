@@ -3,55 +3,56 @@
 -- License       : GPLv3
 -- Description   : neovim settings file
 
-local g = vim.g
-
-local o = vim.o
-local w = vim.wo
-local b = vim.bo
+local opt       = vim.opt
+local g         = vim.g
 
 -- general
-o.wildignore            = [[
-        .git
-        *.o,*.class
-        *.jpg,*.jpeg,*.png
-        *.avi,*.mp4,*.mkv
-        *.mp3,*.ogg,*.flac
-        *.eot,*.otf,*.ttf,*.woff
-        *.pdf
-        *.zip,*.gz,*.rar,*.tar.xz
-]]
-o.wildmode              = "longest,full"
-o.wildoptions           = "pum"
-g.netrw_dirhistmax      = 0
+opt.wildignore          = {
+        ".git",
+        "*.o", "*.class",
+        "*.jpg", "*.jpeg", "*.png",
+        "*.pdf",
+        "*.zip", "*.gz", "*.rar", "*.tar.xz",
+}
+opt.wildmode            = { "longest", "full" }
+opt.wildoptions         = "pum"
+g.loaded_netrw          = 1           -- disable netrw
 
 -- editor
-o.splitright            = true
-o.splitbelow            = true
-o.scrolloff             = 4
-o.termguicolors         = true
-o.background            = "dark"
-o.shortmess             = o.shortmess .. "c"
-w.number                = true
-w.relativenumber        = true
-w.signcolumn            = "yes"
-o.listchars             = "tab:<->,nbsp:␣,trail:·,extends:>,precedes:<"
-o.showmatch             = true
-o.ignorecase            = true
-o.smartcase             = true
-o.inccommand            = "split"
-o.completeopt           = "menuone,noselect"
+opt.lazyredraw          = true
+opt.splitright          = true
+opt.splitbelow          = true
+opt.scrolloff           = 4
+opt.termguicolors       = true
+opt.background          = "dark"
+opt.shortmess           = opt.shortmess:append { c = true }
+opt.number              = true
+opt.relativenumber      = true
+opt.signcolumn          = "yes"
+opt.listchars           = {
+        tab         = "<->",
+        nbsp        = "␣",
+        trail       = "·",
+        extends     = ">",
+        precedes    = "<",
+}
+opt.showmatch           = true
+opt.ignorecase          = true
+opt.smartcase           = true
+opt.inccommand          = "split"
+opt.completeopt         = { "menuone", "noselect" }
 
 -- statusline
-o.laststatus            = 2
-o.showmode              = false
+opt.laststatus          = 2
+opt.showmode            = false
 
 -- text, tabs, indents
-b.textwidth             = 79
-b.shiftwidth            = 8
-b.softtabstop          = -1
-b.expandtab             = true
-b.shiftwidth            = 0
-o.backspace             = "indent,eol,start"
+opt.textwidth           = 79
+opt.shiftwidth          = 8
+opt.softtabstop         = -1
+opt.expandtab           = true
+opt.shiftwidth          = 0
+opt.backspace           = { "indent", "eol", "start" }
 
 -- augroups
 utils.create_augroup({

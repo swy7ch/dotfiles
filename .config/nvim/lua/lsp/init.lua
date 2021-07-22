@@ -3,6 +3,8 @@
 -- License       : GPLv3
 -- Description   : neovim lsp config file
 
+local lsp = {}
+
 vim.fn.sign_define(
         "LspDiagnosticsSignError",
         {
@@ -63,3 +65,11 @@ vim.lsp.protocol.CompletionItemKind = {
         "   ",       -- Operator
         "   ",       -- TypeParameter
 }
+
+function lsp.setup()
+        local ft = vim.bo.filetype
+        if ft == "cpp" then ft = "c" end
+        require("lsp." .. ft)           -- ./<ft>.lua
+end
+
+return lsp

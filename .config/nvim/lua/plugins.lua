@@ -25,18 +25,24 @@ return require("packer").startup(function()
         }
 
         -- tree-sitter
-        use "nvim-treesitter/nvim-treesitter"
+        use {
+                "nvim-treesitter/nvim-treesitter",
+                run = ":TSUpdate"
+        }
 
         -- fuzzy finder
         use {
                 "nvim-telescope/telescope.nvim",
                 requires = { "nvim-lua/popup.nvim", "nvim-lua/plenary.nvim"},
-                opt = true,
-                cmd = {"Telescope"}
+                cmd = "Telescope"
         }
 
         -- LSP
-        use "neovim/nvim-lspconfig"
+        use {
+                "neovim/nvim-lspconfig",
+                ft = { "c", "cpp", "lua", "python", "tex"},
+                config = function() require("lsp").setup() end
+        }
 
         -- auto completion
         use "hrsh7th/nvim-compe"
@@ -44,8 +50,7 @@ return require("packer").startup(function()
         -- display colors directly in editor
         use {
                 "norcalli/nvim-colorizer.lua",
-                opt = true,
-                cmd = {"ColorizerToggle"}
+                cmd = "ColorizerToggle"
         }
 
 end)

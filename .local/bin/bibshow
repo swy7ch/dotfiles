@@ -13,12 +13,12 @@
 file="$(find $HOME/documents/bibliographies/ -type f -not -path '*/\.*' | dmenu -l 20 -p "[bibshow] which bibliography?")" # the -not -path allows find to ignore hidden files
 
 refs_list="$(sed -e 's/\t//g' "$file" | tr '\n' ' ' | sed -e 's/}\s\s/}\n/g')"
-[ -z $refs_list ] && exit 1;
+[ -z "$refs_list" ] && exit 1;
 
 ref="$(printf "$refs_list" | dmenu -i -p 'reference?' -l 10)"
-[ -z $ref ] && exit 1;
+[ -z "$ref" ] && exit 1;
 
 output="$(printf "$ref" | sed -e 's/author/\n author/g' -e 's/",/",\n/g')"
 
 printf "$output" | dmenu -i -p "infos" -l 10
-printf "$ref" | awk -F '{' '{print $2}' | awk -F ',' '{print $1}' | xclip -selection clipboard
+printf "$ref" | awk -F '{' '{print $2}' | awk -F ',' '{print $1}' | tr -d '\n' | xclip -selection clipboard
