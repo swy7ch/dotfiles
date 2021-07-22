@@ -39,7 +39,12 @@ return require("packer").startup(function()
         }
 
         -- LSP
-        use "neovim/nvim-lspconfig"
+        use {
+                "neovim/nvim-lspconfig",
+                opt = true,
+                ft = { "c", "cpp", "lua", "python", "tex"},
+                config = function() require("lsp").setup() end
+        }
 
         -- auto completion
         use "hrsh7th/nvim-compe"
