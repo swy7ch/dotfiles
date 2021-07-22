@@ -19,6 +19,7 @@ opt.wildoptions         = "pum"
 g.loaded_netrw          = 1           -- disable netrw
 
 -- editor
+opt.lazyredraw          = true
 opt.splitright          = true
 opt.splitbelow          = true
 opt.scrolloff           = 4
