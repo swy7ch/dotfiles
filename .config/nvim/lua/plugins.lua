@@ -34,14 +34,12 @@ return require("packer").startup(function()
         use {
                 "nvim-telescope/telescope.nvim",
                 requires = { "nvim-lua/popup.nvim", "nvim-lua/plenary.nvim"},
-                opt = true,
                 cmd = "Telescope"
         }
 
         -- LSP
         use {
                 "neovim/nvim-lspconfig",
-                opt = true,
                 ft = { "c", "cpp", "lua", "python", "tex"},
                 config = function() require("lsp").setup() end
         }
@@ -52,7 +50,6 @@ return require("packer").startup(function()
         -- display colors directly in editor
         use {
                 "norcalli/nvim-colorizer.lua",
-                opt = true,
                 cmd = "ColorizerToggle"
         }
 
