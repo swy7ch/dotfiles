@@ -35,7 +35,7 @@ return require("packer").startup(function()
                 "nvim-telescope/telescope.nvim",
                 requires = { "nvim-lua/popup.nvim", "nvim-lua/plenary.nvim"},
                 opt = true,
-                cmd = {"Telescope"}
+                cmd = "Telescope"
         }
 
         -- LSP
@@ -48,7 +48,7 @@ return require("packer").startup(function()
         use {
                 "norcalli/nvim-colorizer.lua",
                 opt = true,
-                cmd = {"ColorizerToggle"}
+                cmd = "ColorizerToggle"
         }
 
 end)
