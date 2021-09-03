@@ -172,7 +172,7 @@ visualizer_color = blue, cyan, green, yellow, magenta, red
 ##
 ## Note: colors can be nested.
 ##
-song_list_format = "{$3[%l]$9} {$6%30t$9}|{$6%30f$9} %n"
+song_list_format = "{$3[%l]$9} {$6%t$9}|{$6%30f$9} %n"
 #
 song_status_format = $b {$3%a$9 - $7{%t}}|{%f} {(%b)}
 #
@@ -252,7 +252,7 @@ song_status_format = $b {$3%a$9 - $7{%t}}|{%f} {(%b)}
 ##   available.
 ##
 #
-song_columns_list_format = (6f)[green]{NE} (30)[white]{t|f:Title} (7f)[green]{l} (30)[]{a} (30)[]{b}
+song_columns_list_format = (6f)[green]{NE} (30)[white]{30t|30f:Title} (7f)[green]{l} (30)[]{a} (30)[]{b}
 #
 ##### various settings #####
 #
