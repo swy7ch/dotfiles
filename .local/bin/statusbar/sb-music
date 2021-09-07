@@ -11,7 +11,7 @@
 
 
 unicode() { sed "s/[‘’]/'/g;s/[“”]/\"/g"; }
-format() { sed "s/^volume:n\/a.*//g;/^volume:/d;s/\\&/&amp;/g;s/\\[paused\\].*//g;s/\\[playing\\].*//g"; }
+format() { sed "s/^volume:n\/a.*//g;/^volume:/d;s/\\&/&amp;/g;s/\\[paused\\].*//g;s/\\[playing\\].*//g"; }
 
 mpc="$(mpc --format "%albumartist% - %title%")"
 title="$(echo "$mpc" | head -n1 | cut -d'-' -f2 | unicode)"

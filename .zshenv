@@ -7,9 +7,6 @@ export XDG_DATA_HOME="$HOME/.local/share"
 
 export ZDOTDIR="$HOME/.config/zsh"
 
-## paths
-export PATH="$(find $HOME/.local/bin -type d | tr '\n' ':' | sed 's/:$//'):$PATH"
-
 ## misc
 export LESS_TERMCAP_md="$(printf '%b' '\e[01;32m')"
 export LESS_TERMCAP_me="$(printf '%b' '\e[0m')"

@@ -3,6 +3,9 @@
 # This file is sourced when launching a DM from startx/xinit
 
 # environment variables
+## path
+export PATH="$(find $HOME/.local/bin -type d | tr '\n' ':' | sed 's/:$//'):$PATH"
+
 ## dotfiles
 export DOTFILES="$HOME/.dotfiles.git"
 
@@ -21,10 +24,8 @@ export TEXMFHOME="$XDG_DATA_HOME/texmf"
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
 
 ## default programs
-export SUDO_ASKPASS="$HOME/.local/bin/dmenupass"
 export GPG_ASKPASS="/usr/bin/pinentry-curses"
-export SUDO_EDITOR="nvim"
 export EDITOR="nvim"
 export TERMINAL="st"
 export READER="zathura"
-export BROWSER="firefox"
+export BROWSER="firefox-bin"

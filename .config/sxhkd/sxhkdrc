@@ -2,12 +2,13 @@
 
 # System stuff
 
-super + F1
+XF86AudioMute
 		pulsemixer --toggle-mute; audio-notify
-super + {F2, F3}
+
+{XF86AudioLowerVolume, XF86AudioRaiseVolume}
 		pulsemixer --change-volume {-5, +5}; audio-notify
 
-super + {F5, F6}
+{XF86MonBrightnessDown, XF86MonBrightnessUp}
 		sbacklight {dec,inc}
 
 super + u
@@ -17,19 +18,16 @@ super + shift + u
 		dmenuumount
 
 super + s
-		dmenuprompt "suspend?" "systemctl suspend"
+		dmenuprompt "suspend?" "doas suspend"
 
 super + shift + s
-		dmenuprompt "shutdown?" "shutdown -h now"
+		dmenuprompt "shutdown?" "doas shutdown -h now"
 
 super + shift + r
-		dmenuprompt "reboot?" "reboot"
+		dmenuprompt "reboot?" "doas reboot"
 
 super + shift + d
 		displayselect
-
-super + F9
-		kbacklight
 
 super + shift + o
 		dmenuopen

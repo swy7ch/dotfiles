@@ -1,5 +1,5 @@
 [global]
-font = Iosevka Fixed Slab 14
+font = Fira Code 12
 
 # Allow a small subset of html markup:
 #   <b>bold</b>

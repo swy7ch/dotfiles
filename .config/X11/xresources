@@ -1,6 +1,6 @@
 !! Set a default font and font size as below:
-*.font: Iosevka Fixed Slab:size=12
-*.symbols: Symbols Nerd Font:size=11
+*.font: Fira Code:size=12
+*.symbols: Font Awesome 5 Free:size=11
 
 /* name		dark	light */
 /* black	0	8 */
@@ -37,8 +37,8 @@
 *.cursorColor: #ebdbb2
 
 /* st config */
-st.font: Iosevka Fixed Slab:size=14
-st.symbols: Symbols Nerd Font:size=14
+st.font: Fira Code:size=12
+st.symbols: Font Awesome 5 Free:size=12
 st.termname: st-256color
 st.borderpx: 5
 
