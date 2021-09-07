@@ -50,4 +50,4 @@ do
 		esac
 	fi
 	printf " %s %3d%% " "$status" "$capacity";
-done && return 0
+done

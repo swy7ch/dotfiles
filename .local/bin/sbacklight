@@ -20,8 +20,14 @@ step=$(expr $max / 20)
 [ "$1" = "dec" ] && new=$(expr $current - $step)
 [ "$1" = "inc" ] && new=$(expr $current + $step)
 [ "$1" = "set" ] && new=$(expr $2 \* $step)
+case "$1" in
+        "dec") new=$(expr $current - $step);;
+        "inc") new=$(expr $current + $step);;
+        "set") new=$(expr $2 \* $step);;
+        *) exit
+esac
 
-[ $new -gt 850 ] && new=850
+[ $new -gt $max ] && new=$max
 [ $new -lt 0 ] && new=0
 
 echo $new > /sys/class/backlight/intel_backlight/brightness
