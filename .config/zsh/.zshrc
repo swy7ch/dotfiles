@@ -43,8 +43,8 @@ bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -v '^?' backward-delete-char
 
 # Use arrows to search through history
-#bindkey '^[[A' history-substring-search-up
-#bindkey '^[[B' history-substring-search-down
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
 
 # Change cursor shape for different vi modes.
 function zle-keymap-select {
@@ -70,10 +70,10 @@ precmd_dunctions() { zle-line-init ;} # Use beam shape cursor for each new promp
 [ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
 
 # Load zsh-history-search
-#source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh 2>/dev/null
+source $HOME/.local/src/zsh-history-substring-search/zsh-history-substring-search.zsh 2> /dev/null
 
 # Load zsh-syntax-highlighting
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
+source $HOME/.local/src/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
 typeset -A ZSH_HIGHLIGHT_STYLES
 ZSH_HIGHLIGHT_STYLES[alias]='fg=green,bold'
 ZSH_HIGHLIGHT_STYLES[path]='fg=magenta,bold'
