@@ -13,11 +13,12 @@
 ## INFO
 
 # $USER is already defined
-host="$(cat /etc/hostname)"
-os='Arch Linux'
+host="$(cat /etc/conf.d/hostname | awk -F'"' '{ printf $2 }')"
+machine="$(cat /sys/devices/virtual/dmi/id/product_version)"
+os='Gentoo'
 kernel="$(uname -sr)"
 uptime="$(uptime -p | sed 's/up //')"
-packages="$(pacman -Q | wc -l)"
+packages="$(printf '%s\n' /var/db/pkg/*/* | wc -l)"
 shell="$(basename "$SHELL")"
 wm="$(tail -n 1 "$XDG_CONFIG_HOME/X11/xinitrc" | cut -d ' ' -f 2)"
 
@@ -61,20 +62,21 @@ if [ -x "$(command -v tput)" ]; then
 fi
 
 # you can change these
-lc="${bold}${green}"                # labels
-nc="${bold}${red}"                  # user and hostname
-ic="${white}"                       # info
-a0="${blue}"                        # first arch color
-a1="${cyan}"                        # second arch color
+lc="${reset}${magenta}"                  # labels
+nc="${bold}${magenta}"                  # user and hostname
+ic="${reset}${white}"                   # info
+a0="${bold}${magenta}"                  # first arch color
+a1="${bold}${white}"                    # second arch color
 
 cat <<EOF
-${a0}                   ${nc}${USER}${ic}@${nc}${host}
-${a0}         /\\        ${lc}OS:        ${ic}${os}
-${a0}        /  \\       ${lc}KERNEL:    ${ic}${kernel}
-${a0}       /\\   \\      ${lc}SHELL:     ${ic}${shell}
-${a1}      /      \\     ${lc}WM:        ${ic}${wm}
-${a1}     /   ,,   \\    ${lc}UPTIME:    ${ic}${uptime}
-${a1}    /   |  |  -\\   ${lc}PACKAGES:  ${ic}${packages}
-${a1}   /_-''    ''-_\\  ${lc}MEMORY:    ${ic}${mem_used}MiB/${mem_total}MiB
+${a0}                 ${nc}${USER}${ic}@${nc}${host}
+${a0}    _-----_      ${lc}machine:   ${ic}${machine}
+${a0}   (       \\     ${lc}os:        ${ic}${os}
+${a0}   \\    0   \\    ${lc}kernel:    ${ic}${kernel}
+${a1}    \\        )   ${lc}shell:     ${ic}${shell}
+${a1}    /      _/    ${lc}wm:        ${ic}${wm}
+${a1}   (     _-      ${lc}uptime:    ${ic}${uptime}
+${a1}   \\____-        ${lc}packages:  ${ic}${packages}
+                 ${lc}memory:    ${ic}${mem_used}MiB/${mem_total}MiB
 
 EOF
