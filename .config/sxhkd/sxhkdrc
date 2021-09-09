@@ -18,13 +18,13 @@ super + shift + u
 		dmenuumount
 
 super + s
-		dmenuprompt "suspend?" "doas suspend"
+		dmenuprompt "suspend?" "loginctl suspend"
 
 super + shift + s
-		dmenuprompt "shutdown?" "doas shutdown -h now"
+		dmenuprompt "shutdown?" "loginctl poweroff"
 
 super + shift + r
-		dmenuprompt "reboot?" "doas reboot"
+		dmenuprompt "reboot?" "loginctl reboot"
 
 super + shift + d
 		displayselect
