@@ -37,20 +37,23 @@ do
 	status="$(cat "$bat/status")"
 	capacity="$(cat "$bat/capacity")"
         total="$(expr $total + $capacity)"
+        slot="$(basename $bat)"
 	if [ "$status" = "Full" ]; then
 		status=" " && capacity="FULL"
-		printf " %s %s " "$status" "$capacity" && exit
- 	elif [ "$status" = "Charging" ]; then
-		status=""
-	else
-		case "$capacity" in
-			100|[8-9][0-9])	status="" ;;
-			[6-7][0-9])	status="" ;;
-			[4-5][0-9])	status="" ;;
-			[2-3][0-9])	status="" ;;
-			*)	status="" ;;
-		esac
-	fi
-        [ 40 -gt $total ] && notify;
-	printf " %s %3d%% " "$status" "$capacity";
+                printf " %s:%s(%s) " "$slot" "$status" "$capacity"
+        else
+                if [ "$status" = "Charging" ]; then
+                        status=""
+                else
+                        case "$capacity" in
+                                100|[8-9][0-9])	status="" ;;
+                                [6-7][0-9])	status="" ;;
+                                [4-5][0-9])	status="" ;;
+                                [2-3][0-9])	status="" ;;
+                                *)	status="" ;;
+                        esac
+                fi
+                [ 40 -gt $total ] && notify;
+                printf " %s:%s (%0.2d%%) " "$slot" "$status" "$capacity";
+        fi
 done
