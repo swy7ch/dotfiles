@@ -17,5 +17,5 @@ dwmblocks &
 xrdb "$XDG_CONFIG_HOME/X11/xresources"
 
 setxkbmap 'fr(oss)'
-xmodmap "$XDG_CONFIG_HOME/X11/xmodmap" &
+remaps &
 sxhkd &
