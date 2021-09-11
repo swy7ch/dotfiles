@@ -30,10 +30,10 @@ export GPG_TTY=$TTY
 [ -n "$MBSYNCRC" ] && alias mbsync="mbsync -c $MBSYNCRC" || MBSYNCRC="$HOME/.mbsyncrc"
 
 notify() {
-	notify-send "neomutt" " $2 new mail(s) in \`$1\` account."
+	notify-send "neomutt" " $2 new mail(s) in \`$1\` account."
 }
 messageinfo() {
-	notify-send " $from:" "$subject"
+	notify-send "$from:" "$subject"
 }
 
 # Check account for new mail. Notify if there is new content.
