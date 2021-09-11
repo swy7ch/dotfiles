@@ -24,4 +24,4 @@ spdu="$(echo "$infos" | awk -F " " '{ printf "%.2f", $4/1024 }')"
 [ 0 -ne $cntd ] && down="$(printf "%s(%sM)" "$cntd" "$spdd")" || down="---"
 [ 0 -ne $cntu ] && up="$(printf "%s(%sM)" "$cntu" "$spdu")" || up="---"
 
-printf "  %s/%s " "$down" "$up"
+printf "  %s/ %s " "$down" "$up"
