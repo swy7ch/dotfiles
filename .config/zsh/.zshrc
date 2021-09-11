@@ -19,6 +19,7 @@ bindkey '^[[6~' down-line-or-history 	# PageDown
 HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE=~/.cache/zsh/history
+setopt hist_ignore_space                # Ignore commands preceeded by a space
 
 # Basic auto/tab complete:
 autoload -U compinit
@@ -26,6 +27,9 @@ zstyle ':completion:*' menu select
 zmodload zsh/complist
 compinit
 _comp_options+=(globdots)		# Include hidden files.
+
+# Command correction
+setopt correctall
 
 # vi mode
 bindkey -v

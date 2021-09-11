@@ -49,13 +49,13 @@ super + shift + {h,j,k,l}
 		player {prev,stop,toggle,next}
 
 super + shift + m
-		$TERMINAL -g 128x32 -c "ncmpcpp" -e ncmpcpp
+		$TERMINAL -g 128x32 -c "floating" -e ncmpc
 
 super + shift + n
-		$TERMINAL -g 128x32 -c "neomutt" -e neomutt
+		$TERMINAL -g 128x32 -c "floating" -e neomutt
 
 super + shift + t
-		$TERMINAL -g 128x32 -c "transmission" -e tremc
+		$TERMINAL -g 128x32 -c "floating" -e tremc
 
 super + shift + b
 		script="$(printf "bibinput\nbibshow" | dmenu -i -p "which script?")" && $script
