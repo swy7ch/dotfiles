@@ -29,14 +29,12 @@ export GPG_TTY=$TTY
 # Config file location must be passed at execution, not as envrionment variable
 [ -n "$MBSYNCRC" ] && alias mbsync="mbsync -c $MBSYNCRC" || MBSYNCRC="$HOME/.mbsyncrc"
 
-displays="$(pgrep -a X\(org\|wayland\) | grep -wo "[0-9]*:[0-9]\+" | sort -u)"
-notify() { for x in $displays; do
+notify() {
 	notify-send "neomutt" " $2 new mail(s) in \`$1\` account."
-done ;}
-messageinfo() { for x in $displays; do
-	export DISPLAY=$x
+}
+messageinfo() {
 	notify-send " $from:" "$subject"
-done ;}
+}
 
 # Check account for new mail. Notify if there is new content.
 syncandnotify() {
