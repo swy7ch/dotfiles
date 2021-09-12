@@ -11,7 +11,7 @@ M = {
         -- misc
 	sign_error = "",
 	sign_warning = "",
-	sign_hint = "",
+	sign_hint = "",
 	sign_info = "",
 }
 
