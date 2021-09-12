@@ -13,7 +13,7 @@ require("statusline")   -- ./lua/statusline.lua
 require("polyjuice")    -- ~/.local/src/polyjuice/lua/polyjuice.lua
 
 -- auto complete
-require("plugin.compe") -- ./lua/plugin/compe.lua
+require("plugin.cmp")   -- ./lua/plugin/cmp.lua
 
 -- treesitter
 require("plugin.treesitter")    -- ./lua/plugin/treesitter.lua
