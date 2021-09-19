@@ -12,8 +12,8 @@
 
 # Wifi quality percentage and  icon if ethernet is connected.
 ssid="$(wpa_cli status | grep -i ^ssid | sed -e 's/.*=//')"
-ip="$(wpa_cli status | grep -i ^ip_address | sed -e 's/.*=//')"
-[ -n $ip ] && str="$(printf " %s" $ssid)" || str="$(printf "  ---")"
+state="$(wpa_cli status | grep -i ^wpa_state | sed -e 's/.*=//')"
+[ "COMPLETED" = $state ] && str="$(printf " %s" $ssid)" || str="$(printf "  ---")"
 eth="$(cat /sys/class/net/enp0s31f6/operstate)"
 if [ "up" = "$eth" ]; then
 	str="$(printf "%s /  " "$str")"
