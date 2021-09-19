@@ -25,9 +25,9 @@ notify() { \
 	fi
 	[ 300 -gt $delta ] && return;
 	echo $now > $XDG_CONFIG_HOME/batteryupdate
-	case "$capacity" in
-		1[0-9])	notify-send -u "normal" "Battery is running low ($capacity%)" "Please plug your computer to a power source" ;;
-		[0-9])	notify-send -u "critical" "Battery is dangerously low ($capacity%)" "Please plug your computer to a power source - <b>NOW!</b>" ;;
+	case "$total" in
+		[2-3][0-9]) notify-send -u "normal" "Battery is running low ($capacity%)" "Please plug your computer to a power source" ;;
+		*) notify-send -u "critical" "Battery is dangerously low ($capacity%)" "Please plug your computer to a power source - <b>NOW!</b>" ;;
 	esac
 	}
 
@@ -35,19 +35,24 @@ for bat in /sys/class/power_supply/BAT?/
 do
 	status="$(cat "$bat/status")"
 	capacity="$(cat "$bat/capacity")"
-	if [ "$status" = "Full" ]; then
+        total="$(expr $total + $capacity)"
+        slot="$(basename $bat)"
+	if [ "Full" = "$status" ]; then
 		status=" " && capacity="FULL"
-		printf " %s %s " "$status" "$capacity" && exit
- 	elif [ "$status" = "Charging" ]; then
-		status=""
-	else
-		case "$capacity" in
-			100|[8-9][0-9])	status="" ;;
-			[6-7][0-9])	status="" ;;
-			[4-5][0-9])	status="" ;;
-			[2-3][0-9])	status="" ;;
-			*)	status="" ; notify;;
-		esac
-	fi
-	printf " %s %3d%% " "$status" "$capacity";
+                printf " %s:%s(%s) " "$slot" "$status" "$capacity"
+        else
+                if [ "$status" = "Charging" ]; then
+                        status=""
+                else
+                        case "$capacity" in
+                                100|[8-9][0-9])	status="" ;;
+                                [6-7][0-9])	status="" ;;
+                                [4-5][0-9])	status="" ;;
+                                [2-3][0-9])	status="" ;;
+                                *)	status="" ;;
+                        esac
+                        [ 40 -gt $total ] && notify;
+                fi
+                printf " %s:%s (%0.2d%%) " "$slot" "$status" "$capacity";
+        fi
 done
