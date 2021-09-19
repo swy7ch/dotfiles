@@ -76,7 +76,7 @@ ${a0}   \\    0   \\    ${lc}kernel:    ${ic}${kernel}
 ${a1}    \\        )   ${lc}shell:     ${ic}${shell}
 ${a1}    /      _/    ${lc}wm:        ${ic}${wm}
 ${a1}   (     _-      ${lc}uptime:    ${ic}${uptime}
-${a1}   \\____-        ${lc}packages:  ${ic}${packages}
+${a1}   \\____-        ${lc}packages:  ${ic}${packages} (portage)
                  ${lc}memory:    ${ic}${mem_used}MiB/${mem_total}MiB
 
 EOF
