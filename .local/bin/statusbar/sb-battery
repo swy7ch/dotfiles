@@ -25,8 +25,8 @@ notify() { \
 	fi
 	[ 300 -gt $delta ] && return;
 	echo $now > $XDG_CONFIG_HOME/batteryupdate
-	case "$total" in
-		[2-3][0-9]) notify-send -u "normal" "Battery is running low ($capacity%)" "Please plug your computer to a power source" ;;
+	case "$capacity" in
+		2[0-9]) notify-send -u "normal" "Battery is running low ($capacity%)" "Please plug your computer to a power source" ;;
 		*) notify-send -u "critical" "Battery is dangerously low ($capacity%)" "Please plug your computer to a power source - <b>NOW!</b>" ;;
 	esac
 	}
@@ -52,7 +52,7 @@ do
                                 [2-3][0-9])	status="" ;;
                                 *)	status="" ;;
                         esac
-                        [ 40 -gt $total ] && notify;
+                        [ "BAT0" = $slot ] && [ 30 -gt $capacity ] && notify;
                 fi
                 printf " %s:%s (%0.2d%%) " "$slot" "$status" "$capacity";
         fi
