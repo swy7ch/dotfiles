@@ -11,9 +11,10 @@
 
 
 # Wifi quality percentage and  icon if ethernet is connected.
-wifi="$(grep "^\s*w" /proc/net/wireless | awk '{ printf int($3 * 100 / 70) }')"
-[ -n "$wifi" ] && str="$(printf "直 %3d%%" $wifi)" || str="$(printf "睊")"
 eth="$(cat /sys/class/net/eno1/operstate)"
+ssid="$(wpa_cli status | grep -i ^ssid | sed -e 's/.*=//')"
+state="$(wpa_cli status | grep -i ^wpa_state | sed -e 's/.*=//')"
+[ "COMPLETED" = $state ] && str="$(printf " %s" $ssid)" || str="$(printf "  ---")"
 if [ "up" = "$eth" ]; then
 	str="$(printf "%s /  " "$str")"
 fi

@@ -49,7 +49,7 @@ super + shift + {h,j,k,l}
 		player {prev,stop,toggle,next}
 
 super + shift + m
-		$TERMINAL -g 128x32 -c "floating" -e ncmpc
+		$TERMINAL -g 128x32 -c "floating" -e $MUSIC_PLAYER
 
 super + shift + n
 		$TERMINAL -g 128x32 -c "floating" -e neomutt
