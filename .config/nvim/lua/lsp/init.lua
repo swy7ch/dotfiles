@@ -6,34 +6,35 @@
 local lsp = {}
 
 vim.fn.sign_define(
-        "LspDiagnosticsSignError",
+        "DiagnosticSignError",
         {
-		texthl = "LspDiagnosticsSignError",
+		texthl = "DiagnosticError",
 		text = globals.sign_error,
-		numhl = "LspDiagnosticsSignError"
+		numhl = "DiagnosticError"
 	}
 )
 vim.fn.sign_define(
-        "LspDiagnosticsSignWarning",
+        "DiagnosticSignWarn",
         {
-		texthl = "LspDiagnosticsSignWarning",
+		texthl = "DiagnosticWarn",
 		text = globals.sign_warning,
-		numhl = "LspDiagnosticsSignWarning"}
+		numhl = "DiagnosticWarn"
+        }
 )
 vim.fn.sign_define(
-        "LspDiagnosticsSignHint",
+        "DiagnosticSignHint",
         {
-		texthl = "LspDiagnosticsSignHint",
+		texthl = "DiagnosticHint",
 		text = globals.sign_hint,
-		numhl = "LspDiagnosticsSignHint"
+		numhl = "DiagnosticHint"
 	}
 )
 vim.fn.sign_define(
-        "LspDiagnosticsSignInformation",
+        "DiagnosticSignInfo",
         {
-		texthl = "LspDiagnosticsSignInformation",
+		texthl = "DiagnosticInfo",
 		text = globals.sign_info,
-		numhl = "LspDiagnosticsSignInformation"
+		numhl = "DiagnosticInfo"
 	}
 )
 
