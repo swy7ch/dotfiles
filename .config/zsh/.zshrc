@@ -78,3 +78,6 @@ typeset -A ZSH_HIGHLIGHT_STYLES
 ZSH_HIGHLIGHT_STYLES[alias]='fg=green,bold'
 ZSH_HIGHLIGHT_STYLES[path]='fg=magenta,bold'
 ZSH_HIGHLIGHT_STYLES[unknown-token]='bg=red,fg=white,bold'
+
+# opam configuration
+test -r "$OPAMROOT/opam-init/init.zsh" && . "$OPAMROOT/opam-init/init.zsh" > /dev/null 2> /dev/null || true
