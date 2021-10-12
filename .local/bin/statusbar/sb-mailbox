@@ -15,7 +15,7 @@ for acc in $(ls "${XDG_DATA_HOME:-$HOME/.local/share}"/mail/)
 do
 	new="$(find "${XDG_DATA_HOME:-$HOME/.local/share}"/mail/$acc/[Ii][Nn][Bb][Oo][Xx]/new/* -type f | wc -l 2>/dev/null)"
 	if [ $new -gt 0 ]; then
-		[ -n "$(echo "$acc" | sed -n '/@etu/p')" ] && box=""
+		[ -n "$(echo "$acc" | sed -n '/@ens/p')" ] && box=""
 		[ -n "$(echo "$acc" | sed -n '/@posteo/p')" ] && box=""
 		unread="$unread/$box$new"
 	fi
