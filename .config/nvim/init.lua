@@ -17,3 +17,6 @@ require("plugin.cmp")   -- ./lua/plugin/cmp.lua
 
 -- treesitter
 require("plugin.treesitter")    -- ./lua/plugin/treesitter.lua
+
+-- commenting, done right
+require("plugin.comment")       -- ./lua/plugin/comment.lua

@@ -69,6 +69,9 @@ return require("packer").startup(function()
                 }
         }
 
+        -- commenting, simplified
+        use "numToStr/Comment.nvim"
+
         -- display colors directly in editor
         use {
                 "norcalli/nvim-colorizer.lua",
