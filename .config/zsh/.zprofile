@@ -22,6 +22,8 @@ export ANDROID_PREFS_ROOT="$XDG_CONFIG_HOME/android"
 export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc-2.0"
 export TEXMFHOME="$XDG_DATA_HOME/texmf"
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
+export OPAMROOT="$XDG_DATA_HOME/opam"
+export COQBIN="$OPAMROOT/default/bin"
 
 ## default programs
 export GPG_ASKPASS="/usr/bin/pinentry-curses"
