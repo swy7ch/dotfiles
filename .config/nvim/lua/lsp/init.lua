@@ -3,7 +3,7 @@
 -- License       : GPLv3
 -- Description   : neovim lsp config file
 
-local lsp = {}
+local M = {}
 
 vim.fn.sign_define(
         "DiagnosticSignError",
@@ -38,39 +38,43 @@ vim.fn.sign_define(
 	}
 )
 
--- symbols for autocomplete
-vim.lsp.protocol.CompletionItemKind = {
-        "   ",       -- Text
-        "   ",       -- Method
-        "   ",       -- Function
-        "   ",       -- Constructor
-        " ﴲ  ",       -- Field
-        "   ",       -- Variable
-        "   ",       -- Class
-        " ﰮ  ",       -- Interface
-        "   ",       -- Module
-        " 襁 ",       -- Property
-        "   ",       -- Unit
-        "   ",       -- Value
-        " 練 ",       -- Enum
-        "   ",       -- Keyword
-        "   ",       -- Snippet
-        "   ",       -- Color
-        "   ",       -- File
-        "   ",       -- Reference
-        "   ",       -- Folder
-        "   ",       -- EnumMember
-        " ﲀ  ",       -- Constant
-        " ﳤ  ",       -- Struct
-        "   ",       -- Event
-        "   ",       -- Operator
-        "   ",       -- TypeParameter
+M.icons = {
+        Class           = "   ",
+        Color           = "   ",
+        Constant        = " µ  ",
+        Constructor     = "   ",
+        Enum            = "   ",
+        EnumMember      = "   ",
+        Event           = "   ",
+        Field           = "   ",
+        File            = "   ",
+        Folder          = "   ",
+        Function        = "   ",
+        Keyword         = "   ",
+        Interface       = "   ",
+        Method          = "   ",
+        Module          = "   ",
+        Operator        = "   ",
+        Property        = "   ",
+        Reference       = "   ",
+        Snippet         = "   ",
+        Struct          = "   ",
+        Text            = "   ",
+        TypeParameter   = "   ",
+        Unit            = "   ",
+        Value           = "   ",
+        Variable        = "   ",
 }
 
-function lsp.setup()
+function M.setup()
+        local kinds = vim.lsp.protocol.CompletionItemKind
+        for i, kind in ipairs(kinds) do
+                kinds[i] = M.icons[kind] or kind
+        end
+
         local ft = vim.bo.filetype
         if ft == "cpp" then ft = "c" end
         require("lsp." .. ft)           -- ./<ft>.lua
 end
 
-return lsp
+return M
