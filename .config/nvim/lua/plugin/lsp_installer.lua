@@ -15,6 +15,24 @@ lsp_installer.settings {
     }
 }
 
+local servers = {
+	"bashls",
+        "jedi_language_server",
+	"texlab",
+	"sumneko_lua",
+}
+
+for _, name in pairs(servers) do
+	local ok, server = lsp_installer.get_server(name)
+	-- Check that the server is supported in nvim-lsp-installer
+	if ok then
+		if not server:is_installed() then
+			print("Installing " .. name)
+			server:install()
+		end
+	end
+end
+
 lsp_installer.on_server_ready(function(server)
     local opts = {}
 
