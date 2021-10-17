@@ -27,7 +27,8 @@ return require("packer").startup(function()
         -- tree-sitter
         use {
                 "nvim-treesitter/nvim-treesitter",
-                run = ":TSUpdate"
+                run = ":TSUpdate",
+                config = function() require("plugin.treesitter") end
         }
 
         -- fuzzy finder
@@ -75,11 +76,15 @@ return require("packer").startup(function()
                         "hrsh7th/cmp-calc",
                         "ray-x/cmp-treesitter",
                         "f3fora/cmp-spell"
-                }
+                },
+                config = function() require("plugin.cmp") end
         }
 
         -- commenting, simplified
-        use "numToStr/Comment.nvim"
+        use {
+                "numToStr/Comment.nvim",
+                config = function() require("plugin.comment") end
+        }
 
         -- display colors directly in editor
         use {
