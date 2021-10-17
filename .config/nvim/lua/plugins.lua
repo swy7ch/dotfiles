@@ -49,6 +49,15 @@ return require("packer").startup(function()
 
         -- LSP
         use {
+                "williamboman/nvim-lsp-installer",
+                cmd = {
+                        "LspInstall",
+                        "LspInstallInfo"
+                },
+                config = function() require("plugin.lsp_installer").setup() end
+        }
+
+        use {
                 "neovim/nvim-lspconfig",
                 ft = { "c", "cpp", "lua", "python", "tex"},
                 config = function() require("lsp").setup() end
