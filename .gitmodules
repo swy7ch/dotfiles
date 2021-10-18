@@ -16,6 +16,3 @@
 [submodule ".local/src/slock"]
 	path = .local/src/slock
 	url = git@github.com:swy7ch/slock.git
-[submodule ".local/share/nvim/lsp/sumneko_lua"]
-	path = .local/share/nvim/lsp/sumneko_lua
-	url = git@github.com:sumneko/lua-language-server.git
