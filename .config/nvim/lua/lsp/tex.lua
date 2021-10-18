@@ -4,6 +4,7 @@
 -- Description   : LaTeX config file for lsp
 
 require("lspconfig").texlab.setup {
+        cmd = { vim.fn.stdpath("data") .. "/lsp_servers/latex/texlab" },
         settings = {
                 build = {
                         executable = "pdflatex"
