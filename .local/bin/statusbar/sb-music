@@ -13,12 +13,12 @@
 unicode() { sed "s/[‘’]/'/g;s/[“”]/\"/g"; }
 format() { sed "s/^volume:n\/a.*//g;/^volume:/d;s/\\&/&amp;/g;s/\\[paused\\].*//g;s/\\[playing\\].*//g"; }
 
-mpc="$(mpc --format "%albumartist% - %artist% - %title%")"
-title="$(echo "$mpc" | head -n1 | cut -d'-' -f3 | unicode)"
+mpc="$(mpc --format "%albumartist% ~ %artist% ~ %title%")"
+title="$(echo "$mpc" | head -n1 | cut -d'~' -f3 | unicode)"
 [ "$(echo "$title" | wc -c)" -gt 18 ] && title="$(printf "%.15s..." "$title")"
-artist="$(echo "$mpc" | head -n1 | cut -d'-' -f1 | unicode)"
+artist="$(echo "$mpc" | head -n1 | cut -d'~' -f1 | unicode)"
 [ "Various Artists " = "$artist" ] &&
-        artist="$(echo "$mpc" | head -n1 | cut -d'-' -f2 | unicode)"
+        artist="$(echo "$mpc" | head -n1 | cut -d'~' -f2 | unicode)"
 [ "$(echo "$artist" | wc -c)" -gt 18 ] && artist="$(printf "%.15s..." "$artist")"
 status="$(echo "$mpc" | tail -n2 | format)"
 
