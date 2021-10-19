@@ -93,5 +93,9 @@ return require("packer").startup(function()
         }
 
         -- ens
-        use "whonore/Coqtail"
+        use {
+                "whonore/Coqtail",
+                ft = { "verilog" },
+                config = vim.cmd[[let g:coqtail_nomap = 1]]
+        }
 end)
