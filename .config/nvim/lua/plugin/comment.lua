@@ -20,27 +20,30 @@ require("Comment").setup {
         ---operator-pending mapping
         ---Includes `gcc`, `gcb`, `gc[count]{motion}` and `gb[count]{motion}`
         basic = true,
+        ---extra mapping
+        ---Includes `gco`, `gcO`, `gcA`
+        extra = true,
         ---extended mapping
         ---Includes `g>`, `g<`, `g>[count]{motion}` and `g<[count]{motion}`
-        extra = false,
+        extended = false,
     },
 
     ---LHS of line and block comment toggle mapping in NORMAL/VISUAL mode
     ---@type table
     toggler = {
         ---line-comment toggle
-        line = 'gcc',
+        line = "<leader><Space>",
         ---block-comment toggle
-        block = 'gbc',
+        block = "<leader>bb",
     },
 
     ---LHS of line and block comment operator-mode mapping in NORMAL/VISUAL mode
     ---@type table
     opleader = {
         ---line-comment opfunc mapping
-        line = 'gc',
+        line = "<leader>c",
         ---block-comment opfunc mapping
-        block = 'gb',
+        block = "<leader>b",
     },
 
     ---Pre-hook, called before commenting the line

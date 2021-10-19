@@ -25,6 +25,7 @@ opt.splitbelow          = true
 opt.scrolloff           = 4
 opt.termguicolors       = true
 opt.background          = "dark"
+opt.cursorline          = true
 opt.shortmess           = opt.shortmess:append { c = true }
 opt.number              = true
 opt.relativenumber      = true
