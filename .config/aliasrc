@@ -20,3 +20,4 @@ alias dotfiles='/usr/bin/git --git-dir=$DOTFILES --work-tree=$HOME'
 alias abcde='abcde -c $XDG_CONFIG_HOME/abcde/config'
 alias abook='abook --config $XDG_CONFIG_HOME/abook/abookrc --datafile "$XDG_DATA_HOME"/abook/addressbook'
 alias pip-upgrade="pip freeze --user | cut -d'=' -f1 | xargs -n1 pip install -U"
+alias wget="wget --hsts-file=$XDG_CACHE_HOME/wget-hsts"
