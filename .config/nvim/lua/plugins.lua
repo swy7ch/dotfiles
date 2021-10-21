@@ -20,8 +20,8 @@ return require("packer").startup(function()
 
         -- colorscheme
         use {
-                "~/.local/src/polyjuice/",
-                requires = "tjdevries/colorbuddy.nvim"
+                "~/.local/src/astronomy",
+                config = function() require("colorscheme") end
         }
 
         -- tree-sitter

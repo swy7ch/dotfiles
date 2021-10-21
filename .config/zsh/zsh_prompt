@@ -6,7 +6,7 @@ setopt prompt_subst
 zstyle ':vcs_info:git:*' check-for-changes true
 zstyle ':vcs_info:git:*' stagedstr '*'
 zstyle ':vcs_info:git:*' unstagedstr '!'
-zstyle ':vcs_info:git:*' formats '(%F{208}%b%F{015}: %c/%u%F{015}) '
+zstyle ':vcs_info:git:*' formats '(%F{202}%b%F{007}: %c/%u%F{007}) '
 zstyle ':vcs_info:*' enable git
 
 PROMPT="[ %{$fg[cyan]%}%n\
