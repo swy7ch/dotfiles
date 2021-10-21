@@ -1,6 +1,3 @@
-[submodule ".local/src/polyjuice"]
-	path = .local/src/polyjuice
-	url = git@github.com:swy7ch/polyjuice.git
 [submodule ".local/src/dwm"]
 	path = .local/src/dwm
 	url = git@github.com:swy7ch/dwm.git
