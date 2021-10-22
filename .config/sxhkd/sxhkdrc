@@ -34,6 +34,12 @@ super + F9
 super + shift + o
 		dmenuopen
 
+super + c
+                switch-colors
+
+super + shift + c
+                switch-colors -s
+
 # Others
 super + Return
 		$TERMINAL

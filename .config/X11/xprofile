@@ -14,6 +14,8 @@ sbacklight set 3 &
 setbg &
 dwmblocks &
 xrdb "$XDG_CONFIG_HOME/X11/xresources"
+xrdb -merge "$XDG_STATE_HOME/xcolors"
+xautolock -locker slock -time 5 -corners 000- &
 
 xinput set-prop 'Synaptics TM3072-003' 'libinput Tapping Enabled' 1 &
 xinput set-prop 'Synaptics TM3072-003' 'libinput Natural Scrolling Enabled' 1 &

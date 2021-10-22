@@ -28,6 +28,24 @@ function M.map(mode, keys, action, options)
         vim.api.nvim_set_keymap(mode, keys, action, options)
 end
 
+-- see if a file exists
+function M.file_exists(file)
+        local f = io.open(file, "rb")
+        if f then f:close() end
+        return f ~= nil
+end
+
+-- get all lines from a file
+-- @return table (empty if the file does not exist)
+function M.lines_from(file)
+        if not M.file_exists(file) then return {} end
+        local lines = {}
+        for line in io.lines(file) do
+                lines[#lines] = line
+        end
+        return lines
+end
+
 -- Make it accessible everywhere
 _G.utils = M
 -- Export the module
