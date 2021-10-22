@@ -20,7 +20,7 @@ return require("packer").startup(function()
 
         -- colorscheme
         use {
-                "~/.local/src/astronomy",
+                "~/.local/src/astronomy.nvim",
                 config = function() require("colorscheme") end
         }
 
