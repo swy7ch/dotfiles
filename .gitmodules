@@ -13,3 +13,6 @@
 [submodule ".local/src/slock"]
 	path = .local/src/slock
 	url = git@github.com:swy7ch/slock.git
+[submodule ".local/src/astronomy.nvim"]
+	path = .local/src/astronomy.nvim
+	url = git@github.com:swy7ch/astronomy.nvim

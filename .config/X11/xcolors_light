@@ -1,0 +1,39 @@
+/* name		dark	light */
+/* black	0	8 */
+/* red		1	9 */
+/* green	2	10 */
+/* yellow	3	11 */
+/* blue		4	12 */
+/* purple	5	13 */
+/* cyan		6	14 */
+/* white	7	15 */
+
+/* theme */
+*.color0: #1d2021
+*.color1: #9d0006
+*.color2: #427d61
+*.color3: #d65d0e
+*.color4: #076678
+*.color5: #8f3f71
+*.color6: #4a8785
+*.color7: #a89984
+*.color8: #373737
+*.color9: #b73935
+*.color10: #689d6a
+*.color11: #d79921
+*.color12: #458588
+*.color13: #b16286
+*.color14: #7cafa3
+*.color15: #fbf1c7
+*.background: #fbf1c7
+*.selbackground: #ebdbb2
+*.foreground: #665c64
+*.normforeground: #665c64
+*.selforeground: #1d2021
+*.cursorColor: #1d2021
+
+/* dmenu colors */
+dmenu.background: #fbf1c7
+dmenu.foreground: #665c64
+dmenu.selbackground: #427d61
+dmenu.selforeground: #fbf1c7

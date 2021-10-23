@@ -148,17 +148,17 @@ local function statusline_focused()
                                 process_diagnostics(
                                         globals.sign_error .. " ",
                                         diagnostics.errors,
-                                        "%#DiagnosticError#"
+                                        "%#DiagnosticVirtualTextError#"
                                 ),
                                 process_diagnostics(
                                         globals.sign_warning .. " ",
                                         diagnostics.warnings,
-                                        "%#DiagnosticWarn#"
+                                        "%#DiagnosticVirtualTextWarn#"
                                 ),
                                 process_diagnostics(
                                         globals.sign_info .. " ",
                                         diagnostics.info,
-                                        "%#DiagnosticInfo#"
+                                        "%#DiagnosticVirtualTextInfo#"
                                 )
                         }
                 )
