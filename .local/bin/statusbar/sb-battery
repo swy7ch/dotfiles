@@ -15,16 +15,17 @@
 # In any case, show the remaining battery percentage
 # Also sends a notification if battery running low
 
+time="$XDG_STATE_HOME/batteryupdate"
 notify() { \
 	now=$(date +%s)
-	if [ -e $XDG_CONFIG_HOME/batteryupdate ]; then
-		old=$(cat $XDG_CONFIG_HOME/batteryupdate)
+	if [ -e $time ]; then
+		old=$(cat $time)
 		delta=$(expr $now - $old)
 	else
 		delta=$now
 	fi
 	[ 300 -gt $delta ] && return;
-	echo $now > $XDG_CONFIG_HOME/batteryupdate
+	echo $now > $time
 	case "$capacity" in
 		2[0-9]) notify-send -u "normal" "Battery is running low ($capacity%)" "Please plug your computer to a power source" ;;
 		*) notify-send -u "critical" "Battery is dangerously low ($capacity%)" "Please plug your computer to a power source - <b>NOW!</b>" ;;

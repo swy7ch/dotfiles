@@ -8,33 +8,33 @@ local M = {}
 vim.fn.sign_define(
         "DiagnosticSignError",
         {
-		texthl = "DiagnosticError",
+		texthl = "DiagnosticVirtualTextError",
 		text = globals.sign_error,
-		numhl = "DiagnosticError"
+		numhl = "DiagnosticSignError"
 	}
 )
 vim.fn.sign_define(
         "DiagnosticSignWarn",
         {
-		texthl = "DiagnosticWarn",
+		texthl = "DiagnosticVirtualTextWarn",
 		text = globals.sign_warning,
-		numhl = "DiagnosticWarn"
+		numhl = "DiagnosticSignWarn"
         }
 )
 vim.fn.sign_define(
         "DiagnosticSignHint",
         {
-		texthl = "DiagnosticHint",
+		texthl = "DiagnosticVirtualTextHint",
 		text = globals.sign_hint,
-		numhl = "DiagnosticHint"
+		numhl = "DiagnosticSignHint"
 	}
 )
 vim.fn.sign_define(
         "DiagnosticSignInfo",
         {
-		texthl = "DiagnosticInfo",
+		texthl = "DiagnosticVirtualTextInfo",
 		text = globals.sign_info,
-		numhl = "DiagnosticInfo"
+		numhl = "DiagnosticSignInfo"
 	}
 )
 

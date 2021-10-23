@@ -26,6 +26,15 @@ super + shift + r
 super + shift + d
 		displayselect
 
+super + shift + o
+		dmenuopen
+
+super + c
+                switch-colors
+
+super + shift + c
+                switch-colors -s
+
 # Others
 super + Return
 		$TERMINAL

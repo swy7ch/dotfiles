@@ -13,8 +13,9 @@
 	# if $1 is a jpg file, set it as a wallpaper
 	# if $1 is a directory, choose a randomized image in it, set it as wallpaper
 
-[ -f "$1" ] && cp $1 "$XDG_CONFIG_HOME/wall.jpg" && dunstify -u "low" "Wallpaper changed"
+wall="$XDG_STATE_HOME/wall.jpg"
+[ -f "$1" ] && cp $1 "$wall" && dunstify -u "low" "Wallpaper changed"
 
-[ -d "$1" ] && cp "$(find "$1"/*.jpg -type f | shuf -n 1)" "$XDG_CONFIG_HOME/wall.jpg" && dunstify -u "low" "Random wallpaper chosen"
+[ -d "$1" ] && cp "$(find "$1"/*.jpg -type f | shuf -n 1)" "$" && dunstify -u "low" "Random wallpaper chosen"
 
-xwallpaper --zoom "$XDG_CONFIG_HOME/wall.jpg"
+xwallpaper --zoom "$wall"
