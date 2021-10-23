@@ -13,7 +13,7 @@
 trim() { rev | cut -d'_' -f1 | rev; }
 
 switch_scheme() {
-        current="$(ls -l $XDG_CONFIG_HOME/X11/xcolors | trim)"
+        current="$(ls -l $XDG_STATE_HOME/xcolors | trim)"
         [ "dark" = "$current" ] && new="light" || new="dark"
         select_nvim_scheme
         set_scheme "$new" "$nvim_scheme"
