@@ -6,7 +6,7 @@
 
 xss-lock -- slock &
 redshift &
-dunst -follow mouse &> /dev/null & #temp fix
+dunst &> /dev/null & #temp fix
 # MPD daemon start (if no other user instance exists)
 [ ! -s ~/.config/mpd/pid ] && mpd
 [ -z "$(pgrep -f sb-mpdup)" ] && sb-mpdup &
