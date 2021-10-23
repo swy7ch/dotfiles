@@ -103,8 +103,8 @@ local function get_lsp_diagnostics(bufnr)
         local result = {}
         local levels = {
                 errors = "Error",
-                warnings = "Warning",
-                info = "Information",
+                warnings = "Warn",
+                info = "Info",
                 hints = "Hint"
         }
 
@@ -148,17 +148,17 @@ local function statusline_focused()
                                 process_diagnostics(
                                         globals.sign_error .. " ",
                                         diagnostics.errors,
-                                        "%#LspDiagnosticsDefaultError#"
+                                        "%#DiagnosticVirtualTextError#"
                                 ),
                                 process_diagnostics(
                                         globals.sign_warning .. " ",
                                         diagnostics.warnings,
-                                        "%#LspDiagnosticsDefaultWarning#"
+                                        "%#DiagnosticVirtualTextWarn#"
                                 ),
                                 process_diagnostics(
                                         globals.sign_info .. " ",
                                         diagnostics.info,
-                                        "%#LspDiagnosticsDefaultInformation#"
+                                        "%#DiagnosticVirtualTextInfo#"
                                 )
                         }
                 )

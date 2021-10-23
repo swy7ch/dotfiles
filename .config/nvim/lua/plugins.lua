@@ -20,14 +20,15 @@ return require("packer").startup(function()
 
         -- colorscheme
         use {
-                "~/.local/src/polyjuice/",
-                requires = "tjdevries/colorbuddy.nvim"
+                "~/.local/src/astronomy.nvim",
+                config = function() require("colorscheme") end
         }
 
         -- tree-sitter
         use {
                 "nvim-treesitter/nvim-treesitter",
-                run = ":TSUpdate"
+                run = ":TSUpdate",
+                config = function() require("plugin.treesitter") end
         }
 
         -- fuzzy finder
@@ -49,6 +50,15 @@ return require("packer").startup(function()
 
         -- LSP
         use {
+                "williamboman/nvim-lsp-installer",
+                cmd = {
+                        "LspInstall",
+                        "LspInstallInfo"
+                },
+                config = function() require("plugin.lsp_installer").setup() end
+        }
+
+        use {
                 "neovim/nvim-lspconfig",
                 ft = { "c", "cpp", "lua", "python", "tex"},
                 config = function() require("lsp").setup() end
@@ -66,7 +76,14 @@ return require("packer").startup(function()
                         "hrsh7th/cmp-calc",
                         "ray-x/cmp-treesitter",
                         "f3fora/cmp-spell"
-                }
+                },
+                config = function() require("plugin.cmp") end
+        }
+
+        -- commenting, simplified
+        use {
+                "numToStr/Comment.nvim",
+                config = function() require("plugin.comment") end
         }
 
         -- display colors directly in editor
@@ -76,5 +93,9 @@ return require("packer").startup(function()
         }
 
         -- ens
-        use "whonore/Coqtail"
+        use {
+                "whonore/Coqtail",
+                ft = { "verilog" },
+                config = vim.cmd[[let g:coqtail_nomap = 1]]
+        }
 end)

@@ -1,0 +1,50 @@
+#!/usr/bin/env sh
+
+######################################################################
+# @author      : swytch
+# @file        : switch-colors
+# @license     : GPLv3
+# @created     : Fridat Oct. 22, 2022 23:52:53 CEST
+#
+# @description : switch colorscheme system-wide
+######################################################################
+
+
+trim() { rev | cut -d'_' -f1 | rev; }
+
+switch_scheme() {
+        current="$(ls -l $XDG_STATE_HOME/xcolors | trim)"
+        [ "dark" = "$current" ] && new="light" || new="dark"
+        select_nvim_scheme
+        set_scheme "$new" "$nvim_scheme"
+}
+
+set_scheme() {
+        [ "" = "$new" ] && exit 1
+        xcolors="$XDG_STATE_HOME/xcolors"
+        [ -f "$xcolors" ] && rm "$xcolors"
+        ln -s "$XDG_CONFIG_HOME/X11/xcolors_$new" "$xcolors"
+        xrdb -merge "$xcolors" && dunstify -u "low" "$new colorscheme set"
+        echo "$nvim_scheme" > "$XDG_STATE_HOME/nvim_colorscheme"
+        xrdb -merge "$xcolors" && dunstify -u "low" "neovim" "$nvim_scheme colorscheme set"
+}
+
+select_scheme() {
+        new="$(ls "$XDG_CONFIG_HOME/X11" | grep -i "xcolors_" | trim | dmenu -i -l 5 -p "colorscheme:")"
+}
+
+select_nvim_scheme() {
+        nvim_scheme="$(grep -i "$new" "$XDG_DATA_HOME/colorschemes" | cut -d'"' -f2 )"
+}
+
+if [ "-s" = "$1" -o "select" = "$1" ]; then
+        select_scheme && select_nvim_scheme && set_scheme "$new" "$nvim_scheme"
+else
+        if [ ! "" = "$1" ]; then
+                dunstify -u "normal" "Wrong parameter. Nothing performed" && exit 1
+        else
+                switch_scheme
+        fi
+fi
+
+exit 0

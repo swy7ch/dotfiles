@@ -9,11 +9,3 @@ require("settings")     -- ./lua/settings.lua
 require("plugins")      -- ./lua/plugins.lua
 require("maps")         -- ./lua/maps.lua
 require("statusline")   -- ./lua/statusline.lua
-
-require("polyjuice")    -- ~/.local/src/polyjuice/lua/polyjuice.lua
-
--- auto complete
-require("plugin.cmp")   -- ./lua/plugin/cmp.lua
-
--- treesitter
-require("plugin.treesitter")    -- ./lua/plugin/treesitter.lua

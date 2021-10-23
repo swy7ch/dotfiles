@@ -4,8 +4,6 @@
 -- Description   : neovim mappings file
 
 utils.map("n", "<space>", "<leader>")
-utils.map("n", "<leader>j", "<cmd>bn<CR>")
-utils.map("n", "<leader>k", "<cmd>bp<CR>")
 utils.map("n", "<leader>y", "\"+y")
 utils.map("n", "<leader>p", "\"+P")
 utils.map("n", "<leader><enter>", "<cmd>w! | !compiler %<CR>")
@@ -25,3 +23,6 @@ utils.map("n", "<leader>lf", "<cmd>lua vim.lsp.buf.formatting()<CR>")
 utils.map("n", "<leader>tf", "<cmd>Telescope find_files<CR>")
 utils.map("n", "<leader>tb", "<cmd>Telescope file_browser<CR>")
 utils.map("n", "<leader>tl", "<cmd>Telescope live_grep<CR>")
+
+-- colorscheme
+utils.map("n", "<C-s>", "<cmd>lua require(\"astronomy\").toggle_variant()<CR>")

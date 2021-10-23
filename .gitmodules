@@ -1,6 +1,3 @@
-[submodule ".local/src/polyjuice"]
-	path = .local/src/polyjuice
-	url = git@github.com:swy7ch/polyjuice.git
 [submodule ".local/src/dwm"]
 	path = .local/src/dwm
 	url = git@github.com:swy7ch/dwm.git
@@ -16,6 +13,6 @@
 [submodule ".local/src/slock"]
 	path = .local/src/slock
 	url = git@github.com:swy7ch/slock.git
-[submodule ".local/share/nvim/lsp/sumneko_lua"]
-	path = .local/share/nvim/lsp/sumneko_lua
-	url = git@github.com:sumneko/lua-language-server.git
+[submodule ".local/src/astronomy.nvim"]
+	path = .local/src/astronomy.nvim
+	url = git@github.com:swy7ch/astronomy.nvim

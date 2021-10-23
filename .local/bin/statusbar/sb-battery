@@ -15,19 +15,20 @@
 # In any case, show the remaining battery percentage
 # Also sends a notification if battery running low
 
+time="$XDG_STATE_HOME/batteryupdate"
 notify() { \
 	now=$(date +%s)
-	if [ -e $XDG_CONFIG_HOME/batteryupdate ]; then
-		old=$(cat $XDG_CONFIG_HOME/batteryupdate)
+	if [ -e $time ]; then
+		old=$(cat $time)
 		delta=$(expr $now - $old)
 	else
 		delta=$now
 	fi
 	[ 300 -gt $delta ] && return;
-	echo $now > $XDG_CONFIG_HOME/batteryupdate
+	echo $now > $time
 	case "$capacity" in
-		1[0-9])	notify-send -u "normal" "Battery is running low ($capacity%)" "Please plug your computer to a power source" ;;
-		[0-9])	notify-send -u "critical" "Battery is dangerously low ($capacity%)" "Please plug your computer to a power source - <b>NOW!</b>" ;;
+		2[0-9]) notify-send -u "normal" "Battery is running low ($capacity%)" "Please plug your computer to a power source" ;;
+		*) notify-send -u "critical" "Battery is dangerously low ($capacity%)" "Please plug your computer to a power source - <b>NOW!</b>" ;;
 	esac
 	}
 
@@ -35,19 +36,24 @@ for bat in /sys/class/power_supply/BAT?/
 do
 	status="$(cat "$bat/status")"
 	capacity="$(cat "$bat/capacity")"
-	if [ "$status" = "Full" ]; then
+        total="$(expr $total + $capacity)"
+        slot="$(basename $bat)"
+	if [ "Full" = "$status" ]; then
 		status=" " && capacity="FULL"
-		printf " %s %s " "$status" "$capacity" && exit
- 	elif [ "$status" = "Charging" ]; then
-		status=""
-	else
-		case "$capacity" in
-			100|[8-9][0-9])	status="" ;;
-			[6-7][0-9])	status="" ;;
-			[4-5][0-9])	status="" ;;
-			[2-3][0-9])	status="" ;;
-			*)	status="" ; notify;;
-		esac
-	fi
-	printf " %s %3d%% " "$status" "$capacity";
+                printf " %s:%s(%s) " "$slot" "$status" "$capacity"
+        else
+                if [ "$status" = "Charging" ]; then
+                        status=""
+                else
+                        case "$capacity" in
+                                100|[8-9][0-9])	status="" ;;
+                                [6-7][0-9])	status="" ;;
+                                [4-5][0-9])	status="" ;;
+                                [2-3][0-9])	status="" ;;
+                                *)	status="" ;;
+                        esac
+                        [ "BAT0" = $slot ] && [ 30 -gt $capacity ] && notify;
+                fi
+                printf " %s:%s (%0.2d%%) " "$slot" "$status" "$capacity";
+        fi
 done
