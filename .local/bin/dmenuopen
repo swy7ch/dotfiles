@@ -10,22 +10,22 @@
 ######################################################################
 
 
-filetypes=".pdf .png .jpg .txt .mom .tex .mkv" # could be augmented
+filetypes="pdf png jpg txt mom tex mkv" # could be augmented
 filetype=$(printf "$filetypes" | sed "s| |\n|g" | dmenu -i -p "type of the file?")
 
 if [ -z "$filetype" ]; then
 	exit 0
 fi
 
-file=$(find $HOME/ -type f | grep "$filetype" | dmenu -i -l 20 -p "open")
+file=$(find $HOME/{documents,downloads} -type f -path "*.$filetype" | dmenu -i -l 20 -p "open")
 
 if [ -z "$file" ]; then
 	exit 0
 fi
 
 case "$filetype" in
-	*.pdf) zathura "$file" ;;
-	*.png|.jpg) sxiv "$file" ;;
-	*.txt|*.mom|*.tex) "$TERMINAL" -e nvim "$file" ;;
-	*.mkv) mpv "$file";;
+	pdf) zathura "$file" ;;
+	png|jpg) sxiv "$file" ;;
+	txt|mom|tex) "$TERMINAL" -e nvim "$file" ;;
+	mkv) mpv "$file";;
 esac
