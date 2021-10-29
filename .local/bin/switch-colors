@@ -46,5 +46,3 @@ else
                 switch_scheme
         fi
 fi
-
-exit 0
