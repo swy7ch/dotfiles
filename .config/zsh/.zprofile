@@ -24,6 +24,7 @@ export TEXMFHOME="$XDG_DATA_HOME/texmf"
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
 export OPAMROOT="$XDG_DATA_HOME/opam"
 export COQBIN="$OPAMROOT/default/bin/"
+export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
 
 ## default programs
 export GPG_ASKPASS="/usr/bin/pinentry-curses"

@@ -86,6 +86,12 @@ return require("packer").startup(function()
                 config = function() require("plugin.comment") end
         }
 
+        -- autopairs
+        use {
+                "windwp/nvim-autopairs",
+                config = function() require('nvim-autopairs').setup() end
+       }
+
         -- display colors directly in editor
         use {
                 "norcalli/nvim-colorizer.lua",
