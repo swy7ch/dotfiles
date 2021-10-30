@@ -5,6 +5,7 @@
 
 local cmp = require("cmp")
 local luasnip = require("luasnip")
+local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 
 local t = function(str)
         return vim.api.nvim_replace_termcodes(str, true, true, true)
@@ -16,6 +17,9 @@ local check_backspace = function()
                 vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:
                         sub(col, col):match('%s') == nil
 end
+
+-- If you want insert `(` after select function or method item
+cmp.event:on( 'confirm_done', cmp_autopairs.on_confirm_done({  map_char = { tex = '' } }))
 
 cmp.setup {
         completion = {
